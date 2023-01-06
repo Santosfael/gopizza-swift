@@ -10,7 +10,6 @@
 		4E37FD9D2968960F00FA6D8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E37FD9C2968960F00FA6D8D /* AppDelegate.swift */; };
 		4E37FD9F2968960F00FA6D8D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E37FD9E2968960F00FA6D8D /* SceneDelegate.swift */; };
 		4E37FDA12968960F00FA6D8D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E37FDA02968960F00FA6D8D /* ViewController.swift */; };
-		4E37FDA42968960F00FA6D8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E37FDA22968960F00FA6D8D /* Main.storyboard */; };
 		4E37FDA62968961300FA6D8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E37FDA52968961300FA6D8D /* Assets.xcassets */; };
 		4E37FDA92968961300FA6D8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E37FDA72968961300FA6D8D /* LaunchScreen.storyboard */; };
 		4E37FDB42968961300FA6D8D /* GoPizzaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E37FDB32968961300FA6D8D /* GoPizzaTests.swift */; };
@@ -40,7 +39,6 @@
 		4E37FD9C2968960F00FA6D8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E37FD9E2968960F00FA6D8D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4E37FDA02968960F00FA6D8D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4E37FDA32968960F00FA6D8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4E37FDA52968961300FA6D8D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E37FDA82968961300FA6D8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E37FDAA2968961300FA6D8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -99,10 +97,8 @@
 		4E37FD9B2968960F00FA6D8D /* GoPizza */ = {
 			isa = PBXGroup;
 			children = (
-				4E37FD9C2968960F00FA6D8D /* AppDelegate.swift */,
-				4E37FD9E2968960F00FA6D8D /* SceneDelegate.swift */,
+				4E37FDCC296896AC00FA6D8D /* Commons */,
 				4E37FDA02968960F00FA6D8D /* ViewController.swift */,
-				4E37FDA22968960F00FA6D8D /* Main.storyboard */,
 				4E37FDA52968961300FA6D8D /* Assets.xcassets */,
 				4E37FDA72968961300FA6D8D /* LaunchScreen.storyboard */,
 				4E37FDAA2968961300FA6D8D /* Info.plist */,
@@ -125,6 +121,15 @@
 				4E37FDBF2968961300FA6D8D /* GoPizzaUITestsLaunchTests.swift */,
 			);
 			path = GoPizzaUITests;
+			sourceTree = "<group>";
+		};
+		4E37FDCC296896AC00FA6D8D /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				4E37FD9C2968960F00FA6D8D /* AppDelegate.swift */,
+				4E37FD9E2968960F00FA6D8D /* SceneDelegate.swift */,
+			);
+			path = Commons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +238,6 @@
 			files = (
 				4E37FDA92968961300FA6D8D /* LaunchScreen.storyboard in Resources */,
 				4E37FDA62968961300FA6D8D /* Assets.xcassets in Resources */,
-				4E37FDA42968960F00FA6D8D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +301,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4E37FDA22968960F00FA6D8D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4E37FDA32968960F00FA6D8D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4E37FDA72968961300FA6D8D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -442,9 +438,10 @@
 				INFOPLIST_FILE = GoPizza/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -454,7 +451,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -470,9 +467,10 @@
 				INFOPLIST_FILE = GoPizza/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -482,7 +480,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
