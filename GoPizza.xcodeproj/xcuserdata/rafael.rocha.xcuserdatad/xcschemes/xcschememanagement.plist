@@ -9,6 +9,29 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>GoPizzaTests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>4E37FD982968960F00FA6D8D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4E37FDAE2968961300FA6D8D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4E37FDB82968961300FA6D8D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 	</dict>
 </dict>
 </plist>
