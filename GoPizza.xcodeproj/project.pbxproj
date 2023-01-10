@@ -112,7 +112,6 @@
 			isa = PBXGroup;
 			children = (
 				4E37FDD52968A62300FA6D8D /* ViewModels */,
-				4E37FDD42968A61A00FA6D8D /* Views */,
 				4E37FDD32968A61100FA6D8D /* Controllers */,
 				4E37FDCE296898C700FA6D8D /* Extensions */,
 				4E37FDCC296896AC00FA6D8D /* Commons */,
@@ -161,17 +160,9 @@
 		4E37FDD32968A61100FA6D8D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				4E37FDA02968960F00FA6D8D /* LoginViewController.swift */,
+				4E557E7B296E403900496CA0 /* Login */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		4E37FDD42968A61A00FA6D8D /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				4E37FDD62968A66C00FA6D8D /* LoginView.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		4E37FDD52968A62300FA6D8D /* ViewModels */ = {
@@ -179,6 +170,15 @@
 			children = (
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		4E557E7B296E403900496CA0 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				4E37FDD62968A66C00FA6D8D /* LoginView.swift */,
+				4E37FDA02968960F00FA6D8D /* LoginViewController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
