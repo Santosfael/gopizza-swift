@@ -8,16 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		4E11E8222969F9800048DA5D /* LoginViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E11E8212969F9800048DA5D /* LoginViewControllerTests.swift */; };
+		4E2D1E582976257800A5821A /* SceneDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2D1E572976257800A5821A /* SceneDelegateTests.swift */; };
+		4E2D1E5A2976366400A5821A /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2D1E592976366400A5821A /* AppDelegateTests.swift */; };
 		4E37FD9D2968960F00FA6D8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E37FD9C2968960F00FA6D8D /* AppDelegate.swift */; };
 		4E37FD9F2968960F00FA6D8D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E37FD9E2968960F00FA6D8D /* SceneDelegate.swift */; };
 		4E37FDA12968960F00FA6D8D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E37FDA02968960F00FA6D8D /* LoginViewController.swift */; };
 		4E37FDA62968961300FA6D8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E37FDA52968961300FA6D8D /* Assets.xcassets */; };
 		4E37FDA92968961300FA6D8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E37FDA72968961300FA6D8D /* LaunchScreen.storyboard */; };
-		4E37FDBE2968961300FA6D8D /* GoPizzaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E37FDBD2968961300FA6D8D /* GoPizzaUITests.swift */; };
-		4E37FDC02968961300FA6D8D /* GoPizzaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E37FDBF2968961300FA6D8D /* GoPizzaUITestsLaunchTests.swift */; };
 		4E37FDD22968A49A00FA6D8D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E37FDD12968A49A00FA6D8D /* Extensions.swift */; };
 		4E37FDD72968A66C00FA6D8D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E37FDD62968A66C00FA6D8D /* LoginView.swift */; };
 		4ECA9969296CF1950071DA15 /* ViewMakers+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECA9968296CF1950071DA15 /* ViewMakers+Extensions.swift */; };
+		4EF61B3C29777472001CB20A /* LoginViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF61B3B29777472001CB20A /* LoginViewTests.swift */; };
+		4EF61B3F29777789001CB20A /* LoginViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF61B3E29777789001CB20A /* LoginViewUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +41,8 @@
 
 /* Begin PBXFileReference section */
 		4E11E8212969F9800048DA5D /* LoginViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerTests.swift; sourceTree = "<group>"; };
+		4E2D1E572976257800A5821A /* SceneDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegateTests.swift; sourceTree = "<group>"; };
+		4E2D1E592976366400A5821A /* AppDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
 		4E37FD992968960F00FA6D8D /* GoPizza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoPizza.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E37FD9C2968960F00FA6D8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E37FD9E2968960F00FA6D8D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,11 +52,11 @@
 		4E37FDAA2968961300FA6D8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E37FDAF2968961300FA6D8D /* GoPizzaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoPizzaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E37FDB92968961300FA6D8D /* GoPizzaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoPizzaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4E37FDBD2968961300FA6D8D /* GoPizzaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoPizzaUITests.swift; sourceTree = "<group>"; };
-		4E37FDBF2968961300FA6D8D /* GoPizzaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoPizzaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		4E37FDD12968A49A00FA6D8D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		4E37FDD62968A66C00FA6D8D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		4ECA9968296CF1950071DA15 /* ViewMakers+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewMakers+Extensions.swift"; sourceTree = "<group>"; };
+		4EF61B3B29777472001CB20A /* LoginViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewTests.swift; sourceTree = "<group>"; };
+		4EF61B3E29777789001CB20A /* LoginViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,8 +88,18 @@
 			isa = PBXGroup;
 			children = (
 				4E11E8212969F9800048DA5D /* LoginViewControllerTests.swift */,
+				4EF61B3B29777472001CB20A /* LoginViewTests.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		4E2D1E562976255500A5821A /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				4E2D1E572976257800A5821A /* SceneDelegateTests.swift */,
+				4E2D1E592976366400A5821A /* AppDelegateTests.swift */,
+			);
+			path = Commons;
 			sourceTree = "<group>";
 		};
 		4E37FD902968960F00FA6D8D = {
@@ -125,6 +139,7 @@
 		4E37FDB22968961300FA6D8D /* GoPizzaTests */ = {
 			isa = PBXGroup;
 			children = (
+				4E2D1E562976255500A5821A /* Commons */,
 				4E11E8202969F9600048DA5D /* Login */,
 			);
 			path = GoPizzaTests;
@@ -133,8 +148,7 @@
 		4E37FDBC2968961300FA6D8D /* GoPizzaUITests */ = {
 			isa = PBXGroup;
 			children = (
-				4E37FDBD2968961300FA6D8D /* GoPizzaUITests.swift */,
-				4E37FDBF2968961300FA6D8D /* GoPizzaUITestsLaunchTests.swift */,
+				4EF61B3D29777773001CB20A /* Login */,
 			);
 			path = GoPizzaUITests;
 			sourceTree = "<group>";
@@ -177,6 +191,14 @@
 			children = (
 				4E37FDD62968A66C00FA6D8D /* LoginView.swift */,
 				4E37FDA02968960F00FA6D8D /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		4EF61B3D29777773001CB20A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				4EF61B3E29777789001CB20A /* LoginViewUITests.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -325,6 +347,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E11E8222969F9800048DA5D /* LoginViewControllerTests.swift in Sources */,
+				4E2D1E5A2976366400A5821A /* AppDelegateTests.swift in Sources */,
+				4EF61B3C29777472001CB20A /* LoginViewTests.swift in Sources */,
+				4E2D1E582976257800A5821A /* SceneDelegateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,8 +357,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E37FDBE2968961300FA6D8D /* GoPizzaUITests.swift in Sources */,
-				4E37FDC02968961300FA6D8D /* GoPizzaUITestsLaunchTests.swift in Sources */,
+				4EF61B3F29777789001CB20A /* LoginViewUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
