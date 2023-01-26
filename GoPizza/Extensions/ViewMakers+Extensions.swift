@@ -11,7 +11,7 @@ import UIKit
 extension UILabel {
     static func label(text: String? = nil,
                       font: UIFont = .systemFont(ofSize: 32, weight: .regular),
-                      textColor: UIColor = UIColor.white,
+                      textColor: UIColor? = UIColor.white,
                       numberOflines: Int = 1,
                       textAlignment: NSTextAlignment = .left,
                       lineBreakMode: NSLineBreakMode = .byTruncatingTail,
@@ -84,11 +84,13 @@ extension UIStackView {
     static func stack(axis: NSLayoutConstraint.Axis,
                       spacing: CGFloat = 16,
                       distribution: UIStackView.Distribution = .fill,
+                      alignment: UIStackView.Alignment = .fill,
                       contentMode: UIStackView.ContentMode = .scaleToFill,
                       accessibilityIdentifier: String? = nil) -> UIStackView {
         let stackView = UIStackView()
         stackView.axis = axis
         stackView.spacing = spacing
+        stackView.alignment = alignment
         stackView.contentMode = contentMode
         stackView.distribution = distribution
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -126,5 +128,24 @@ extension UITextField {
         textField.autocapitalizationType = autocapitalizationType
         textField.accessibilityIdentifier = accessibilityIdentifier
         return textField
+    }
+}
+
+extension UITableView {
+    static func uiTableView(frame: CGRect = .zero,
+                            style: UITableView.Style = .plain,
+                            backgroundColor: UIColor,
+                            accessibilityIdentifier: String) -> UITableView {
+        let tableView = UITableView(frame: frame, style: style)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.backgroundColor = backgroundColor
+        tableView.accessibilityIdentifier = accessibilityIdentifier
+        return tableView
+    }
+}
+
+extension UIView {
+    public func addSubviews(_ subView: UIView...) {
+        subView.forEach(addSubview)
     }
 }
