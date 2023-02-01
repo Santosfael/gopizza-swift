@@ -98,12 +98,9 @@ final class LoginView: UIView {
     }
 
     private func configBackgroundLinear() {
-        guard let topColor = UIColor(named: "Red"),
-              let bottomColor = UIColor(named: "DarkRed")
-        else { return }
         let bounds = UIScreen.main.bounds
-        layer.addSublayer(CAGradientLayer.linearGradient(topColor: topColor,
-                                                         bottomColor: bottomColor,
-                                                         bounds: bounds))
+        layer.addSublayer(CAGradientLayer.linearGradient(topColor: UIColor(named: "Red"),
+                                                                    bottomColor: UIColor(named: "DarkRed"),
+                                                                    bounds: bounds))
     }
 }

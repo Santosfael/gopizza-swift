@@ -57,6 +57,18 @@ extension UIButton {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }
+
+    public func alignItensVertical(spacing: CGFloat = 12) {
+        guard let imageSize = self.imageView?.image?.size,
+            let text = self.titleLabel?.text,
+            let font = self.titleLabel?.font
+            else { return }
+        self.titleEdgeInsets = UIEdgeInsets(top: 0.0, left: -imageSize.width, bottom: -(imageSize.height + spacing), right: 0.0)
+        let labelString = NSString(string: text)
+        let titleSize = labelString.size(withAttributes: [kCTFontAttributeName as NSAttributedString.Key: font])
+        self.imageEdgeInsets = UIEdgeInsets(top: -(titleSize.height + spacing), left: 0.0, bottom: 0.0, right: -titleSize.width)
+        self.contentEdgeInsets = UIEdgeInsets(top: 14, left: 12, bottom: 16, right: 0.0)
+    }
 }
 
 extension UIImageView {
@@ -86,12 +98,14 @@ extension UIStackView {
                       distribution: UIStackView.Distribution = .fill,
                       alignment: UIStackView.Alignment = .fill,
                       contentMode: UIStackView.ContentMode = .scaleToFill,
+                      backgroundColor: UIColor? = .clear,
                       accessibilityIdentifier: String? = nil) -> UIStackView {
         let stackView = UIStackView()
         stackView.axis = axis
         stackView.spacing = spacing
         stackView.alignment = alignment
         stackView.contentMode = contentMode
+        stackView.backgroundColor = backgroundColor
         stackView.distribution = distribution
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.accessibilityIdentifier = accessibilityIdentifier
@@ -103,15 +117,15 @@ extension UITextField {
     static func textField(keybordType: UIKeyboardType,
                           textPlaceHolder: String,
                           colorPlaceHolder: UIColor = .white,
-                          textColor: UIColor = .white,
+                          textColor: UIColor? = .white,
                           font: UIFont = .systemFont(ofSize: 14, weight: .regular),
                           borderColor: CGColor?,
                           leftViewMode: ViewMode = .always,
-                          leftView: UIView = .init(frame: CGRect(x: 0, y: 0, width: 20, height: 0)),
+                          leftView: UIView? = .init(frame: CGRect(x: 0, y: 0, width: 20, height: 0)),
                           cornerRadius: CGFloat = 12,
                           borderWidth: CGFloat = 1,
-                          autocorrectionType: UITextAutocorrectionType = .no,
-                          autocapitalizationType: UITextAutocapitalizationType = .none,
+                          autocorrectionType: UITextAutocorrectionType? = .no,
+                          autocapitalizationType: UITextAutocapitalizationType? = .none,
                           accessibilityIdentifier: String? = nil) -> UITextField {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -124,8 +138,12 @@ extension UITextField {
         textField.leftView = leftView
         textField.layer.cornerRadius = cornerRadius
         textField.layer.borderWidth = borderWidth
-        textField.autocorrectionType = autocorrectionType
-        textField.autocapitalizationType = autocapitalizationType
+        if let autocorrectionType = autocorrectionType {
+            textField.autocorrectionType = autocorrectionType
+        }
+        if let autocapitalizationType = autocapitalizationType {
+            textField.autocapitalizationType = autocapitalizationType
+        }
         textField.accessibilityIdentifier = accessibilityIdentifier
         return textField
     }
@@ -141,6 +159,26 @@ extension UITableView {
         tableView.backgroundColor = backgroundColor
         tableView.accessibilityIdentifier = accessibilityIdentifier
         return tableView
+    }
+}
+
+extension CAGradientLayer {
+    static func linearGradient(topColor: UIColor?,
+                               bottomColor: UIColor?,
+                               type: CAGradientLayerType = .axial,
+                               bounds: CGRect) -> CALayer {
+        guard let topColor = topColor,
+              let bottomColor = bottomColor
+        else { return CALayer() }
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.type = type
+        gradientLayer.frame = bounds
+        gradientLayer.colors = [
+            topColor.cgColor,
+            bottomColor.cgColor
+        ]
+        
+        return gradientLayer
     }
 }
 
