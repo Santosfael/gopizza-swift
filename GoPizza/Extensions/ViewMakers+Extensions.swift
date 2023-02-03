@@ -33,12 +33,14 @@ extension UIButton {
     static func button(type: ButtonType = .system,
                        title: String? = nil,
                        backgroundColor: UIColor? = nil,
-                       titleColor: UIColor?,
+                       titleColor: UIColor? = nil,
                        titleFont: UIFont = .systemFont(ofSize: 14, weight: .medium),
                        cornerRadius: CGFloat? = 12,
                        borderWidth: CGFloat = 0,
                        borderColor: CGColor? = nil,
-                       accessibilityIdentifier: String? = nil) -> UIButton {
+                       accessibilityIdentifier: String? = nil,
+                       image: UIImage? = nil,
+                       imageColor: UIColor? = nil) -> UIButton {
         let button = UIButton(type: type)
         button.setTitle(title, for: .normal)
         button.setTitleColor(titleColor, for: .normal)
@@ -46,6 +48,10 @@ extension UIButton {
         button.titleLabel?.adjustsFontSizeToFitWidth = true
         button.backgroundColor = backgroundColor
         button.accessibilityIdentifier = accessibilityIdentifier
+        button.setImage(image, for: .normal)
+        if let imageColor = imageColor {
+            button.setImageTintColor(imageColor)
+        }
         if let cornerRadius = cornerRadius {
             button.layer.cornerRadius = cornerRadius
             button.clipsToBounds = true
@@ -125,7 +131,7 @@ extension UITextField {
                           cornerRadius: CGFloat = 12,
                           borderWidth: CGFloat = 1,
                           autocorrectionType: UITextAutocorrectionType? = .no,
-                          autocapitalizationType: UITextAutocapitalizationType? = .none,
+                          autocapitalizationType: UITextAutocapitalizationType? = nil,
                           accessibilityIdentifier: String? = nil) -> UITextField {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -179,6 +185,29 @@ extension CAGradientLayer {
         ]
         
         return gradientLayer
+    }
+}
+
+extension UISearchBar {
+    static func searchBar(placeholder: String,
+                          autocapitalizationType: UITextAutocapitalizationType = .none,
+                          searchTextFieldBackgroundColor: UIColor,
+                          borderColor: UIColor? = nil,
+                          cornerRadius: CGFloat,
+                          clipsToBounds: Bool,
+                          borderWidth: CGFloat? = nil) -> UISearchBar {
+        let searchBar = UISearchBar()
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        searchBar.placeholder = placeholder
+        searchBar.autocapitalizationType = autocapitalizationType
+        searchBar.searchTextField.backgroundColor = searchTextFieldBackgroundColor
+        searchBar.layer.borderColor = borderColor?.cgColor
+        searchBar.layer.cornerRadius = cornerRadius
+        if let borderWidth = borderWidth {
+            searchBar.layer.borderWidth = borderWidth
+        }
+        searchBar.clipsToBounds = clipsToBounds
+        return searchBar
     }
 }
 

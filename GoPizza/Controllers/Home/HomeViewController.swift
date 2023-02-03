@@ -10,7 +10,7 @@ import UIKit
 class HomeViewController: UIViewController {
     
     private var container = HomeView()
-    private let searchController = UISearchController(searchResultsController: nil)
+//    private let searchController = UISearchController(searchResultsController: nil)
 
     init(container: HomeView = HomeView()) {
         self.container = container
@@ -29,53 +29,23 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "Background")
-        title = "Olá, Garçom"
         navigationBarConfig()
-        iconButtonNavigationBar()
+        configButtonLogout()
     }
 
     private func navigationBarConfig() {
-        navigationItem.hidesSearchBarWhenScrolling = false
-        navigationItem.searchController = searchController
-        navigationController?.navigationBar.prefersLargeTitles = true
-        definesPresentationContext = true
-        navigationController?.navigationBar.tintColor = .white
-        navigationController?.navigationBar.standardAppearance = appearenceNavigation()
-        navigationController?.navigationBar.compactAppearance = appearenceNavigation()
-        navigationController?.navigationBar.scrollEdgeAppearance = appearenceNavigation()
-    
-        searchBarControllerSetup()
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
     }
 
-    private func appearenceNavigation() -> UINavigationBarAppearance {
-        let appearence = UINavigationBarAppearance()
-        appearence.titleTextAttributes = [.foregroundColor: UIColor.white]
-        appearence.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-        appearence.backgroundColor = UIColor(named: "DarkRed")
-        return appearence
-    }
-
-    private func iconButtonNavigationBar() {
+    private func configButtonLogout() {
         let logoutIconButton = UIBarButtonItem(image: UIImage.init(named: "logout"),
                                                style: .plain,
                                                target: self,
                                                action: #selector(logout))
+        logoutIconButton.tintColor = .white
         navigationItem.rightBarButtonItem = logoutIconButton
-    }
-
-    private func searchBarControllerSetup() {
-        searchController.delegate = self
-        searchController.searchResultsUpdater = self
-        searchController.searchBar.placeholder = "Pesquisar pizza"
-        definesPresentationContext = true
-        searchController.loadViewIfNeeded()
-        searchController.searchBar.autocapitalizationType = .none
-
-        searchController.searchBar.searchTextField.backgroundColor = .white
-        searchController.searchBar.delegate = self
-    
-        searchController.searchBar.sizeToFit()
-        searchController.hidesNavigationBarDuringPresentation = false
     }
 
     @objc private func logout() {
