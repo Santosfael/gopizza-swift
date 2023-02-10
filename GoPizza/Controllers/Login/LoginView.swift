@@ -38,17 +38,25 @@ final class LoginView: UIView {
                                                 titleColor: .white,
                                                 accessibilityIdentifier: "LoginView.loginButton")
 
+    weak var delegate: LoginViewDelegate?
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         configBackgroundLinear()
-        configure()
+        setupView()
     }
 
     required init?(coder: NSCoder) {
         return nil
     }
 
-    private func configure() {
+    private func setupView() {
+        configureSubViews()
+        aditionalSetupButton()
+        constraints()
+    }
+
+    private func configureSubViews() {
         addSubview(image)
         addSubview(titleLabel)
         addSubview(stackView)
@@ -56,7 +64,6 @@ final class LoginView: UIView {
         addSubview(loginButton)
         stackView.addArrangedSubview(emailTextField)
         stackView.addArrangedSubview(passwordTextField)
-        constraints()
     }
 
     private func constraints() {
@@ -102,5 +109,13 @@ final class LoginView: UIView {
         layer.addSublayer(CAGradientLayer.linearGradient(topColor: UIColor(named: "Red"),
                                                                     bottomColor: UIColor(named: "DarkRed"),
                                                                     bounds: bounds))
+    }
+
+    private func aditionalSetupButton() {
+        loginButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchDown)
+    }
+
+    @objc private func didTapLoginButton() {
+        delegate?.didTapLogin()
     }
 }
