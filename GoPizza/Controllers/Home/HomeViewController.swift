@@ -10,7 +10,6 @@ import UIKit
 class HomeViewController: UIViewController {
     
     private var container = HomeView()
-//    private let searchController = UISearchController(searchResultsController: nil)
 
     init(container: HomeView = HomeView()) {
         self.container = container

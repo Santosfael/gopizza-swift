@@ -16,7 +16,7 @@ final class HomeView: UIView {
         return view
     }()
 
-    private var titleWelcomeLabel: UILabel = .label(text: "Olá Garçom",
+    private var titleWelcomeLabel: UILabel = .label(text: "Olá, Garçom",
                                                     font: .systemFont(ofSize: 26, weight: .medium),
                                                     textColor: .white,
                                                     accessibilityIdentifier: "HomeView.titleWelcomeLabel")
@@ -68,15 +68,19 @@ final class HomeView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        pizzasTableView.delegate = self
-        pizzasTableView.dataSource = self
-        pizzasTableView.register(PizzasTableViewCell.self, forCellReuseIdentifier: PizzasTableViewCell.identifier)
         configView()
+        configTableViewCell()
         configBackgroundLinear()
     }
 
     required init?(coder: NSCoder) {
         nil
+    }
+
+    private func configTableViewCell() {
+        pizzasTableView.delegate = self
+        pizzasTableView.dataSource = self
+        pizzasTableView.register(PizzasTableViewCell.self, forCellReuseIdentifier: PizzasTableViewCell.identifier)
     }
 
     private func configView() {
