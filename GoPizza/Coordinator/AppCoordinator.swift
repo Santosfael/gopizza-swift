@@ -9,8 +9,9 @@ import Foundation
 import UIKit
 
 final class AppCoordinator: CoordinatorProtocol {
+    private(set) var childCoordinators: [CoordinatorProtocol] = []
     private let window: UIWindow
-    private var navigationController: UINavigationController
+    internal var navigationController: UINavigationController
 
     init(window: UIWindow,
          navigationController: UINavigationController) {
@@ -19,6 +20,7 @@ final class AppCoordinator: CoordinatorProtocol {
     }
     func start() {
         let loginCoordinator = LoginCoordinator(navigationController)
+        childCoordinators.append(loginCoordinator)
         loginCoordinator.start()
         window.rootViewController = navigationController
         window.makeKeyAndVisible()

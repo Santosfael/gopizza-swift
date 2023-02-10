@@ -6,8 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
 protocol CoordinatorProtocol: AnyObject {
+    var childCoordinators: [CoordinatorProtocol] { get }
+    var navigationController: UINavigationController { get set }
     func start()
     func presentNextStep()
     func presentPreviousStep()
