@@ -33,9 +33,11 @@ class HomeViewController: UIViewController {
     }
 
     private func navigationBarConfig() {
+        navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationItem.setHidesBackButton(true, animated: true)
     }
 
     private func configButtonLogout() {
