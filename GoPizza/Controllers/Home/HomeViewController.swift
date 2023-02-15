@@ -10,9 +10,12 @@ import UIKit
 class HomeViewController: UIViewController {
     
     private var container = HomeView()
+    var coordinator: CoordinatorProtocol
 
-    init(container: HomeView = HomeView()) {
+    init(container: HomeView = HomeView(),
+         coordinator: CoordinatorProtocol) {
         self.container = container
+        self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -22,6 +25,7 @@ class HomeViewController: UIViewController {
 
     override func loadView() {
         super.loadView()
+        container.delegate = self
         view = container
     }
 
@@ -53,8 +57,8 @@ class HomeViewController: UIViewController {
     }
 }
 
-extension HomeViewController: UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate {
-    func updateSearchResults(for searchController: UISearchController) {
-        
+extension HomeViewController: HomeViewDelegate {
+    func didTapSelectedPizza() {
+        coordinator.presentNextStep()
     }
 }

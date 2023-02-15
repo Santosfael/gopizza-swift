@@ -8,10 +8,10 @@
 import Foundation
 import UIKit
 
-protocol homeCoordinatorProtocol: AnyObject {
+protocol HomeCoordinatorProtocol: AnyObject {
     var parentCoordinator: LoginCoordinator { get set }
 }
-final class HomeCoordinator: CoordinatorProtocol, homeCoordinatorProtocol {
+final class HomeCoordinator: CoordinatorProtocol, HomeCoordinatorProtocol {
     private(set) var childCoordinators: [CoordinatorProtocol] = []
     
     internal var navigationController: UINavigationController
@@ -24,7 +24,13 @@ final class HomeCoordinator: CoordinatorProtocol, homeCoordinatorProtocol {
     }
 
     func start() {
-        let homeViewController = HomeViewController()
+        let homeViewController = HomeViewController(coordinator: self)
         navigationController.pushViewController(homeViewController, animated: true)
+    }
+
+    func presentNextStep() {
+        let ordersPizzaCoordinator = OrderPizzaCoordinator(navigationController, parentCoordinator: self)
+        childCoordinators.append(ordersPizzaCoordinator)
+        ordersPizzaCoordinator.start()
     }
 }

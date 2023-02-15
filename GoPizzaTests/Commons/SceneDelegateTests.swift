@@ -25,8 +25,10 @@ final class SceneDelegateTests: XCTestCase {
     }
 
     func test_scene_willConnectTo_setsWindowRootViewController() {
+        let navigationControlle = UINavigationController()
+        let coordinatorStub =  CoordinatorProtocolStub(navigationControlle)
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        let viewController = LoginViewController()
+        let viewController = LoginViewController(coordinator: coordinatorStub)
         let navigationController = UINavigationController(rootViewController: viewController)
         self.window = UIWindow(windowScene: windowScene)
         sut.window?.rootViewController = UINavigationController(rootViewController: viewController)

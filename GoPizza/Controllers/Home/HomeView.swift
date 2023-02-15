@@ -66,6 +66,7 @@ final class HomeView: UIView {
     private var pizzasTableView: UITableView = .uiTableView(backgroundColor: .clear,
                                                             accessibilityIdentifier: "HomeView.pizzasTableView")
 
+    weak var delegate: HomeViewDelegate?
     override init(frame: CGRect) {
         super.init(frame: frame)
         configView()
@@ -152,5 +153,9 @@ extension HomeView: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: PizzasTableViewCell.identifier, for: indexPath) as? PizzasTableViewCell else { return UITableViewCell() }
         cell.backgroundColor = .clear
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.didTapSelectedPizza()
     }
 }

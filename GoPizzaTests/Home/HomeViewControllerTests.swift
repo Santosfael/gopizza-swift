@@ -11,14 +11,20 @@ import XCTest
 final class HomeViewControllerTests: XCTestCase {
     private var sut: HomeViewController!
     private var homeViewCollaboration: HomeView!
+    private var coordinatorStub: CoordinatorProtocolStub!
+    private var navigationController: UINavigationController!
 
     override func setUpWithError() throws {
-        sut = .init()
+        navigationController = UINavigationController()
+        coordinatorStub = .init(navigationController)
+        sut = .init(coordinator: coordinatorStub)
         sut.view = homeViewCollaboration
     }
 
     override func tearDownWithError() throws {
         sut = nil
+        navigationController = nil
+        coordinatorStub = nil
     }
 
     func testLoadinView() {

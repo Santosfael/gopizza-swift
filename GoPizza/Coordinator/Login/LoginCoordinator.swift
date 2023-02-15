@@ -26,7 +26,4 @@ final class LoginCoordinator: CoordinatorProtocol {
         childCoordinators.append(homeCoordinator)
         homeCoordinator.start()
     }
-    
-    func presentPreviousStep() {
-    }
 }
