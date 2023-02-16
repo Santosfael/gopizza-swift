@@ -33,4 +33,8 @@ final class HomeCoordinator: CoordinatorProtocol, HomeCoordinatorProtocol {
         childCoordinators.append(ordersPizzaCoordinator)
         ordersPizzaCoordinator.start()
     }
+
+    func presentPreviousStep() {
+        navigationController.popViewController(animated: true)
+    }
 }

@@ -42,4 +42,11 @@ final class HomeCoordinatorTests: XCTestCase {
         XCTAssertEqual(sut.childCoordinators.count, 1)
         XCTAssertTrue(navigationController.topViewController is OrderPizzaViewController)
     }
+
+    func testPresentPreviousStep() {
+        sut.presentPreviousStep()
+        XCTAssertEqual(sut.childCoordinators.count, 0)
+        XCTAssertEqual(navigationController.viewControllers.count, 0)
+        XCTAssertNil(navigationController.topViewController)
+    }
 }
