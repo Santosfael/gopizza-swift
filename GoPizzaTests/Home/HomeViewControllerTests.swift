@@ -36,4 +36,19 @@ final class HomeViewControllerTests: XCTestCase {
         XCTAssertNil(sut)
     }
 
+    func testDidTapSelectedPizza() {
+        sut.didTapSelectedPizza()
+        XCTAssertTrue(coordinatorStub.presentNextStepCalled)
+    }
+
+    func testDidTapLogout() {
+        _ = sut.view
+        guard let logoutButton = sut.navigationItem.rightBarButtonItem else {
+            XCTFail("logout button not found")
+            return
+        }
+
+        UIApplication.shared.sendAction((logoutButton.action)!, to: logoutButton.target, from: nil, for: nil)
+        XCTAssertTrue(coordinatorStub.presentPreviousStepCalled)
+    }
 }

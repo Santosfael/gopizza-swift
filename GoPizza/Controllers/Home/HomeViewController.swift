@@ -54,6 +54,7 @@ class HomeViewController: UIViewController {
     }
 
     @objc private func logout() {
+        coordinator.presentPreviousStep()
     }
 }
 
