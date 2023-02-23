@@ -33,6 +33,8 @@ class OrderPizzaViewController: UIViewController {
     }
 
     private func configNavigationBar() {
-        navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.navigationBar.topItem?.backButtonTitle = ""
+        navigationController?.navigationBar.tintColor = .white
     }
 }
