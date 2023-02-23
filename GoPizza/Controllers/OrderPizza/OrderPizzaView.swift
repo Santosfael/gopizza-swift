@@ -38,37 +38,6 @@ final class OrderPizzaView: UIView {
                                             alignment: .center,
                                             contentMode: .center)
 
-    private var sizePizzaButton: UIButton = .button(type: .system,
-                                                    title: "Pequena",
-                                                    backgroundColor: .white,
-                                                    titleColor: .init(named: "TitleColor"),
-                                                    titleFont: .systemFont(ofSize: 16, weight: .regular),
-                                                    cornerRadius: 8,
-                                                    borderWidth: 1,
-                                                    borderColor: UIColor.init(named: "Background2")?.cgColor,
-                                                    accessibilityIdentifier: "OrderPizzaView.sizePizzaButton")
-
-    private var sizePizzaButton2: UIButton = .button(type: .system,
-                                                    title: "Média",
-                                                    backgroundColor: .white,
-                                                    titleColor: .init(named: "TitleColor"),
-                                                    titleFont: .systemFont(ofSize: 16, weight: .regular),
-                                                    cornerRadius: 8,
-                                                    borderWidth: 1,
-                                                    borderColor: UIColor.init(named: "Background2")?.cgColor,
-                                                    accessibilityIdentifier: "OrderPizzaView.sizePizzaButton")
-
-
-    private var sizePizzaButton3: UIButton = .button(type: .system,
-                                                    title: "Grande",
-                                                    backgroundColor: .white,
-                                                    titleColor: .init(named: "TitleColor"),
-                                                    titleFont: .systemFont(ofSize: 16, weight: .regular),
-                                                    cornerRadius: 8,
-                                                    borderWidth: 1,
-                                                    borderColor: UIColor.init(named: "Background2")?.cgColor,
-                                                    accessibilityIdentifier: "OrderPizzaView.sizePizzaButton")
-
     private var tableNumberLabel: UILabel = .label(text: "Número da mesa",
                                                    font: .systemFont(ofSize: 14, weight: .regular),
                                                    textColor: .init(named: "TitleColor"),
@@ -121,9 +90,11 @@ final class OrderPizzaView: UIView {
                                                        borderWidth: 1, borderColor: UIColor.clear.cgColor,
                                                        accessibilityIdentifier: "OrderPizzaView.confirmOrderButton")
 
+    private var sizePizzaButtons = [UIButton]()
     override init(frame: CGRect) {
         super.init(frame: frame)
         configView()
+        createArrayButtonForSizePizza()
         configBackgroundLinear()
     }
     
@@ -142,39 +113,66 @@ final class OrderPizzaView: UIView {
                     tableNumberAndQtdPizzaStackView,
                     totalPriceOrderLabel,
                     confirmOrderButton)
-        buttonsSizePizzaStack.addArrangedSubview(sizePizzaButton)
-        buttonsSizePizzaStack.addArrangedSubview(sizePizzaButton2)
-        buttonsSizePizzaStack.addArrangedSubview(sizePizzaButton3)
         tableNumberAndQtdPizzaStackView.addArrangedSubview(tableNumberTextField)
         tableNumberAndQtdPizzaStackView.addArrangedSubview(quantityPizzaTextField)
-        configButtonSizePizza()
+
         constraints()
     }
 
-    private func configButtonSizePizza() {
-        guard let tintImage = UIColor(named: "TitleColor"),
-              let primaryColorButton = UIColor(named: "PrimaryColorButton")
-        else { return }
+    private func createArrayButtonForSizePizza() {
+        let myArraySizePizza: [String] = ["Pequena", "Média", "Grande"]
+        for (index, element) in myArraySizePizza.enumerated() {
+            let sizePizzaButton = createPropertiesButtonsSizePizza(title: element, index: index)
+            sizePizzaButton.heightAnchor.constraint(equalToConstant: 82).isActive = true
+            sizePizzaButtons.append(sizePizzaButton)
+            buttonsSizePizzaStack.addArrangedSubview(sizePizzaButton)
+        }
+    }
+
+    private func createPropertiesButtonsSizePizza(title: String, index: Int) -> UIButton {
+        guard let tintImage = UIColor(named: "TitleColor") else { return UIButton() }
+        let sizePizzaButton: UIButton = .button(type: .system,
+                                                title: title,
+                                                backgroundColor: .white,
+                                                titleColor: .init(named: "TitleColor"),
+                                                titleFont: .systemFont(ofSize: 16, weight: .regular),
+                                                cornerRadius: 8,
+                                                borderWidth: 1,
+                                                borderColor: UIColor(named: "Background2")?.cgColor,
+                                                accessibilityIdentifier: "OrderPizzaView.sizePizzaButton\(title)")
+        sizePizzaButton.addTarget(self, action: #selector(selectedSizePizza), for: .touchDown)
         sizePizzaButton.setImage(UIImage(systemName: "circle"), for: .normal)
         sizePizzaButton.imageView?.contentMode = .scaleToFill
         sizePizzaButton.contentHorizontalAlignment = .left
-        sizePizzaButton.setImageTintColor(tintImage)
+        sizePizzaButton.setImageTintColorButton(tintImage)
         sizePizzaButton.alignItensVertical()
-        
-        sizePizzaButton2.setImage(UIImage(systemName: "circle"), for: .normal)
-        sizePizzaButton2.imageView?.contentMode = .scaleToFill
-        sizePizzaButton2.contentHorizontalAlignment = .left
-        sizePizzaButton2.setImageTintColor(tintImage)
-        sizePizzaButton2.alignItensVertical()
-        
-        sizePizzaButton3.setImage(UIImage(systemName: "circle.fill"), for: .normal)
-        sizePizzaButton3.imageView?.contentMode = .scaleToFill
-        sizePizzaButton3.setImageTintColor(primaryColorButton)
-        sizePizzaButton3.layer.borderColor = primaryColorButton.cgColor
-        sizePizzaButton3.backgroundColor = UIColor(named: "SecondaryColorButton")
-        sizePizzaButton3.contentHorizontalAlignment = .left
-        sizePizzaButton3.alignItensVertical()
-        
+        sizePizzaButton.tag = index
+        return sizePizzaButton
+    }
+
+    @objc func selectedSizePizza(sender: UIButton) {
+        guard let tintImage = UIColor(named: "TitleColor"),
+              let primaryColorButton = UIColor(named: "PrimaryColorButton")
+        else { return }
+        for button in sizePizzaButtons {
+            if button == sender {
+                button.setImage(UIImage(systemName: "circle.fill"), for: .normal)
+                button.imageView?.contentMode = .scaleToFill
+                button.setImageTintColorButton(primaryColorButton)
+                button.layer.borderColor = primaryColorButton.cgColor
+                button.backgroundColor = UIColor(named: "SecondaryColorButton")
+                button.contentHorizontalAlignment = .left
+                button.alignItensVertical()
+            } else {
+                button.setImage(UIImage(systemName: "circle"), for: .normal)
+                button.imageView?.contentMode = .scaleToFill
+                button.contentHorizontalAlignment = .left
+                button.layer.borderColor =  UIColor.init(named: "Background2")?.cgColor
+                button.backgroundColor = .white
+                button.setImageTintColorButton(tintImage)
+                button.alignItensVertical()
+            }
+        }
     }
 
     private func constraints() {
@@ -207,13 +205,6 @@ final class OrderPizzaView: UIView {
             buttonsSizePizzaStack.topAnchor.constraint(equalTo: titleSelectSizePizzaLabel.bottomAnchor, constant: 16),
             buttonsSizePizzaStack.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 25),
             buttonsSizePizzaStack.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -25)
-        ])
-
-        /// buttons size pizza
-        NSLayoutConstraint.activate([
-            sizePizzaButton.heightAnchor.constraint(equalToConstant: 82),
-            sizePizzaButton2.heightAnchor.constraint(equalToConstant: 82),
-            sizePizzaButton3.heightAnchor.constraint(equalToConstant: 82),
         ])
 
         NSLayoutConstraint.activate([
@@ -255,14 +246,4 @@ final class OrderPizzaView: UIView {
                                                                     bottomColor: UIColor(named: "DarkRed"),
                                                                     bounds: boundsStack))
     }
-}
-
-extension UIButton{
-
-    func setImageTintColor(_ color: UIColor) {
-        let tintedImage = self.imageView?.image?.withRenderingMode(.alwaysTemplate)
-        self.setImage(tintedImage, for: .normal)
-        self.tintColor = color
-    }
-
 }

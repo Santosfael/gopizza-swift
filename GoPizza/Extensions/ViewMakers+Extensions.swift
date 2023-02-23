@@ -50,7 +50,7 @@ extension UIButton {
         button.accessibilityIdentifier = accessibilityIdentifier
         button.setImage(image, for: .normal)
         if let imageColor = imageColor {
-            button.setImageTintColor(imageColor)
+            button.setImageTintColorButton(imageColor)
         }
         if let cornerRadius = cornerRadius {
             button.layer.cornerRadius = cornerRadius
@@ -74,6 +74,12 @@ extension UIButton {
         let titleSize = labelString.size(withAttributes: [kCTFontAttributeName as NSAttributedString.Key: font])
         self.imageEdgeInsets = UIEdgeInsets(top: -(titleSize.height + spacing), left: 0.0, bottom: 0.0, right: -titleSize.width)
         self.contentEdgeInsets = UIEdgeInsets(top: 14, left: 12, bottom: 16, right: 0.0)
+    }
+
+    public func setImageTintColorButton(_ color: UIColor) {
+        let tintedImage = self.imageView?.image?.withRenderingMode(.alwaysTemplate)
+        self.setImage(tintedImage, for: .normal)
+        self.tintColor = color
     }
 }
 
