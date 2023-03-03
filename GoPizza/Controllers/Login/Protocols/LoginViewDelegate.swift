@@ -8,6 +8,6 @@
 import Foundation
 
 protocol LoginViewDelegate: AnyObject {
-    func didTapLogin()
+    func didTapLogin(user: User)
     func didTapForgot()
 }

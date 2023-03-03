@@ -11,11 +11,14 @@ final class LoginViewController: UIViewController {
     
     private var container: LoginView
     private var coordinator: CoordinatorProtocol
+    private let viewModel: LoginViewModelProtocol
     
     init(container: LoginView = LoginView(),
-         coordinator: CoordinatorProtocol) {
+         coordinator: CoordinatorProtocol,
+         viewModel: LoginViewModelProtocol = LoginViewModel(loginService: LoginService())) {
         self.container = container
         self.coordinator = coordinator
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -34,18 +37,35 @@ final class LoginViewController: UIViewController {
         configNavigationBar()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        container.refreshInputTexts()
+    }
+
     private func configNavigationBar() {
         navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+
+    private func showAlert(message: String) {
+        let alert = UIAlertController(title: "Login", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true)
     }
 }
 
 extension LoginViewController: LoginViewDelegate {
-    func didTapLogin() {
-        coordinator.presentNextStep()
+    func didTapLogin(user: User) {
+        viewModel.login(user: user) { result in
+            switch result {
+            case .success(_):
+                self.coordinator.presentNextStep()
+            case .failure(let error):
+                self.showAlert(message: error.localizedDescription)
+            }
+        }
     }
     
     func didTapForgot() {
     }
-    
-    
 }

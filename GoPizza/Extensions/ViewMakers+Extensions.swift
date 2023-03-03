@@ -131,7 +131,7 @@ extension UITextField {
                           cornerRadius: CGFloat = 12,
                           borderWidth: CGFloat = 1,
                           autocorrectionType: UITextAutocorrectionType? = .no,
-                          autocapitalizationType: UITextAutocapitalizationType? = nil,
+                          autocapitalizationType: UITextAutocapitalizationType = .none,
                           accessibilityIdentifier: String? = nil) -> UITextField {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -147,9 +147,7 @@ extension UITextField {
         if let autocorrectionType = autocorrectionType {
             textField.autocorrectionType = autocorrectionType
         }
-        if let autocapitalizationType = autocapitalizationType {
-            textField.autocapitalizationType = autocapitalizationType
-        }
+        textField.autocapitalizationType = autocapitalizationType
         textField.accessibilityIdentifier = accessibilityIdentifier
         return textField
     }
