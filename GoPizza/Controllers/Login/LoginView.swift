@@ -21,6 +21,7 @@ final class LoginView: UIView {
     private var emailTextField: UITextField = .textField(keybordType: .emailAddress,
                                                          textPlaceHolder: "E-mail",
                                                          borderColor: UIColor(named: "BorderColor")?.cgColor,
+                                                         autocorrectionType: .no,
                                                          accessibilityIdentifier: "LoginView.emailTextField")
 
     private var passwordTextField: UITextField = .textField(keybordType: .emailAddress,
@@ -42,6 +43,8 @@ final class LoginView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        emailTextField.text = ""
+        passwordTextField.text = ""
         configBackgroundLinear()
         setupView()
     }
@@ -111,11 +114,19 @@ final class LoginView: UIView {
                                                                     bounds: bounds))
     }
 
+    func refreshInputTexts() {
+        emailTextField.text = ""
+        passwordTextField.text = ""
+    }
+
     private func aditionalSetupButton() {
         loginButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchDown)
     }
 
     @objc private func didTapLoginButton() {
-        delegate?.didTapLogin()
+        guard let email = emailTextField.text,
+              let password = passwordTextField.text
+        else { return }
+        delegate?.didTapLogin(user: User(email: email, password: password))
     }
 }
