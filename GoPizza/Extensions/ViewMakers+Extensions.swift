@@ -138,6 +138,7 @@ extension UITextField {
                           borderWidth: CGFloat = 1,
                           autocorrectionType: UITextAutocorrectionType? = .no,
                           autocapitalizationType: UITextAutocapitalizationType = .none,
+                          secureTextField: Bool = false,
                           accessibilityIdentifier: String? = nil) -> UITextField {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -155,6 +156,7 @@ extension UITextField {
         }
         textField.autocapitalizationType = autocapitalizationType
         textField.accessibilityIdentifier = accessibilityIdentifier
+        textField.isSecureTextEntry = secureTextField
         return textField
     }
 }
