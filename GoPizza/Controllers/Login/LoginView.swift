@@ -46,6 +46,7 @@ final class LoginView: UIView {
         emailTextField.text = ""
         passwordTextField.text = ""
         configBackgroundLinear()
+        configShowKeyboard()
         setupView()
     }
 
@@ -57,6 +58,26 @@ final class LoginView: UIView {
         configureSubViews()
         aditionalSetupButton()
         constraints()
+    }
+
+    private func configShowKeyboard() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+
+    @objc private func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.frame.origin.y == 0 {
+                self.image.isHidden = true
+                self.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+
+    @objc private func keyboardWillHide(notification: NSNotification) {
+        if self.frame.origin.y != 0 {
+            self.frame.origin.y = 0
+        }
     }
 
     private func configureSubViews() {
@@ -128,5 +149,12 @@ final class LoginView: UIView {
               let password = passwordTextField.text
         else { return }
         delegate?.didTapLogin(user: User(email: email, password: password))
+    }
+}
+
+extension LoginView: UITextFieldDelegate {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        image.isHidden = false
+        self.endEditing(true)
     }
 }
