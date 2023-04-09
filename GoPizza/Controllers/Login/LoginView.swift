@@ -24,9 +24,10 @@ final class LoginView: UIView {
                                                          autocorrectionType: .no,
                                                          accessibilityIdentifier: "LoginView.emailTextField")
 
-    private var passwordTextField: UITextField = .textField(keybordType: .emailAddress,
+    private var passwordTextField: UITextField = .textField(keybordType: .default,
                                                             textPlaceHolder: "Senha",
                                                             borderColor: UIColor(named: "BorderColor")?.cgColor,
+                                                            secureTextField: true,
                                                             accessibilityIdentifier: "LoginView.passwordTextField")
 
     private var forgotButton: UIButton = .button( title: "Esqueci a minha senha",
