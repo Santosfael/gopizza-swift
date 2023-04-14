@@ -222,3 +222,23 @@ extension UIView {
         subView.forEach(addSubview)
     }
 }
+
+extension UIActivityIndicatorView {
+    static func activityIndicator(style: UIActivityIndicatorView.Style,
+                                  hidesWhenStopped: Bool,
+                                  isHidden: Bool,
+                                  backgroundColor: UIColor?,
+                                  clipsToBounds: Bool,
+                                  cornerRadius: CGFloat = 12,
+                                  color: UIColor) -> UIActivityIndicatorView {
+        let indicator = UIActivityIndicatorView(style: style)
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.hidesWhenStopped = hidesWhenStopped
+        indicator.isHidden = isHidden
+        indicator.backgroundColor = backgroundColor
+        indicator.clipsToBounds = clipsToBounds
+        indicator.layer.cornerRadius = cornerRadius
+        indicator.color = color
+        return indicator
+    }
+}

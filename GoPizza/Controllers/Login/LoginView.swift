@@ -40,6 +40,14 @@ final class LoginView: UIView {
                                                 titleColor: .white,
                                                 accessibilityIdentifier: "LoginView.loginButton")
 
+    private var activityIndicator: UIActivityIndicatorView = .activityIndicator(style: .medium,
+                                                                                hidesWhenStopped: true,
+                                                                                isHidden: true,
+                                                                                backgroundColor: .init(named: "Red"),
+                                                                                clipsToBounds: true,
+                                                                                color: .white)
+
+
     weak var delegate: LoginViewDelegate?
 
     override init(frame: CGRect) {
@@ -87,6 +95,7 @@ final class LoginView: UIView {
         addSubview(stackView)
         addSubview(forgotButton)
         addSubview(loginButton)
+        addSubview(activityIndicator)
         stackView.addArrangedSubview(emailTextField)
         stackView.addArrangedSubview(passwordTextField)
     }
@@ -127,6 +136,13 @@ final class LoginView: UIView {
             loginButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
             loginButton.heightAnchor.constraint(equalToConstant: 56)
         ])
+
+        NSLayoutConstraint.activate([
+            activityIndicator.topAnchor.constraint(equalTo: forgotButton.bottomAnchor, constant: 20),
+            activityIndicator.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            activityIndicator.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            activityIndicator.heightAnchor.constraint(equalToConstant: 56)
+        ])
     }
 
     private func configBackgroundLinear() {
@@ -146,10 +162,17 @@ final class LoginView: UIView {
     }
 
     @objc private func didTapLoginButton() {
+        loginButton.isHidden = true
+        activityIndicator.startAnimating()
+        activityIndicator.isHidden = false
         guard let email = emailTextField.text,
               let password = passwordTextField.text
         else { return }
-        delegate?.didTapLogin(user: User(email: email, password: password))
+        delegate?.didTapLogin(user: User(email: email, password: password), completion: {
+            self.activityIndicator.isHidden = true
+            self.activityIndicator.stopAnimating()
+            self.loginButton.isHidden = false
+        })
     }
 }
 
