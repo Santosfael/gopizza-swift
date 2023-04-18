@@ -61,7 +61,7 @@ final class LoginViewController: UIViewController {
 }
 
 extension LoginViewController: LoginViewDelegate {
-    func didTapLogin(user: User) {
+    func didTapLogin(user: User, completion: @escaping () -> Void) {
         viewModel.login(user: user) { result in
             switch result {
             case .success(_):
@@ -69,6 +69,7 @@ extension LoginViewController: LoginViewDelegate {
             case .failure(let error):
                 self.showAlert(message: error.localizedDescription)
             }
+            completion()
         }
     }
     
