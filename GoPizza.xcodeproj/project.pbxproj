@@ -55,6 +55,12 @@
 		4EE4601A2982053700A4D94E /* HomeViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE460192982053700A4D94E /* HomeViewUITests.swift */; };
 		4EF61B3C29777472001CB20A /* LoginViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF61B3B29777472001CB20A /* LoginViewTests.swift */; };
 		4EF61B3F29777789001CB20A /* LoginViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF61B3E29777789001CB20A /* LoginViewUITests.swift */; };
+		8537351129EE1D5D009CA8A1 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8537351029EE1D5D009CA8A1 /* Product.swift */; };
+		8537351A29EE208D009CA8A1 /* ProductServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8537351929EE208D009CA8A1 /* ProductServiceProtocol.swift */; };
+		8537351C29EE20F4009CA8A1 /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8537351B29EE20F4009CA8A1 /* ProductService.swift */; };
+		857604822A00937F00595149 /* ProductServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857604812A00937F00595149 /* ProductServiceMock.swift */; };
+		857604852A00977200595149 /* ProductServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857604842A00977200595149 /* ProductServiceTests.swift */; };
+		85EB46EC29F0BB430021C861 /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EB46EB29F0BB430021C861 /* ResponseError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +133,12 @@
 		4EE460192982053700A4D94E /* HomeViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewUITests.swift; sourceTree = "<group>"; };
 		4EF61B3B29777472001CB20A /* LoginViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewTests.swift; sourceTree = "<group>"; };
 		4EF61B3E29777789001CB20A /* LoginViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewUITests.swift; sourceTree = "<group>"; };
+		8537351029EE1D5D009CA8A1 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		8537351929EE208D009CA8A1 /* ProductServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductServiceProtocol.swift; sourceTree = "<group>"; };
+		8537351B29EE20F4009CA8A1 /* ProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductService.swift; sourceTree = "<group>"; };
+		857604812A00937F00595149 /* ProductServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductServiceMock.swift; sourceTree = "<group>"; };
+		857604842A00977200595149 /* ProductServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductServiceTests.swift; sourceTree = "<group>"; };
+		85EB46EB29F0BB430021C861 /* ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +179,7 @@
 		4E18AFBC299C637F0027AB5A /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				857604802A00936900595149 /* Services */,
 				4E646ED129B28C3400F784FD /* Login */,
 				4E18AFBD299C639C0027AB5A /* CoordinatorProtocolStub.swift */,
 			);
@@ -364,6 +377,7 @@
 		4E7FE69829B17DB600B12FBD /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				857604832A00975800595149 /* ProductService */,
 				4E7FE69929B17DC000B12FBD /* LoginService */,
 			);
 			path = Services;
@@ -398,7 +412,9 @@
 		4E86810629AE88F000EB87A1 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				8537351829EE2066009CA8A1 /* ProductService */,
 				4E86810729AE88FA00EB87A1 /* LoginService */,
+				85EB46EB29F0BB430021C861 /* ResponseError.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -416,6 +432,7 @@
 			isa = PBXGroup;
 			children = (
 				4E86810C29AE8A0A00EB87A1 /* User.swift */,
+				8537351029EE1D5D009CA8A1 /* Product.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -498,6 +515,39 @@
 				4EF61B3E29777789001CB20A /* LoginViewUITests.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		8537351829EE2066009CA8A1 /* ProductService */ = {
+			isa = PBXGroup;
+			children = (
+				8537351929EE208D009CA8A1 /* ProductServiceProtocol.swift */,
+				8537351B29EE20F4009CA8A1 /* ProductService.swift */,
+			);
+			path = ProductService;
+			sourceTree = "<group>";
+		};
+		857604802A00936900595149 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				85F3C8832A0C7BDE00E9C799 /* Product */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		857604832A00975800595149 /* ProductService */ = {
+			isa = PBXGroup;
+			children = (
+				857604842A00977200595149 /* ProductServiceTests.swift */,
+			);
+			path = ProductService;
+			sourceTree = "<group>";
+		};
+		85F3C8832A0C7BDE00E9C799 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				857604812A00937F00595149 /* ProductServiceMock.swift */,
+			);
+			path = Product;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -630,6 +680,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85EB46EC29F0BB430021C861 /* ResponseError.swift in Sources */,
 				4EC44728299435CF00A1669A /* OrdersPizzaView.swift in Sources */,
 				4E37FDA12968960F00FA6D8D /* LoginViewController.swift in Sources */,
 				4E37FD9D2968960F00FA6D8D /* AppDelegate.swift in Sources */,
@@ -652,9 +703,12 @@
 				4E86811329AE8D2D00EB87A1 /* LoginViewModel.swift in Sources */,
 				4E49A6672996C6D9007DB695 /* AppCoordinator.swift in Sources */,
 				4ECA9969296CF1950071DA15 /* ViewMakers+Extensions.swift in Sources */,
+				8537351A29EE208D009CA8A1 /* ProductServiceProtocol.swift in Sources */,
 				4E49A66A2996C824007DB695 /* LoginCoordinator.swift in Sources */,
 				4E86811529AE8D5300EB87A1 /* LoginViewModelProtocol.swift in Sources */,
 				4E84806E298354B1007F9B3C /* OrderPizzaView.swift in Sources */,
+				8537351129EE1D5D009CA8A1 /* Product.swift in Sources */,
+				8537351C29EE20F4009CA8A1 /* ProductService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -668,12 +722,14 @@
 				4E7FE69C29B17DDA00B12FBD /* LoginServiceTests.swift in Sources */,
 				4E49A6612996C021007DB695 /* OrderPizzaCollectionViewCellTests.swift in Sources */,
 				4EB4D07B298B022B00799CC7 /* OrderPizzaViewControllerTests.swift in Sources */,
+				857604822A00937F00595149 /* ProductServiceMock.swift in Sources */,
 				4E18AFBE299C639C0027AB5A /* CoordinatorProtocolStub.swift in Sources */,
 				4E2D1E5A2976366400A5821A /* AppDelegateTests.swift in Sources */,
 				4EE460132982034F00A4D94E /* HomeViewTests.swift in Sources */,
 				4E8E1192299C7BE200595D2D /* OrderPizzaCoordinatorTests.swift in Sources */,
 				4EE460152982044F00A4D94E /* PizzasTableViewCellTests.swift in Sources */,
 				4E49A65D2996BD33007DB695 /* OrdersPizzaViewControllerTests.swift in Sources */,
+				857604852A00977200595149 /* ProductServiceTests.swift in Sources */,
 				4E646ED329B28C4E00F784FD /* MockLoginViewModel.swift in Sources */,
 				4E49A65F2996BEC5007DB695 /* OrdersPizzaViewTests.swift in Sources */,
 				4E8E1190299C7A8C00595D2D /* HomeCoordinatorTests.swift in Sources */,
