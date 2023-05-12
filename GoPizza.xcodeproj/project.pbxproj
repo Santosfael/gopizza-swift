@@ -56,8 +56,11 @@
 		4EF61B3C29777472001CB20A /* LoginViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF61B3B29777472001CB20A /* LoginViewTests.swift */; };
 		4EF61B3F29777789001CB20A /* LoginViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF61B3E29777789001CB20A /* LoginViewUITests.swift */; };
 		8537351129EE1D5D009CA8A1 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8537351029EE1D5D009CA8A1 /* Product.swift */; };
+		8537351429EE1ED9009CA8A1 /* HomeViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8537351329EE1ED9009CA8A1 /* HomeViewModelProtocol.swift */; };
+		8537351729EE1F72009CA8A1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8537351629EE1F72009CA8A1 /* HomeViewModel.swift */; };
 		8537351A29EE208D009CA8A1 /* ProductServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8537351929EE208D009CA8A1 /* ProductServiceProtocol.swift */; };
 		8537351C29EE20F4009CA8A1 /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8537351B29EE20F4009CA8A1 /* ProductService.swift */; };
+		8576047F2A00906100595149 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8576047E2A00906100595149 /* HomeViewModelTests.swift */; };
 		857604822A00937F00595149 /* ProductServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857604812A00937F00595149 /* ProductServiceMock.swift */; };
 		857604852A00977200595149 /* ProductServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857604842A00977200595149 /* ProductServiceTests.swift */; };
 		85EB46EC29F0BB430021C861 /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EB46EB29F0BB430021C861 /* ResponseError.swift */; };
@@ -134,8 +137,11 @@
 		4EF61B3B29777472001CB20A /* LoginViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewTests.swift; sourceTree = "<group>"; };
 		4EF61B3E29777789001CB20A /* LoginViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewUITests.swift; sourceTree = "<group>"; };
 		8537351029EE1D5D009CA8A1 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		8537351329EE1ED9009CA8A1 /* HomeViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelProtocol.swift; sourceTree = "<group>"; };
+		8537351629EE1F72009CA8A1 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		8537351929EE208D009CA8A1 /* ProductServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductServiceProtocol.swift; sourceTree = "<group>"; };
 		8537351B29EE20F4009CA8A1 /* ProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductService.swift; sourceTree = "<group>"; };
+		8576047E2A00906100595149 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
 		857604812A00937F00595149 /* ProductServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductServiceMock.swift; sourceTree = "<group>"; };
 		857604842A00977200595149 /* ProductServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductServiceTests.swift; sourceTree = "<group>"; };
 		85EB46EB29F0BB430021C861 /* ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseError.swift; sourceTree = "<group>"; };
@@ -286,6 +292,7 @@
 		4E37FDD52968A62300FA6D8D /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				8537351229EE1EC2009CA8A1 /* Home */,
 				4E86811129AE8D1C00EB87A1 /* Login */,
 			);
 			path = ViewModels;
@@ -497,6 +504,7 @@
 				4EE46010298202A000A4D94E /* HomeViewControllerTests.swift */,
 				4EE460122982034F00A4D94E /* HomeViewTests.swift */,
 				4EE460142982044F00A4D94E /* PizzasTableViewCellTests.swift */,
+				8576047E2A00906100595149 /* HomeViewModelTests.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -515,6 +523,15 @@
 				4EF61B3E29777789001CB20A /* LoginViewUITests.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		8537351229EE1EC2009CA8A1 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				8537351329EE1ED9009CA8A1 /* HomeViewModelProtocol.swift */,
+				8537351629EE1F72009CA8A1 /* HomeViewModel.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		8537351829EE2066009CA8A1 /* ProductService */ = {
@@ -699,10 +716,12 @@
 				4E9E1EC3299B2119007C9704 /* OrderPizzaCoordinator.swift in Sources */,
 				4E37FDD72968A66C00FA6D8D /* LoginView.swift in Sources */,
 				4ED9C1A6297F5ECC00E4FCC4 /* HomeView.swift in Sources */,
+				8537351429EE1ED9009CA8A1 /* HomeViewModelProtocol.swift in Sources */,
 				4E65F25E2978CF7F009AD37B /* HomeViewController.swift in Sources */,
 				4E86811329AE8D2D00EB87A1 /* LoginViewModel.swift in Sources */,
 				4E49A6672996C6D9007DB695 /* AppCoordinator.swift in Sources */,
 				4ECA9969296CF1950071DA15 /* ViewMakers+Extensions.swift in Sources */,
+				8537351729EE1F72009CA8A1 /* HomeViewModel.swift in Sources */,
 				8537351A29EE208D009CA8A1 /* ProductServiceProtocol.swift in Sources */,
 				4E49A66A2996C824007DB695 /* LoginCoordinator.swift in Sources */,
 				4E86811529AE8D5300EB87A1 /* LoginViewModelProtocol.swift in Sources */,
@@ -733,6 +752,7 @@
 				4E646ED329B28C4E00F784FD /* MockLoginViewModel.swift in Sources */,
 				4E49A65F2996BEC5007DB695 /* OrdersPizzaViewTests.swift in Sources */,
 				4E8E1190299C7A8C00595D2D /* HomeCoordinatorTests.swift in Sources */,
+				8576047F2A00906100595149 /* HomeViewModelTests.swift in Sources */,
 				4EF61B3C29777472001CB20A /* LoginViewTests.swift in Sources */,
 				4E7FE69629B176ED00B12FBD /* LoginViewModelTests.swift in Sources */,
 				4E2D1E582976257800A5821A /* SceneDelegateTests.swift in Sources */,
