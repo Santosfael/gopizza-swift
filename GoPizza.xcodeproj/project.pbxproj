@@ -48,10 +48,10 @@
 		4EC44728299435CF00A1669A /* OrdersPizzaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC44727299435CF00A1669A /* OrdersPizzaView.swift */; };
 		4ECA9969296CF1950071DA15 /* ViewMakers+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECA9968296CF1950071DA15 /* ViewMakers+Extensions.swift */; };
 		4ED9C1A6297F5ECC00E4FCC4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9C1A5297F5ECC00E4FCC4 /* HomeView.swift */; };
-		4ED9C1A9297F609700E4FCC4 /* PizzasTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9C1A8297F609700E4FCC4 /* PizzasTableViewCell.swift */; };
+		4ED9C1A9297F609700E4FCC4 /* ProducTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9C1A8297F609700E4FCC4 /* ProducTableViewCell.swift */; };
 		4EE46011298202A000A4D94E /* HomeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE46010298202A000A4D94E /* HomeViewControllerTests.swift */; };
 		4EE460132982034F00A4D94E /* HomeViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE460122982034F00A4D94E /* HomeViewTests.swift */; };
-		4EE460152982044F00A4D94E /* PizzasTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE460142982044F00A4D94E /* PizzasTableViewCellTests.swift */; };
+		4EE460152982044F00A4D94E /* ProductTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE460142982044F00A4D94E /* ProductTableViewCellTests.swift */; };
 		4EE4601A2982053700A4D94E /* HomeViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE460192982053700A4D94E /* HomeViewUITests.swift */; };
 		4EF61B3C29777472001CB20A /* LoginViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF61B3B29777472001CB20A /* LoginViewTests.swift */; };
 		4EF61B3F29777789001CB20A /* LoginViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF61B3E29777789001CB20A /* LoginViewUITests.swift */; };
@@ -129,10 +129,10 @@
 		4EC44727299435CF00A1669A /* OrdersPizzaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersPizzaView.swift; sourceTree = "<group>"; };
 		4ECA9968296CF1950071DA15 /* ViewMakers+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewMakers+Extensions.swift"; sourceTree = "<group>"; };
 		4ED9C1A5297F5ECC00E4FCC4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		4ED9C1A8297F609700E4FCC4 /* PizzasTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzasTableViewCell.swift; sourceTree = "<group>"; };
+		4ED9C1A8297F609700E4FCC4 /* ProducTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProducTableViewCell.swift; sourceTree = "<group>"; };
 		4EE46010298202A000A4D94E /* HomeViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerTests.swift; sourceTree = "<group>"; };
 		4EE460122982034F00A4D94E /* HomeViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewTests.swift; sourceTree = "<group>"; };
-		4EE460142982044F00A4D94E /* PizzasTableViewCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzasTableViewCellTests.swift; sourceTree = "<group>"; };
+		4EE460142982044F00A4D94E /* ProductTableViewCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCellTests.swift; sourceTree = "<group>"; };
 		4EE460192982053700A4D94E /* HomeViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewUITests.swift; sourceTree = "<group>"; };
 		4EF61B3B29777472001CB20A /* LoginViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewTests.swift; sourceTree = "<group>"; };
 		4EF61B3E29777789001CB20A /* LoginViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewUITests.swift; sourceTree = "<group>"; };
@@ -368,7 +368,7 @@
 				4E9E1EBE299B1CC0007C9704 /* Protocols */,
 				4E65F25D2978CF7F009AD37B /* HomeViewController.swift */,
 				4ED9C1A5297F5ECC00E4FCC4 /* HomeView.swift */,
-				4ED9C1A8297F609700E4FCC4 /* PizzasTableViewCell.swift */,
+				4ED9C1A8297F609700E4FCC4 /* ProducTableViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -503,7 +503,7 @@
 			children = (
 				4EE46010298202A000A4D94E /* HomeViewControllerTests.swift */,
 				4EE460122982034F00A4D94E /* HomeViewTests.swift */,
-				4EE460142982044F00A4D94E /* PizzasTableViewCellTests.swift */,
+				4EE460142982044F00A4D94E /* ProductTableViewCellTests.swift */,
 				8576047E2A00906100595149 /* HomeViewModelTests.swift */,
 			);
 			path = Home;
@@ -707,7 +707,7 @@
 				4E37FD9F2968960F00FA6D8D /* SceneDelegate.swift in Sources */,
 				4E9E1EC0299B1CD3007C9704 /* HomeViewDelegate.swift in Sources */,
 				4E21985A29952EE00027811C /* OrderPizzaCollectionViewCell.swift in Sources */,
-				4ED9C1A9297F609700E4FCC4 /* PizzasTableViewCell.swift in Sources */,
+				4ED9C1A9297F609700E4FCC4 /* ProducTableViewCell.swift in Sources */,
 				4E86810D29AE8A0A00EB87A1 /* User.swift in Sources */,
 				4E49A6642996C614007DB695 /* Coordinator.swift in Sources */,
 				4E84806C29835485007F9B3C /* OrderPizzaViewController.swift in Sources */,
@@ -746,7 +746,7 @@
 				4E2D1E5A2976366400A5821A /* AppDelegateTests.swift in Sources */,
 				4EE460132982034F00A4D94E /* HomeViewTests.swift in Sources */,
 				4E8E1192299C7BE200595D2D /* OrderPizzaCoordinatorTests.swift in Sources */,
-				4EE460152982044F00A4D94E /* PizzasTableViewCellTests.swift in Sources */,
+				4EE460152982044F00A4D94E /* ProductTableViewCellTests.swift in Sources */,
 				4E49A65D2996BD33007DB695 /* OrdersPizzaViewControllerTests.swift in Sources */,
 				857604852A00977200595149 /* ProductServiceTests.swift in Sources */,
 				4E646ED329B28C4E00F784FD /* MockLoginViewModel.swift in Sources */,

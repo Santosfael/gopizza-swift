@@ -8,8 +8,8 @@
 import XCTest
 @testable import GoPizza
 
-final class PizzasTableViewCellTests: XCTestCase {
-    private var sut: PizzasTableViewCell!
+final class ProductTableViewCellTests: XCTestCase {
+    private var sut: ProductTableViewCell!
 
     override func setUpWithError() throws {
         sut = .init()
@@ -21,7 +21,7 @@ final class PizzasTableViewCellTests: XCTestCase {
 
     func testPizzaImageNotNil() {
         do {
-            let pizzaImage = try XCTUnwrap(sut.subviews.first(where: {$0.accessibilityIdentifier == "PizzaTableViewCell.pizzaImage"}) as? UIImageView)
+            let pizzaImage = try XCTUnwrap(sut.subviews.first(where: {$0.accessibilityIdentifier == "PizzaTableViewCell.productImage"}) as? UIImageView)
             XCTAssertNotNil(pizzaImage)
         } catch {
             XCTFail(error.localizedDescription)
@@ -30,7 +30,7 @@ final class PizzasTableViewCellTests: XCTestCase {
 
     func testNamePizzaNotNil() {
         do {
-            let namePizza = try XCTUnwrap(sut.subviews.first(where: {$0.accessibilityIdentifier == "PizzaTableViewCell.pizzaNameLabel"}) as? UILabel)
+            let namePizza = try XCTUnwrap(sut.subviews.first(where: {$0.accessibilityIdentifier == "PizzaTableViewCell.productNameLabel"}) as? UILabel)
             XCTAssertNotNil(namePizza)
         } catch {
             XCTFail(error.localizedDescription)

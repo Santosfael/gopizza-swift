@@ -1,5 +1,5 @@
 //
-//  PizzasTableViewCell.swift
+//  ProductTableViewCell.swift
 //  GoPizza
 //
 //  Created by Rafael Rocha on 23/01/23.
@@ -7,8 +7,8 @@
 
 import UIKit
 
-final class PizzasTableViewCell: UITableViewCell {
-    static let identifier = "PizzasTableViewCell"
+final class ProductTableViewCell: UITableViewCell {
+    static let identifier = "ProductTableViewCell"
 
     private lazy var pizzaImage: UIImageView = .imageView(image: UIImage(named: "pizza"),
                                                           contentMode: .center,
@@ -43,14 +43,20 @@ final class PizzasTableViewCell: UITableViewCell {
         constraints()
     }
 
+    func updateProduct(product: Product) {
+        pizzaImage.loadImage(from: product.photo_url)
+        pizzaNameLabel.text = product.name
+        pizzaDescriptionLabel.text = product.description
+    }
+
     private func constraints() {
         NSLayoutConstraint.activate([
             pizzaImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 12),
             pizzaImage.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 24),
             pizzaImage.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -12),
-            pizzaImage.widthAnchor.constraint(equalToConstant: 104)
+            pizzaImage.heightAnchor.constraint(equalToConstant: 104)
         ])
-        
+
         NSLayoutConstraint.activate([
             pizzaNameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 38),
             pizzaNameLabel.leadingAnchor.constraint(equalTo: pizzaImage.trailingAnchor, constant: 20)
