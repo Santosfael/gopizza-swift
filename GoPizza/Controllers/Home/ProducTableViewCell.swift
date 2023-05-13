@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class ProductTableViewCell: UITableViewCell {
     static let identifier = "ProductTableViewCell"
@@ -44,7 +45,8 @@ final class ProductTableViewCell: UITableViewCell {
     }
 
     func updateProduct(product: Product) {
-        productImage.loadImage(from: product.photo_url)
+        let imageUrl = URL(string: product.photo_url)
+        productImage.kf.setImage(with: imageUrl)
         productNameLabel.text = product.name
         productDescriptionLabel.text = product.description
     }
