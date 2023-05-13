@@ -45,15 +45,15 @@ final class LoginViewControllerTests: XCTestCase {
 
     func testDidTapLoginWithValidUser() {
         let user = User(email: "user@email.com", password: "password")
-        sut.didTapLogin(user: user)
-        XCTAssertTrue(coordinatorStub.presentNextStepCalled)
+        sut.didTapLogin(user: user) {
+            XCTAssertTrue(self.coordinatorStub.presentNextStepCalled)
+        }
     }
 
     func testDidTapLoginWithInvalidUser() {
         let user = User(email: "user@example.com", password: "password")
-        sut.didTapLogin(user: user)
-        XCTAssertTrue(mockLoginViewModel.didCallLogin)
-//        XCTAssertTrue(sut.presentedViewController is UIAlertController)
-//        XCTAssertEqual((sut.presentedViewController as! UIAlertController).message, "E-mail ou senha invalido")
+        sut.didTapLogin(user: user) {
+            XCTAssertTrue(self.mockLoginViewModel.didCallLogin)
+        }
     }
 }

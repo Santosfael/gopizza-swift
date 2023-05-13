@@ -25,7 +25,7 @@ final class OrderPizzaCoordinator: CoordinatorProtocol, OrderPizzaCoordinatorPro
     }
     
     func start() {
-        let orderPizzaViewController = OrderPizzaViewController()
+        let orderPizzaViewController = OrderProductViewController()
         navigationController.pushViewController(orderPizzaViewController, animated: true)
     }
 }

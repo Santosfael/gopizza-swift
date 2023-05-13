@@ -45,7 +45,8 @@ final class LoginView: UIView {
                                                                                 isHidden: true,
                                                                                 backgroundColor: .init(named: "Red"),
                                                                                 clipsToBounds: true,
-                                                                                color: .white)
+                                                                                color: .white,
+                                                                                accessibilityIdentifier: "LoginView.activityIndicator")
 
 
     weak var delegate: LoginViewDelegate?

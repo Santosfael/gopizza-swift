@@ -15,6 +15,7 @@ extension UILabel {
                       numberOflines: Int = 1,
                       textAlignment: NSTextAlignment = .left,
                       lineBreakMode: NSLineBreakMode = .byTruncatingTail,
+                      isHidden: Bool = false,
                       accessibilityIdentifier: String? = nil) -> UILabel {
         let label = UILabel()
         label.text = text
@@ -24,6 +25,7 @@ extension UILabel {
         label.textAlignment = textAlignment
         label.lineBreakMode = lineBreakMode
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.isHidden = isHidden
         label.accessibilityIdentifier = accessibilityIdentifier
         return label
     }
@@ -111,6 +113,7 @@ extension UIStackView {
                       alignment: UIStackView.Alignment = .fill,
                       contentMode: UIStackView.ContentMode = .scaleToFill,
                       backgroundColor: UIColor? = .clear,
+                      isHidden: Bool = false,
                       accessibilityIdentifier: String? = nil) -> UIStackView {
         let stackView = UIStackView()
         stackView.axis = axis
@@ -120,6 +123,7 @@ extension UIStackView {
         stackView.backgroundColor = backgroundColor
         stackView.distribution = distribution
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.isHidden = isHidden
         stackView.accessibilityIdentifier = accessibilityIdentifier
         return stackView
     }
@@ -165,11 +169,13 @@ extension UITableView {
     static func uiTableView(frame: CGRect = .zero,
                             style: UITableView.Style = .plain,
                             backgroundColor: UIColor,
+                            isHidden: Bool = false,
                             accessibilityIdentifier: String) -> UITableView {
         let tableView = UITableView(frame: frame, style: style)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = backgroundColor
         tableView.accessibilityIdentifier = accessibilityIdentifier
+        tableView.isHidden = isHidden
         return tableView
     }
 }
@@ -201,7 +207,8 @@ extension UISearchBar {
                           borderColor: UIColor? = nil,
                           cornerRadius: CGFloat,
                           clipsToBounds: Bool,
-                          borderWidth: CGFloat? = nil) -> UISearchBar {
+                          borderWidth: CGFloat? = nil,
+                          accessibilityIdentifier: String) -> UISearchBar {
         let searchBar = UISearchBar()
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         searchBar.placeholder = placeholder
@@ -213,6 +220,7 @@ extension UISearchBar {
             searchBar.layer.borderWidth = borderWidth
         }
         searchBar.clipsToBounds = clipsToBounds
+        searchBar.accessibilityIdentifier = accessibilityIdentifier
         return searchBar
     }
 }
@@ -230,7 +238,8 @@ extension UIActivityIndicatorView {
                                   backgroundColor: UIColor?,
                                   clipsToBounds: Bool,
                                   cornerRadius: CGFloat = 12,
-                                  color: UIColor) -> UIActivityIndicatorView {
+                                  color: UIColor?,
+                                  accessibilityIdentifier: String) -> UIActivityIndicatorView {
         let indicator = UIActivityIndicatorView(style: style)
         indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.hidesWhenStopped = hidesWhenStopped
@@ -239,6 +248,7 @@ extension UIActivityIndicatorView {
         indicator.clipsToBounds = clipsToBounds
         indicator.layer.cornerRadius = cornerRadius
         indicator.color = color
+        indicator.accessibilityIdentifier = accessibilityIdentifier
         return indicator
     }
 }

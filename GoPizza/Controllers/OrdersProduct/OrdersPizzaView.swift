@@ -22,7 +22,7 @@ final class OrdersPizzaView: UIView {
                                              textAlignment: .center,
                                              accessibilityIdentifier: "OrdersPizzaView.titleLabel")
 
-    private lazy var ordersPizzaCollectionView: UICollectionView = {
+    private lazy var ordersProductCollectionView: UICollectionView = {
         let layout = layoutCollection()
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.translatesAutoresizingMaskIntoConstraints = false
@@ -45,15 +45,15 @@ final class OrdersPizzaView: UIView {
         backgroundColor = UIColor(named: "Background")
         addSubviews(headerView,
                     titleLabel,
-                    ordersPizzaCollectionView)
+                    ordersProductCollectionView)
         configCollectionView()
         constraints()
     }
 
     private func configCollectionView() {
-        ordersPizzaCollectionView.delegate = self
-        ordersPizzaCollectionView.dataSource = self
-        ordersPizzaCollectionView.register(OrderPizzaCollectionViewCell.self, forCellWithReuseIdentifier: OrderPizzaCollectionViewCell.identifier)
+        ordersProductCollectionView.delegate = self
+        ordersProductCollectionView.dataSource = self
+        ordersProductCollectionView.register(OrderProductCollectionViewCell.self, forCellWithReuseIdentifier: OrderProductCollectionViewCell.identifier)
     }
 
     private func layoutCollection() -> UICollectionViewFlowLayout {
@@ -78,10 +78,10 @@ final class OrdersPizzaView: UIView {
         ])
 
         NSLayoutConstraint.activate([
-            ordersPizzaCollectionView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 4),
-            ordersPizzaCollectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            ordersPizzaCollectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            ordersPizzaCollectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+            ordersProductCollectionView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 4),
+            ordersProductCollectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            ordersProductCollectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            ordersProductCollectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
     }
 
@@ -100,7 +100,7 @@ extension OrdersPizzaView: UICollectionViewDelegate, UICollectionViewDataSource 
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OrderPizzaCollectionViewCell.identifier, for: indexPath) as? OrderPizzaCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OrderProductCollectionViewCell.identifier, for: indexPath) as? OrderProductCollectionViewCell else { return UICollectionViewCell() }
         return cell
     }
 }

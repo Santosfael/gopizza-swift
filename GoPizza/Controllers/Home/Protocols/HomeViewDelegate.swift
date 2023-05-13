@@ -9,4 +9,5 @@ import Foundation
 
 protocol HomeViewDelegate: AnyObject {
     func didTapSelectedPizza()
+    func listTableProducts(completion: @escaping (Result<[Product], ResponseError>) -> Void)
 }

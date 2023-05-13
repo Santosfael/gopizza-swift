@@ -11,7 +11,7 @@ final class AppDelegateTests: XCTestCase {
     private var sut: AppDelegate!
 
     override func setUp() async throws {
-        sut = AppDelegate()
+        sut = await AppDelegate()
     }
 
     override func tearDown() async throws {

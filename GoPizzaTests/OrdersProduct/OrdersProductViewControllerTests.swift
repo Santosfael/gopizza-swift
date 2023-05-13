@@ -1,5 +1,5 @@
 //
-//  OrdersPizzaViewControllerTests.swift
+//  OrdersProductViewControllerTests.swift
 //  GoPizzaTests
 //
 //  Created by Rafael Rocha on 10/02/23.
@@ -8,8 +8,8 @@
 import XCTest
 @testable import GoPizza
 
-final class OrdersPizzaViewControllerTests: XCTestCase {
-    private var sut: OrdersPizzaViewController!
+final class OrdersProductViewControllerTests: XCTestCase {
+    private var sut: OrdersProductViewController!
     private var ordersPizzaViewCollaboration: OrdersPizzaView!
 
     override func setUpWithError() throws {
