@@ -21,7 +21,7 @@ final class ProductTableViewCellTests: XCTestCase {
 
     func testPizzaImageNotNil() {
         do {
-            let pizzaImage = try XCTUnwrap(sut.subviews.first(where: {$0.accessibilityIdentifier == "PizzaTableViewCell.productImage"}) as? UIImageView)
+            let pizzaImage = try XCTUnwrap(sut.subviews.first(where: {$0.accessibilityIdentifier == "ProductTableViewCell.productImage"}) as? UIImageView)
             XCTAssertNotNil(pizzaImage)
         } catch {
             XCTFail(error.localizedDescription)
@@ -30,7 +30,7 @@ final class ProductTableViewCellTests: XCTestCase {
 
     func testNamePizzaNotNil() {
         do {
-            let namePizza = try XCTUnwrap(sut.subviews.first(where: {$0.accessibilityIdentifier == "PizzaTableViewCell.productNameLabel"}) as? UILabel)
+            let namePizza = try XCTUnwrap(sut.subviews.first(where: {$0.accessibilityIdentifier == "ProductTableViewCell.productNameLabel"}) as? UILabel)
             XCTAssertNotNil(namePizza)
         } catch {
             XCTFail(error.localizedDescription)

@@ -10,23 +10,23 @@ import UIKit
 final class ProductTableViewCell: UITableViewCell {
     static let identifier = "ProductTableViewCell"
 
-    private lazy var pizzaImage: UIImageView = .imageView(image: UIImage(named: "pizza"),
-                                                          contentMode: .center,
-                                                          tintColor: .black,
-                                                          accessibilityIdentifier: "PizzaTableViewCell.pizzaImage")
+    private lazy var productImage: UIImageView = .imageView(image: UIImage(named: "pizza"),
+                                                            contentMode: .scaleAspectFill,
+                                                            tintColor: .black,
+                                                            accessibilityIdentifier: "ProductTableViewCell.productImage")
 
-    private lazy var pizzaNameLabel: UILabel = .label(text: "Margherita",
-                                                 font: UIFont.systemFont(ofSize: 20, weight: .regular),
-                                                 textColor: UIColor(named: "TitleColor"),
-                                                 textAlignment: .left,
-                                                 accessibilityIdentifier: "PizzaTableViewCell.pizzaNameLabel")
+    private lazy var productNameLabel: UILabel = .label(text: "Margherita",
+                                                        font: UIFont.systemFont(ofSize: 20, weight: .regular),
+                                                        textColor: UIColor(named: "TitleColor"),
+                                                        textAlignment: .left,
+                                                        accessibilityIdentifier: "ProductTableViewCell.productNameLabel")
 
-    private lazy var pizzaDescriptionLabel: UILabel = .label(text: "Mussarela, manjericão Fresco, parmesão e tomate",
-                                                             font: .systemFont(ofSize: 12, weight: .regular),
-                                                             textColor: .init(named: "DescriptionColor"),
-                                                             numberOflines: 3,
-                                                             textAlignment: .left,
-                                                             accessibilityIdentifier: "PizzasTableViewCell.pizzaDescriptionLabel")
+    private lazy var productDescriptionLabel: UILabel = .label(text: "Mussarela, manjericão Fresco, parmesão e tomate",
+                                                               font: .systemFont(ofSize: 12, weight: .regular),
+                                                               textColor: .init(named: "DescriptionColor"),
+                                                               numberOflines: 3,
+                                                               textAlignment: .left,
+                                                               accessibilityIdentifier: "ProductTableViewCell.productDescriptionLabel")
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -39,33 +39,34 @@ final class ProductTableViewCell: UITableViewCell {
     }
 
     private func setupView() {
-        addSubviews(pizzaImage, pizzaNameLabel, pizzaDescriptionLabel)
+        addSubviews(productImage, productNameLabel, productDescriptionLabel)
         constraints()
     }
 
     func updateProduct(product: Product) {
-        pizzaImage.loadImage(from: product.photo_url)
-        pizzaNameLabel.text = product.name
-        pizzaDescriptionLabel.text = product.description
+        productImage.loadImage(from: product.photo_url)
+        productNameLabel.text = product.name
+        productDescriptionLabel.text = product.description
     }
 
     private func constraints() {
         NSLayoutConstraint.activate([
-            pizzaImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 12),
-            pizzaImage.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 24),
-            pizzaImage.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -12),
-            pizzaImage.heightAnchor.constraint(equalToConstant: 104)
+            productImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 12),
+            productImage.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 24),
+            productImage.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12),
+            productImage.widthAnchor.constraint(equalToConstant: 104),
+            productImage.heightAnchor.constraint(equalToConstant: 104)
         ])
 
         NSLayoutConstraint.activate([
-            pizzaNameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 38),
-            pizzaNameLabel.leadingAnchor.constraint(equalTo: pizzaImage.trailingAnchor, constant: 20)
+            productNameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 38),
+            productNameLabel.leadingAnchor.constraint(equalTo: productImage.trailingAnchor, constant: 20)
         ])
 
         NSLayoutConstraint.activate([
-            pizzaDescriptionLabel.topAnchor.constraint(equalTo: pizzaNameLabel.bottomAnchor, constant: 8),
-            pizzaDescriptionLabel.leadingAnchor.constraint(equalTo: pizzaImage.trailingAnchor, constant: 20),
-            pizzaDescriptionLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -24)
+            productDescriptionLabel.topAnchor.constraint(equalTo: productNameLabel.bottomAnchor, constant: 8),
+            productDescriptionLabel.leadingAnchor.constraint(equalTo: productImage.trailingAnchor, constant: 20),
+            productDescriptionLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -24)
         ])
     }
 }
