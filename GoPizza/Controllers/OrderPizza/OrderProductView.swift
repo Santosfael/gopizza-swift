@@ -1,5 +1,5 @@
 //
-//  OrderPizzaView.swift
+//  OrderProductView.swift
 //  GoPizza
 //
 //  Created by Rafael Rocha on 26/01/23.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class OrderPizzaView: UIView {
+final class OrderProductView: UIView {
 
     private let headerViewHeight: CGFloat = 172
 
@@ -17,38 +17,38 @@ final class OrderPizzaView: UIView {
         return view
     }()
 
-    private var pizzaImageView: UIImageView = .imageView(image: .init(named: "pizza"),
-                                                         contentMode: .scaleToFill,
-                                                         accessibilityIdentifier: "OrderPizzaView.pizzaImageView")
+    private var productImageView: UIImageView = .imageView(image: .init(named: "pizza"),
+                                                           contentMode: .scaleToFill,
+                                                           accessibilityIdentifier: "OrderProductView.productImageView")
 
-    private var namePizzaLabel: UILabel = .label(text: "Margherita",
+    private var nameProductLabel: UILabel = .label(text: "Margherita",
                                                    font: .systemFont(ofSize: 32, weight: .regular),
                                                    textColor: .init(named: "TitleColor"),
                                                    textAlignment: .center,
-                                                   accessibilityIdentifier: "OrderPizzaView.namePizzaLabel")
+                                                   accessibilityIdentifier: "OrderProductView.nameProdcutLabel")
 
-    private var titleSelectSizePizzaLabel: UILabel = .label(text: "Selecione um tamanho",
-                                                            font: .systemFont(ofSize: 14, weight: .regular),
-                                                            textColor: .init(named: "TitleColor"),
-                                                            textAlignment: .left,
-                                                            accessibilityIdentifier: "OrderPizzaView.titleSelectSizePizzaLabel")
+    private var titleSelectSizeProductLabel: UILabel = .label(text: "Selecione um tamanho",
+                                                              font: .systemFont(ofSize: 14, weight: .regular),
+                                                              textColor: .init(named: "TitleColor"),
+                                                              textAlignment: .left,
+                                                              accessibilityIdentifier: "OrderProductView.titleSelectSizeProductLabel")
 
-    private var buttonsSizePizzaStack: UIStackView = .stack(axis: .horizontal,
-                                            distribution: .fillEqually,
-                                            alignment: .center,
-                                            contentMode: .center)
+    private var buttonsSizeProductStack: UIStackView = .stack(axis: .horizontal,
+                                                              distribution: .fillEqually,
+                                                              alignment: .center,
+                                                              contentMode: .center)
 
     private var tableNumberLabel: UILabel = .label(text: "Número da mesa",
                                                    font: .systemFont(ofSize: 14, weight: .regular),
                                                    textColor: .init(named: "TitleColor"),
                                                    textAlignment: .left,
-                                                   accessibilityIdentifier: "OrderPizzaView.tableNumberLabel")
+                                                   accessibilityIdentifier: "OrderProductView.tableNumberLabel")
 
-    private var quantityPizzaLabel: UILabel = .label(text: "Quantidade",
-                                                   font: .systemFont(ofSize: 14, weight: .regular),
-                                                   textColor: .init(named: "TitleColor"),
-                                                     textAlignment: .right,
-                                                   accessibilityIdentifier: "OrderPizzaView.quantityPizzaLabel")
+    private var quantityProductLabel: UILabel = .label(text: "Quantidade",
+                                                       font: .systemFont(ofSize: 14, weight: .regular),
+                                                       textColor: .init(named: "TitleColor"),
+                                                       textAlignment: .right,
+                                                       accessibilityIdentifier: "OrderProductView.quantityProductLabel")
 
     private var tableNumberTextField: UITextField = .textField(keybordType: .numberPad,
                                                                textPlaceHolder: "0",
@@ -58,28 +58,28 @@ final class OrderPizzaView: UIView {
                                                                borderColor: UIColor.init(named: "Background2")?.cgColor,
                                                                cornerRadius: 8,
                                                                borderWidth: 1,
-                                                               accessibilityIdentifier: "OrderPizzaView.tableNumberTextField")
+                                                               accessibilityIdentifier: "OrderProductView.tableNumberTextField")
 
-    private var quantityPizzaTextField: UITextField = .textField(keybordType: .numberPad,
-                                                                 textPlaceHolder: "0",
-                                                                 colorPlaceHolder: .black,
-                                                                 textColor: .black,
-                                                                 font: .systemFont(ofSize: 16, weight: .regular),
-                                                                 borderColor: UIColor.init(named: "Background2")?.cgColor,
-                                                                 cornerRadius: 8,
-                                                                 borderWidth: 1,
-                                                                 accessibilityIdentifier: "OrderPizzaView.quantityPizzaTextField")
+    private var quantityProductTextField: UITextField = .textField(keybordType: .numberPad,
+                                                                   textPlaceHolder: "0",
+                                                                   colorPlaceHolder: .black,
+                                                                   textColor: .black,
+                                                                   font: .systemFont(ofSize: 16, weight: .regular),
+                                                                   borderColor: UIColor.init(named: "Background2")?.cgColor,
+                                                                   cornerRadius: 8,
+                                                                   borderWidth: 1,
+                                                                   accessibilityIdentifier: "OrderProductView.quantityProductTextField")
 
-    private var tableNumberAndQtdPizzaStackView: UIStackView = .stack(axis: .horizontal,
-                                                                      distribution: .fillEqually,
-                                                                      alignment: .center,
-                                                                      contentMode: .scaleToFill)
+    private var tableNumberAndQtdProductStackView: UIStackView = .stack(axis: .horizontal,
+                                                                        distribution: .fillEqually,
+                                                                        alignment: .center,
+                                                                        contentMode: .scaleToFill)
 
     private var totalPriceOrderLabel: UILabel = .label(text: "Total: R$ 10,00",
-                                                         font: .systemFont(ofSize: 14, weight: .regular),
-                                                         textColor: .init(named: "TitleColor"),
-                                                         textAlignment: .right,
-                                                         accessibilityIdentifier: "OrderPizzaView.totalPriceOrderLabel")
+                                                       font: .systemFont(ofSize: 14, weight: .regular),
+                                                       textColor: .init(named: "TitleColor"),
+                                                       textAlignment: .right,
+                                                       accessibilityIdentifier: "OrderProductView.totalPriceOrderLabel")
 
     private var confirmOrderButton: UIButton = .button(type: .system,
                                                        title: "Confirmar pedido",
@@ -88,9 +88,9 @@ final class OrderPizzaView: UIView {
                                                        titleFont: .systemFont(ofSize: 14, weight: .medium),
                                                        cornerRadius: 12,
                                                        borderWidth: 1, borderColor: UIColor.clear.cgColor,
-                                                       accessibilityIdentifier: "OrderPizzaView.confirmOrderButton")
+                                                       accessibilityIdentifier: "OrderProductView.confirmOrderButton")
 
-    private var sizePizzaButtons = [UIButton]()
+    private var sizeProductButtons = [UIButton]()
     override init(frame: CGRect) {
         super.init(frame: frame)
         configView()
@@ -104,17 +104,17 @@ final class OrderPizzaView: UIView {
     
     private func configView() {
         addSubviews(headerView,
-                    pizzaImageView,
-                    namePizzaLabel,
-                    titleSelectSizePizzaLabel,
-                    buttonsSizePizzaStack,
+                    productImageView,
+                    nameProductLabel,
+                    titleSelectSizeProductLabel,
+                    buttonsSizeProductStack,
                     tableNumberLabel,
-                    quantityPizzaLabel,
-                    tableNumberAndQtdPizzaStackView,
+                    quantityProductLabel,
+                    tableNumberAndQtdProductStackView,
                     totalPriceOrderLabel,
                     confirmOrderButton)
-        tableNumberAndQtdPizzaStackView.addArrangedSubview(tableNumberTextField)
-        tableNumberAndQtdPizzaStackView.addArrangedSubview(quantityPizzaTextField)
+        tableNumberAndQtdProductStackView.addArrangedSubview(tableNumberTextField)
+        tableNumberAndQtdProductStackView.addArrangedSubview(quantityProductTextField)
 
         constraints()
     }
@@ -124,8 +124,8 @@ final class OrderPizzaView: UIView {
         for (index, element) in myArraySizePizza.enumerated() {
             let sizePizzaButton = createPropertiesButtonsSizePizza(title: element, index: index)
             sizePizzaButton.heightAnchor.constraint(equalToConstant: 82).isActive = true
-            sizePizzaButtons.append(sizePizzaButton)
-            buttonsSizePizzaStack.addArrangedSubview(sizePizzaButton)
+            sizeProductButtons.append(sizePizzaButton)
+            buttonsSizeProductStack.addArrangedSubview(sizePizzaButton)
         }
     }
 
@@ -139,7 +139,7 @@ final class OrderPizzaView: UIView {
                                                 cornerRadius: 8,
                                                 borderWidth: 1,
                                                 borderColor: UIColor(named: "Background2")?.cgColor,
-                                                accessibilityIdentifier: "OrderPizzaView.sizePizzaButton\(title)")
+                                                accessibilityIdentifier: "OrderProductView.sizePizzaButton\(title)")
         sizePizzaButton.addTarget(self, action: #selector(selectedSizePizza), for: .touchDown)
         sizePizzaButton.setImage(UIImage(systemName: "circle"), for: .normal)
         sizePizzaButton.imageView?.contentMode = .scaleToFill
@@ -154,7 +154,7 @@ final class OrderPizzaView: UIView {
         guard let tintImage = UIColor(named: "TitleColor"),
               let primaryColorButton = UIColor(named: "PrimaryColorButton")
         else { return }
-        for button in sizePizzaButtons {
+        for button in sizeProductButtons {
             if button == sender {
                 button.setImage(UIImage(systemName: "circle.fill"), for: .normal)
                 button.imageView?.contentMode = .scaleToFill
@@ -184,46 +184,46 @@ final class OrderPizzaView: UIView {
         ])
 
         NSLayoutConstraint.activate([
-            pizzaImageView.topAnchor.constraint(equalTo: topAnchor, constant: 53),
-            pizzaImageView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor, constant: 10),
-            pizzaImageView.widthAnchor.constraint(equalToConstant: 240),
-            pizzaImageView.heightAnchor.constraint(equalToConstant: 240)
+            productImageView.topAnchor.constraint(equalTo: topAnchor, constant: 53),
+            productImageView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor, constant: 10),
+            productImageView.widthAnchor.constraint(equalToConstant: 240),
+            productImageView.heightAnchor.constraint(equalToConstant: 240)
         ])
 
         NSLayoutConstraint.activate([
-            namePizzaLabel.topAnchor.constraint(equalTo: pizzaImageView.bottomAnchor, constant: -10),
-            namePizzaLabel.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor)
+            nameProductLabel.topAnchor.constraint(equalTo: productImageView.bottomAnchor, constant: -10),
+            nameProductLabel.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor)
         ])
 
         NSLayoutConstraint.activate([
-            titleSelectSizePizzaLabel.topAnchor.constraint(equalTo: namePizzaLabel.bottomAnchor, constant: 26),
-            titleSelectSizePizzaLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 25),
-            titleSelectSizePizzaLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor)
+            titleSelectSizeProductLabel.topAnchor.constraint(equalTo: nameProductLabel.bottomAnchor, constant: 26),
+            titleSelectSizeProductLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 25),
+            titleSelectSizeProductLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor)
         ])
 
         NSLayoutConstraint.activate([
-            buttonsSizePizzaStack.topAnchor.constraint(equalTo: titleSelectSizePizzaLabel.bottomAnchor, constant: 16),
-            buttonsSizePizzaStack.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 25),
-            buttonsSizePizzaStack.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -25)
+            buttonsSizeProductStack.topAnchor.constraint(equalTo: titleSelectSizeProductLabel.bottomAnchor, constant: 16),
+            buttonsSizeProductStack.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 25),
+            buttonsSizeProductStack.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -25)
         ])
 
         NSLayoutConstraint.activate([
-            tableNumberLabel.topAnchor.constraint(equalTo: buttonsSizePizzaStack.bottomAnchor, constant: 20),
+            tableNumberLabel.topAnchor.constraint(equalTo: buttonsSizeProductStack.bottomAnchor, constant: 20),
             tableNumberLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 25)
         ])
 
         NSLayoutConstraint.activate([
-            quantityPizzaLabel.topAnchor.constraint(equalTo: buttonsSizePizzaStack.bottomAnchor, constant: 20),
-            quantityPizzaLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -25)
+            quantityProductLabel.topAnchor.constraint(equalTo: buttonsSizeProductStack.bottomAnchor, constant: 20),
+            quantityProductLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -25)
         ])
 
         NSLayoutConstraint.activate([
-            tableNumberAndQtdPizzaStackView.topAnchor.constraint(equalTo: quantityPizzaLabel.bottomAnchor, constant: 8),
-            tableNumberAndQtdPizzaStackView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 25),
-            tableNumberAndQtdPizzaStackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -25),
+            tableNumberAndQtdProductStackView.topAnchor.constraint(equalTo: quantityProductLabel.bottomAnchor, constant: 8),
+            tableNumberAndQtdProductStackView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 25),
+            tableNumberAndQtdProductStackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -25),
 
             tableNumberTextField.heightAnchor.constraint(equalToConstant: 56),
-            quantityPizzaTextField.heightAnchor.constraint(equalToConstant: 56)
+            quantityProductTextField.heightAnchor.constraint(equalToConstant: 56)
         ])
 
         NSLayoutConstraint.activate([

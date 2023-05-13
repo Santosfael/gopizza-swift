@@ -33,6 +33,6 @@ class OrderPizzaCoordinatorTests: XCTestCase {
     func testStartNavigation() {
         sut.start()
         XCTAssertEqual(navigationController.viewControllers.count, 1)
-        XCTAssertTrue(navigationController.topViewController is OrderPizzaViewController)
+        XCTAssertTrue(navigationController.topViewController is OrderProductViewController)
     }
 }

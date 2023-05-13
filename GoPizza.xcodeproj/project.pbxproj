@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		4E11E8222969F9800048DA5D /* LoginViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E11E8212969F9800048DA5D /* LoginViewControllerTests.swift */; };
 		4E18AFBE299C639C0027AB5A /* CoordinatorProtocolStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E18AFBD299C639C0027AB5A /* CoordinatorProtocolStub.swift */; };
-		4E21985A29952EE00027811C /* OrderPizzaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E21985929952EE00027811C /* OrderPizzaCollectionViewCell.swift */; };
+		4E21985A29952EE00027811C /* OrderProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E21985929952EE00027811C /* OrderProductCollectionViewCell.swift */; };
 		4E2D1E582976257800A5821A /* SceneDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2D1E572976257800A5821A /* SceneDelegateTests.swift */; };
 		4E2D1E5A2976366400A5821A /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2D1E592976366400A5821A /* AppDelegateTests.swift */; };
 		4E37FD9D2968960F00FA6D8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E37FD9C2968960F00FA6D8D /* AppDelegate.swift */; };
@@ -30,8 +30,8 @@
 		4E65F25E2978CF7F009AD37B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E65F25D2978CF7F009AD37B /* HomeViewController.swift */; };
 		4E7FE69629B176ED00B12FBD /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7FE69529B176ED00B12FBD /* LoginViewModelTests.swift */; };
 		4E7FE69C29B17DDA00B12FBD /* LoginServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7FE69B29B17DDA00B12FBD /* LoginServiceTests.swift */; };
-		4E84806C29835485007F9B3C /* OrderPizzaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E84806B29835485007F9B3C /* OrderPizzaViewController.swift */; };
-		4E84806E298354B1007F9B3C /* OrderPizzaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E84806D298354B1007F9B3C /* OrderPizzaView.swift */; };
+		4E84806C29835485007F9B3C /* OrderProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E84806B29835485007F9B3C /* OrderProductViewController.swift */; };
+		4E84806E298354B1007F9B3C /* OrderProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E84806D298354B1007F9B3C /* OrderProductView.swift */; };
 		4E86810929AE891C00EB87A1 /* LoginServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E86810829AE891C00EB87A1 /* LoginServiceProtocol.swift */; };
 		4E86810D29AE8A0A00EB87A1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E86810C29AE8A0A00EB87A1 /* User.swift */; };
 		4E86811029AE8AEE00EB87A1 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E86810F29AE8AEE00EB87A1 /* LoginService.swift */; };
@@ -44,7 +44,7 @@
 		4E9E1EC3299B2119007C9704 /* OrderPizzaCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9E1EC2299B2119007C9704 /* OrderPizzaCoordinator.swift */; };
 		4EB4D07B298B022B00799CC7 /* OrderPizzaViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4D07A298B022B00799CC7 /* OrderPizzaViewControllerTests.swift */; };
 		4EB4D07D298B034600799CC7 /* OrderPizzaViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4D07C298B034600799CC7 /* OrderPizzaViewTests.swift */; };
-		4EC447262994357A00A1669A /* OrdersPizzaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC447252994357A00A1669A /* OrdersPizzaViewController.swift */; };
+		4EC447262994357A00A1669A /* OrdersProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC447252994357A00A1669A /* OrdersProductViewController.swift */; };
 		4EC44728299435CF00A1669A /* OrdersPizzaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC44727299435CF00A1669A /* OrdersPizzaView.swift */; };
 		4ECA9969296CF1950071DA15 /* ViewMakers+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECA9968296CF1950071DA15 /* ViewMakers+Extensions.swift */; };
 		4ED9C1A6297F5ECC00E4FCC4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9C1A5297F5ECC00E4FCC4 /* HomeView.swift */; };
@@ -87,7 +87,7 @@
 /* Begin PBXFileReference section */
 		4E11E8212969F9800048DA5D /* LoginViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerTests.swift; sourceTree = "<group>"; };
 		4E18AFBD299C639C0027AB5A /* CoordinatorProtocolStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocolStub.swift; sourceTree = "<group>"; };
-		4E21985929952EE00027811C /* OrderPizzaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPizzaCollectionViewCell.swift; sourceTree = "<group>"; };
+		4E21985929952EE00027811C /* OrderProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		4E2D1E572976257800A5821A /* SceneDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegateTests.swift; sourceTree = "<group>"; };
 		4E2D1E592976366400A5821A /* AppDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
 		4E37FD992968960F00FA6D8D /* GoPizza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoPizza.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,8 +112,8 @@
 		4E65F25D2978CF7F009AD37B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4E7FE69529B176ED00B12FBD /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
 		4E7FE69B29B17DDA00B12FBD /* LoginServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceTests.swift; sourceTree = "<group>"; };
-		4E84806B29835485007F9B3C /* OrderPizzaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPizzaViewController.swift; sourceTree = "<group>"; };
-		4E84806D298354B1007F9B3C /* OrderPizzaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPizzaView.swift; sourceTree = "<group>"; };
+		4E84806B29835485007F9B3C /* OrderProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderProductViewController.swift; sourceTree = "<group>"; };
+		4E84806D298354B1007F9B3C /* OrderProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderProductView.swift; sourceTree = "<group>"; };
 		4E86810829AE891C00EB87A1 /* LoginServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceProtocol.swift; sourceTree = "<group>"; };
 		4E86810C29AE8A0A00EB87A1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4E86810F29AE8AEE00EB87A1 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
@@ -126,7 +126,7 @@
 		4E9E1EC2299B2119007C9704 /* OrderPizzaCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPizzaCoordinator.swift; sourceTree = "<group>"; };
 		4EB4D07A298B022B00799CC7 /* OrderPizzaViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPizzaViewControllerTests.swift; sourceTree = "<group>"; };
 		4EB4D07C298B034600799CC7 /* OrderPizzaViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPizzaViewTests.swift; sourceTree = "<group>"; };
-		4EC447252994357A00A1669A /* OrdersPizzaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersPizzaViewController.swift; sourceTree = "<group>"; };
+		4EC447252994357A00A1669A /* OrdersProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersProductViewController.swift; sourceTree = "<group>"; };
 		4EC44727299435CF00A1669A /* OrdersPizzaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersPizzaView.swift; sourceTree = "<group>"; };
 		4ECA9968296CF1950071DA15 /* ViewMakers+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewMakers+Extensions.swift"; sourceTree = "<group>"; };
 		4ED9C1A5297F5ECC00E4FCC4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -283,7 +283,7 @@
 		4E37FDD32968A61100FA6D8D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				4EC447242994353F00A1669A /* OrdersPizza */,
+				4EC447242994353F00A1669A /* OrdersProduct */,
 				4E84806A29835463007F9B3C /* OrderPizza */,
 				4E65F25C2978CF6A009AD37B /* Home */,
 				4E557E7B296E403900496CA0 /* Login */,
@@ -403,8 +403,8 @@
 		4E84806A29835463007F9B3C /* OrderPizza */ = {
 			isa = PBXGroup;
 			children = (
-				4E84806B29835485007F9B3C /* OrderPizzaViewController.swift */,
-				4E84806D298354B1007F9B3C /* OrderPizzaView.swift */,
+				4E84806B29835485007F9B3C /* OrderProductViewController.swift */,
+				4E84806D298354B1007F9B3C /* OrderProductView.swift */,
 			);
 			path = OrderPizza;
 			sourceTree = "<group>";
@@ -490,14 +490,14 @@
 			path = OrderPizza;
 			sourceTree = "<group>";
 		};
-		4EC447242994353F00A1669A /* OrdersPizza */ = {
+		4EC447242994353F00A1669A /* OrdersProduct */ = {
 			isa = PBXGroup;
 			children = (
-				4EC447252994357A00A1669A /* OrdersPizzaViewController.swift */,
+				4EC447252994357A00A1669A /* OrdersProductViewController.swift */,
 				4EC44727299435CF00A1669A /* OrdersPizzaView.swift */,
-				4E21985929952EE00027811C /* OrderPizzaCollectionViewCell.swift */,
+				4E21985929952EE00027811C /* OrderProductCollectionViewCell.swift */,
 			);
-			path = OrdersPizza;
+			path = OrdersProduct;
 			sourceTree = "<group>";
 		};
 		4EE4600F2982027800A4D94E /* Home */ = {
@@ -714,13 +714,13 @@
 				4E49A6712996D23D007DB695 /* LoginViewDelegate.swift in Sources */,
 				4E37FD9F2968960F00FA6D8D /* SceneDelegate.swift in Sources */,
 				4E9E1EC0299B1CD3007C9704 /* HomeViewDelegate.swift in Sources */,
-				4E21985A29952EE00027811C /* OrderPizzaCollectionViewCell.swift in Sources */,
+				4E21985A29952EE00027811C /* OrderProductCollectionViewCell.swift in Sources */,
 				4ED9C1A9297F609700E4FCC4 /* ProducTableViewCell.swift in Sources */,
 				4E86810D29AE8A0A00EB87A1 /* User.swift in Sources */,
 				4E49A6642996C614007DB695 /* Coordinator.swift in Sources */,
-				4E84806C29835485007F9B3C /* OrderPizzaViewController.swift in Sources */,
+				4E84806C29835485007F9B3C /* OrderProductViewController.swift in Sources */,
 				4E86811029AE8AEE00EB87A1 /* LoginService.swift in Sources */,
-				4EC447262994357A00A1669A /* OrdersPizzaViewController.swift in Sources */,
+				4EC447262994357A00A1669A /* OrdersProductViewController.swift in Sources */,
 				4E9E1EC3299B2119007C9704 /* OrderPizzaCoordinator.swift in Sources */,
 				4E37FDD72968A66C00FA6D8D /* LoginView.swift in Sources */,
 				4ED9C1A6297F5ECC00E4FCC4 /* HomeView.swift in Sources */,
@@ -733,7 +733,7 @@
 				8537351A29EE208D009CA8A1 /* ProductServiceProtocol.swift in Sources */,
 				4E49A66A2996C824007DB695 /* LoginCoordinator.swift in Sources */,
 				4E86811529AE8D5300EB87A1 /* LoginViewModelProtocol.swift in Sources */,
-				4E84806E298354B1007F9B3C /* OrderPizzaView.swift in Sources */,
+				4E84806E298354B1007F9B3C /* OrderProductView.swift in Sources */,
 				8537351129EE1D5D009CA8A1 /* Product.swift in Sources */,
 				8537351C29EE20F4009CA8A1 /* ProductService.swift in Sources */,
 			);

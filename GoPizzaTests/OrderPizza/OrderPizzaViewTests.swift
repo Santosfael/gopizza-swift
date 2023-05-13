@@ -9,10 +9,10 @@ import XCTest
 @testable import GoPizza
 
 final class OrderPizzaViewTests: XCTestCase {
-    private var sut: OrderPizzaView!
+    private var sut: OrderProductView!
 
     override func setUpWithError() throws {
-        sut = OrderPizzaView()
+        sut = OrderProductView()
     }
 
     override func tearDownWithError() throws {
@@ -21,7 +21,7 @@ final class OrderPizzaViewTests: XCTestCase {
 
     func testOrderPizzaViewPizzaImage() {
         do {
-            let pizzaImage = try XCTUnwrap(sut.subviews.first(where: {$0.accessibilityIdentifier == "OrderPizzaView.pizzaImageView"}) as? UIImageView)
+            let pizzaImage = try XCTUnwrap(sut.subviews.first(where: {$0.accessibilityIdentifier == "OrderProductView.productImageView"}) as? UIImageView)
             XCTAssertNotNil(pizzaImage)
         } catch {
             XCTFail(error.localizedDescription)
@@ -30,7 +30,7 @@ final class OrderPizzaViewTests: XCTestCase {
 
     func testOrderPizzaViewNamePizzaLabel() {
         do {
-            let namePizzaLabel = try XCTUnwrap(sut.subviews.first(where: {$0.accessibilityIdentifier == "OrderPizzaView.namePizzaLabel"}) as? UILabel)
+            let namePizzaLabel = try XCTUnwrap(sut.subviews.first(where: {$0.accessibilityIdentifier == "OrderProductView.nameProdcutLabel"}) as? UILabel)
             XCTAssertEqual(namePizzaLabel.text, "Margherita")
         } catch {
             XCTFail(error.localizedDescription)
@@ -39,7 +39,7 @@ final class OrderPizzaViewTests: XCTestCase {
 
     func testOrdePizzaViewTitleSelectSizePizzaLabel() {
         do {
-            let titleSizePizzaLabel = try XCTUnwrap(sut.subviews.first(where: {$0.accessibilityIdentifier == "OrderPizzaView.titleSelectSizePizzaLabel"}) as? UILabel)
+            let titleSizePizzaLabel = try XCTUnwrap(sut.subviews.first(where: {$0.accessibilityIdentifier == "OrderProductView.titleSelectSizeProductLabel"}) as? UILabel)
             XCTAssertEqual(titleSizePizzaLabel.text, "Selecione um tamanho")
         } catch {
             XCTFail(error.localizedDescription)

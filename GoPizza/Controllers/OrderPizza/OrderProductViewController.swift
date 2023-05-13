@@ -1,5 +1,5 @@
 //
-//  OrderPizzaViewController.swift
+//  OrderProductViewController.swift
 //  GoPizza
 //
 //  Created by Rafael Rocha on 26/01/23.
@@ -7,11 +7,11 @@
 
 import UIKit
 
-class OrderPizzaViewController: UIViewController {
+class OrderProductViewController: UIViewController {
     
-    private var content: OrderPizzaView
+    private var content: OrderProductView
 
-    init(content: OrderPizzaView = OrderPizzaView()) {
+    init(content: OrderProductView = OrderProductView()) {
         self.content = content
         super.init(nibName: nil, bundle: nil)
     }

@@ -53,7 +53,7 @@ final class OrdersPizzaView: UIView {
     private func configCollectionView() {
         ordersPizzaCollectionView.delegate = self
         ordersPizzaCollectionView.dataSource = self
-        ordersPizzaCollectionView.register(OrderPizzaCollectionViewCell.self, forCellWithReuseIdentifier: OrderPizzaCollectionViewCell.identifier)
+        ordersPizzaCollectionView.register(OrderProductCollectionViewCell.self, forCellWithReuseIdentifier: OrderProductCollectionViewCell.identifier)
     }
 
     private func layoutCollection() -> UICollectionViewFlowLayout {
@@ -100,7 +100,7 @@ extension OrdersPizzaView: UICollectionViewDelegate, UICollectionViewDataSource 
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OrderPizzaCollectionViewCell.identifier, for: indexPath) as? OrderPizzaCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OrderProductCollectionViewCell.identifier, for: indexPath) as? OrderProductCollectionViewCell else { return UICollectionViewCell() }
         return cell
     }
 }

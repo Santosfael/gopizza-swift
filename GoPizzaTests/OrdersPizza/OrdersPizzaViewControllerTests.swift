@@ -9,7 +9,7 @@ import XCTest
 @testable import GoPizza
 
 final class OrdersPizzaViewControllerTests: XCTestCase {
-    private var sut: OrdersPizzaViewController!
+    private var sut: OrdersProductViewController!
     private var ordersPizzaViewCollaboration: OrdersPizzaView!
 
     override func setUpWithError() throws {
