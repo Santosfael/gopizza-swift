@@ -10,6 +10,8 @@ import UIKit
 final class HomeView: UIView {
     private let headerViewHeight: CGFloat = 149
 
+    weak var delegate: HomeViewDelegate?
+
     private var headerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false

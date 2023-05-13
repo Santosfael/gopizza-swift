@@ -9,13 +9,16 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    private var container = HomeView()
-    var coordinator: CoordinatorProtocol
+    private var container: HomeView
+    private var coordinator: CoordinatorProtocol
+    private let viewModel: HomeViewModelProtocol
 
     init(container: HomeView = HomeView(),
-         coordinator: CoordinatorProtocol) {
+         coordinator: CoordinatorProtocol,
+         viewModel: HomeViewModelProtocol = HomeViewModel(productService: ProductService())) {
         self.container = container
         self.coordinator = coordinator
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -26,6 +29,7 @@ class HomeViewController: UIViewController {
     override func loadView() {
         super.loadView()
         container.delegate = self
+        container.getProducts()
         view = container
     }
 
@@ -59,6 +63,10 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: HomeViewDelegate {
+    func listTableProducts(completion: @escaping (Result<[Product], ResponseError>) -> Void) {
+        viewModel.listAllProducts(productName: nil, completion: completion)
+    }
+
     func didTapSelectedPizza() {
         coordinator.presentNextStep()
     }
