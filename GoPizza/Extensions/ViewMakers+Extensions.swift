@@ -207,7 +207,8 @@ extension UISearchBar {
                           borderColor: UIColor? = nil,
                           cornerRadius: CGFloat,
                           clipsToBounds: Bool,
-                          borderWidth: CGFloat? = nil) -> UISearchBar {
+                          borderWidth: CGFloat? = nil,
+                          accessibilityIdentifier: String) -> UISearchBar {
         let searchBar = UISearchBar()
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         searchBar.placeholder = placeholder
@@ -219,6 +220,7 @@ extension UISearchBar {
             searchBar.layer.borderWidth = borderWidth
         }
         searchBar.clipsToBounds = clipsToBounds
+        searchBar.accessibilityIdentifier = accessibilityIdentifier
         return searchBar
     }
 }
@@ -236,7 +238,8 @@ extension UIActivityIndicatorView {
                                   backgroundColor: UIColor?,
                                   clipsToBounds: Bool,
                                   cornerRadius: CGFloat = 12,
-                                  color: UIColor) -> UIActivityIndicatorView {
+                                  color: UIColor?,
+                                  accessibilityIdentifier: String) -> UIActivityIndicatorView {
         let indicator = UIActivityIndicatorView(style: style)
         indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.hidesWhenStopped = hidesWhenStopped
@@ -245,6 +248,7 @@ extension UIActivityIndicatorView {
         indicator.clipsToBounds = clipsToBounds
         indicator.layer.cornerRadius = cornerRadius
         indicator.color = color
+        indicator.accessibilityIdentifier = accessibilityIdentifier
         return indicator
     }
 }
