@@ -21,11 +21,11 @@ final class HomeViewUITests: XCTestCase {
 
     func testVariablesExists() {
         let titleMenuLabel = app.staticTexts["HomeView.titleMenuLabel"]
-        let amoutPizzaLabel = app.staticTexts["HomeView.amountPizzaLabel"]
+        let amoutPizzaLabel = app.staticTexts["HomeView.amountProductLabel"]
         let pizzasTableView = app.tables["HomeView.pizzasTableView"]
-        let pizzaImage = app.images["PizzaTableViewCell.pizzaImage"]
-        let pizzaNameLabel = app.staticTexts["PizzaTableViewCell.pizzaNameLabel"]
-        let pizzaDescriptionLabel = app.staticTexts["PizzasTableViewCell.pizzaDescriptionLabel"]
+        let pizzaImage = app.images["PizzaTableViewCell.productImage"]
+        let pizzaNameLabel = app.staticTexts["PizzaTableViewCell.productNameLabel"]
+        let pizzaDescriptionLabel = app.staticTexts["PizzasTableViewCell.productDescriptionLabel"]
         XCTAssertTrue(titleMenuLabel.exists)
         XCTAssertTrue(amoutPizzaLabel.exists)
         XCTAssertTrue(pizzasTableView.exists)
@@ -40,7 +40,7 @@ final class HomeViewUITests: XCTestCase {
     }
 
     func testHomeViewTableCellImage() {
-        let pizzaImage = app.images["PizzaTableViewCell.pizzaImage"]
+        let pizzaImage = app.images["PizzaTableViewCell.productImage"]
         XCTAssertNotNil(pizzaImage)
     }
 }
