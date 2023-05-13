@@ -8,7 +8,7 @@
 import XCTest
 @testable import GoPizza
 
-final class OrderPizzaCollectionViewCellTests: XCTestCase {
+final class OrderProductCollectionViewCellTests: XCTestCase {
     private var sut: OrderProductCollectionViewCell!
 
     override func setUpWithError() throws {

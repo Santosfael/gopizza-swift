@@ -1,5 +1,5 @@
 //
-//  OrderPizzaViewControllerTests.swift
+//  OrderProductViewControllerTests.swift
 //  GoPizzaTests
 //
 //  Created by Rafael Rocha on 01/02/23.
@@ -8,7 +8,7 @@
 import XCTest
 @testable import GoPizza
 
-final class OrderPizzaViewControllerTests: XCTestCase {
+final class OrderProductViewControllerTests: XCTestCase {
     private var sut: OrderProductViewController!
     private var orderPizzaViewCollaboration: OrderProductView!
 

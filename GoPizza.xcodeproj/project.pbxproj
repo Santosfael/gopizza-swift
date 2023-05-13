@@ -18,9 +18,9 @@
 		4E37FDA62968961300FA6D8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E37FDA52968961300FA6D8D /* Assets.xcassets */; };
 		4E37FDA92968961300FA6D8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E37FDA72968961300FA6D8D /* LaunchScreen.storyboard */; };
 		4E37FDD72968A66C00FA6D8D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E37FDD62968A66C00FA6D8D /* LoginView.swift */; };
-		4E49A65D2996BD33007DB695 /* OrdersPizzaViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E49A65C2996BD33007DB695 /* OrdersPizzaViewControllerTests.swift */; };
-		4E49A65F2996BEC5007DB695 /* OrdersPizzaViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E49A65E2996BEC5007DB695 /* OrdersPizzaViewTests.swift */; };
-		4E49A6612996C021007DB695 /* OrderPizzaCollectionViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E49A6602996C021007DB695 /* OrderPizzaCollectionViewCellTests.swift */; };
+		4E49A65D2996BD33007DB695 /* OrdersProductViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E49A65C2996BD33007DB695 /* OrdersProductViewControllerTests.swift */; };
+		4E49A65F2996BEC5007DB695 /* OrdersProductViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E49A65E2996BEC5007DB695 /* OrdersProductViewTests.swift */; };
+		4E49A6612996C021007DB695 /* OrderProductCollectionViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E49A6602996C021007DB695 /* OrderProductCollectionViewCellTests.swift */; };
 		4E49A6642996C614007DB695 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E49A6632996C614007DB695 /* Coordinator.swift */; };
 		4E49A6672996C6D9007DB695 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E49A6662996C6D9007DB695 /* AppCoordinator.swift */; };
 		4E49A66A2996C824007DB695 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E49A6692996C824007DB695 /* LoginCoordinator.swift */; };
@@ -42,8 +42,8 @@
 		4E8E1192299C7BE200595D2D /* OrderPizzaCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8E1191299C7BE200595D2D /* OrderPizzaCoordinatorTests.swift */; };
 		4E9E1EC0299B1CD3007C9704 /* HomeViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9E1EBF299B1CD3007C9704 /* HomeViewDelegate.swift */; };
 		4E9E1EC3299B2119007C9704 /* OrderPizzaCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9E1EC2299B2119007C9704 /* OrderPizzaCoordinator.swift */; };
-		4EB4D07B298B022B00799CC7 /* OrderPizzaViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4D07A298B022B00799CC7 /* OrderPizzaViewControllerTests.swift */; };
-		4EB4D07D298B034600799CC7 /* OrderPizzaViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4D07C298B034600799CC7 /* OrderPizzaViewTests.swift */; };
+		4EB4D07B298B022B00799CC7 /* OrderProductViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4D07A298B022B00799CC7 /* OrderProductViewControllerTests.swift */; };
+		4EB4D07D298B034600799CC7 /* OrderProducViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4D07C298B034600799CC7 /* OrderProducViewTests.swift */; };
 		4EC447262994357A00A1669A /* OrdersProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC447252994357A00A1669A /* OrdersProductViewController.swift */; };
 		4EC44728299435CF00A1669A /* OrdersPizzaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC44727299435CF00A1669A /* OrdersPizzaView.swift */; };
 		4ECA9969296CF1950071DA15 /* ViewMakers+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECA9968296CF1950071DA15 /* ViewMakers+Extensions.swift */; };
@@ -100,9 +100,9 @@
 		4E37FDAF2968961300FA6D8D /* GoPizzaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoPizzaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E37FDB92968961300FA6D8D /* GoPizzaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoPizzaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E37FDD62968A66C00FA6D8D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		4E49A65C2996BD33007DB695 /* OrdersPizzaViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersPizzaViewControllerTests.swift; sourceTree = "<group>"; };
-		4E49A65E2996BEC5007DB695 /* OrdersPizzaViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersPizzaViewTests.swift; sourceTree = "<group>"; };
-		4E49A6602996C021007DB695 /* OrderPizzaCollectionViewCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPizzaCollectionViewCellTests.swift; sourceTree = "<group>"; };
+		4E49A65C2996BD33007DB695 /* OrdersProductViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersProductViewControllerTests.swift; sourceTree = "<group>"; };
+		4E49A65E2996BEC5007DB695 /* OrdersProductViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersProductViewTests.swift; sourceTree = "<group>"; };
+		4E49A6602996C021007DB695 /* OrderProductCollectionViewCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderProductCollectionViewCellTests.swift; sourceTree = "<group>"; };
 		4E49A6632996C614007DB695 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		4E49A6662996C6D9007DB695 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		4E49A6692996C824007DB695 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
@@ -124,8 +124,8 @@
 		4E8E1191299C7BE200595D2D /* OrderPizzaCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPizzaCoordinatorTests.swift; sourceTree = "<group>"; };
 		4E9E1EBF299B1CD3007C9704 /* HomeViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewDelegate.swift; sourceTree = "<group>"; };
 		4E9E1EC2299B2119007C9704 /* OrderPizzaCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPizzaCoordinator.swift; sourceTree = "<group>"; };
-		4EB4D07A298B022B00799CC7 /* OrderPizzaViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPizzaViewControllerTests.swift; sourceTree = "<group>"; };
-		4EB4D07C298B034600799CC7 /* OrderPizzaViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPizzaViewTests.swift; sourceTree = "<group>"; };
+		4EB4D07A298B022B00799CC7 /* OrderProductViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderProductViewControllerTests.swift; sourceTree = "<group>"; };
+		4EB4D07C298B034600799CC7 /* OrderProducViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderProducViewTests.swift; sourceTree = "<group>"; };
 		4EC447252994357A00A1669A /* OrdersProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersProductViewController.swift; sourceTree = "<group>"; };
 		4EC44727299435CF00A1669A /* OrdersPizzaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersPizzaView.swift; sourceTree = "<group>"; };
 		4ECA9968296CF1950071DA15 /* ViewMakers+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewMakers+Extensions.swift"; sourceTree = "<group>"; };
@@ -245,8 +245,8 @@
 				4E7FE69729B17D8A00B12FBD /* Data */,
 				4E8E118C299C79E400595D2D /* Coordinators */,
 				4E18AFBC299C637F0027AB5A /* Mocks */,
-				4E49A65B2996BD06007DB695 /* OrdersPizza */,
-				4EB4D079298B01FE00799CC7 /* OrderPizza */,
+				4E49A65B2996BD06007DB695 /* OrdersProduct */,
+				4EB4D079298B01FE00799CC7 /* OrderProduct */,
 				4EE4600F2982027800A4D94E /* Home */,
 				4E2D1E562976255500A5821A /* Commons */,
 				4E11E8202969F9600048DA5D /* Login */,
@@ -300,14 +300,14 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		4E49A65B2996BD06007DB695 /* OrdersPizza */ = {
+		4E49A65B2996BD06007DB695 /* OrdersProduct */ = {
 			isa = PBXGroup;
 			children = (
-				4E49A65C2996BD33007DB695 /* OrdersPizzaViewControllerTests.swift */,
-				4E49A65E2996BEC5007DB695 /* OrdersPizzaViewTests.swift */,
-				4E49A6602996C021007DB695 /* OrderPizzaCollectionViewCellTests.swift */,
+				4E49A65C2996BD33007DB695 /* OrdersProductViewControllerTests.swift */,
+				4E49A65E2996BEC5007DB695 /* OrdersProductViewTests.swift */,
+				4E49A6602996C021007DB695 /* OrderProductCollectionViewCellTests.swift */,
 			);
-			path = OrdersPizza;
+			path = OrdersProduct;
 			sourceTree = "<group>";
 		};
 		4E49A6622996C5FD007DB695 /* Coordinator */ = {
@@ -481,13 +481,13 @@
 			path = OrderPizza;
 			sourceTree = "<group>";
 		};
-		4EB4D079298B01FE00799CC7 /* OrderPizza */ = {
+		4EB4D079298B01FE00799CC7 /* OrderProduct */ = {
 			isa = PBXGroup;
 			children = (
-				4EB4D07A298B022B00799CC7 /* OrderPizzaViewControllerTests.swift */,
-				4EB4D07C298B034600799CC7 /* OrderPizzaViewTests.swift */,
+				4EB4D07A298B022B00799CC7 /* OrderProductViewControllerTests.swift */,
+				4EB4D07C298B034600799CC7 /* OrderProducViewTests.swift */,
 			);
-			path = OrderPizza;
+			path = OrderProduct;
 			sourceTree = "<group>";
 		};
 		4EC447242994353F00A1669A /* OrdersProduct */ = {
@@ -747,24 +747,24 @@
 				4E11E8222969F9800048DA5D /* LoginViewControllerTests.swift in Sources */,
 				4E8E118E299C79F800595D2D /* LoginCoordinatorTests.swift in Sources */,
 				4E7FE69C29B17DDA00B12FBD /* LoginServiceTests.swift in Sources */,
-				4E49A6612996C021007DB695 /* OrderPizzaCollectionViewCellTests.swift in Sources */,
-				4EB4D07B298B022B00799CC7 /* OrderPizzaViewControllerTests.swift in Sources */,
+				4E49A6612996C021007DB695 /* OrderProductCollectionViewCellTests.swift in Sources */,
+				4EB4D07B298B022B00799CC7 /* OrderProductViewControllerTests.swift in Sources */,
 				857604822A00937F00595149 /* ProductServiceMock.swift in Sources */,
 				4E18AFBE299C639C0027AB5A /* CoordinatorProtocolStub.swift in Sources */,
 				4E2D1E5A2976366400A5821A /* AppDelegateTests.swift in Sources */,
 				4EE460132982034F00A4D94E /* HomeViewTests.swift in Sources */,
 				4E8E1192299C7BE200595D2D /* OrderPizzaCoordinatorTests.swift in Sources */,
 				4EE460152982044F00A4D94E /* ProductTableViewCellTests.swift in Sources */,
-				4E49A65D2996BD33007DB695 /* OrdersPizzaViewControllerTests.swift in Sources */,
+				4E49A65D2996BD33007DB695 /* OrdersProductViewControllerTests.swift in Sources */,
 				857604852A00977200595149 /* ProductServiceTests.swift in Sources */,
 				4E646ED329B28C4E00F784FD /* MockLoginViewModel.swift in Sources */,
-				4E49A65F2996BEC5007DB695 /* OrdersPizzaViewTests.swift in Sources */,
+				4E49A65F2996BEC5007DB695 /* OrdersProductViewTests.swift in Sources */,
 				4E8E1190299C7A8C00595D2D /* HomeCoordinatorTests.swift in Sources */,
 				8576047F2A00906100595149 /* HomeViewModelTests.swift in Sources */,
 				4EF61B3C29777472001CB20A /* LoginViewTests.swift in Sources */,
 				4E7FE69629B176ED00B12FBD /* LoginViewModelTests.swift in Sources */,
 				4E2D1E582976257800A5821A /* SceneDelegateTests.swift in Sources */,
-				4EB4D07D298B034600799CC7 /* OrderPizzaViewTests.swift in Sources */,
+				4EB4D07D298B034600799CC7 /* OrderProducViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
