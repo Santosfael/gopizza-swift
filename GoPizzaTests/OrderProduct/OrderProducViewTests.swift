@@ -19,6 +19,11 @@ final class OrderProducViewTests: XCTestCase {
         sut = nil
     }
 
+    func testInitCoder() {
+        sut = .init(coder: NSCoder())
+        XCTAssertNil(sut)
+    }
+
     func testOrderPizzaViewPizzaImage() {
         do {
             let pizzaImage = try XCTUnwrap(sut.subviews.first(where: {$0.accessibilityIdentifier == "OrderProductView.productImageView"}) as? UIImageView)
