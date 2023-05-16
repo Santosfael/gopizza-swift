@@ -64,6 +64,7 @@
 		8576047F2A00906100595149 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8576047E2A00906100595149 /* HomeViewModelTests.swift */; };
 		857604822A00937F00595149 /* ProductServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857604812A00937F00595149 /* ProductServiceMock.swift */; };
 		857604852A00977200595149 /* ProductServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857604842A00977200595149 /* ProductServiceTests.swift */; };
+		857DD6D42A11AB73001FB8AA /* ProductRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857DD6D32A11AB73001FB8AA /* ProductRepository.swift */; };
 		85EB46EC29F0BB430021C861 /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EB46EB29F0BB430021C861 /* ResponseError.swift */; };
 /* End PBXBuildFile section */
 
@@ -145,6 +146,7 @@
 		8576047E2A00906100595149 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
 		857604812A00937F00595149 /* ProductServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductServiceMock.swift; sourceTree = "<group>"; };
 		857604842A00977200595149 /* ProductServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductServiceTests.swift; sourceTree = "<group>"; };
+		857DD6D32A11AB73001FB8AA /* ProductRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRepository.swift; sourceTree = "<group>"; };
 		85EB46EB29F0BB430021C861 /* ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -412,6 +414,7 @@
 		4E86810529AE88E600EB87A1 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				857DD6D22A11AB5A001FB8AA /* Repositories */,
 				4E86810B29AE89F800EB87A1 /* Models */,
 				4E86810629AE88F000EB87A1 /* Services */,
 			);
@@ -559,6 +562,14 @@
 				857604842A00977200595149 /* ProductServiceTests.swift */,
 			);
 			path = ProductService;
+			sourceTree = "<group>";
+		};
+		857DD6D22A11AB5A001FB8AA /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				857DD6D32A11AB73001FB8AA /* ProductRepository.swift */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 		85F3C8832A0C7BDE00E9C799 /* Product */ = {
@@ -726,6 +737,7 @@
 				4ED9C1A6297F5ECC00E4FCC4 /* HomeView.swift in Sources */,
 				8537351429EE1ED9009CA8A1 /* HomeViewModelProtocol.swift in Sources */,
 				4E65F25E2978CF7F009AD37B /* HomeViewController.swift in Sources */,
+				857DD6D42A11AB73001FB8AA /* ProductRepository.swift in Sources */,
 				4E86811329AE8D2D00EB87A1 /* LoginViewModel.swift in Sources */,
 				4E49A6672996C6D9007DB695 /* AppCoordinator.swift in Sources */,
 				4ECA9969296CF1950071DA15 /* ViewMakers+Extensions.swift in Sources */,
