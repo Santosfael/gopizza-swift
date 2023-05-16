@@ -10,11 +10,11 @@ import XCTest
 
 final class OrderProductViewControllerTests: XCTestCase {
     private var sut: OrderProductViewController!
-    private var orderPizzaViewCollaboration: OrderProductView!
+    private var orderProductViewCollaboration: OrderProductView!
 
     override func setUpWithError() throws {
         sut = .init()
-        sut.view = orderPizzaViewCollaboration
+        sut.view = orderProductViewCollaboration
     }
 
     override func tearDownWithError() throws {

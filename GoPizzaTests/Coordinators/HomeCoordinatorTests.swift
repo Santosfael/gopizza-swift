@@ -11,7 +11,7 @@ import XCTest
 final class HomeCoordinatorTests: XCTestCase {
     var coordinatorStub: CoordinatorProtocolStub!
     var navigationController: UINavigationController!
-    var orderCoordinatorCollaboration: OrderPizzaCoordinator!
+    var orderCoordinatorCollaboration: OrderProductCoordinator!
     var loginCoordinatorCollaboration: LoginCoordinator!
     var sut: HomeCoordinator!
 

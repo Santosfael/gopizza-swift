@@ -24,28 +24,28 @@ final class OrderProducViewTests: XCTestCase {
         XCTAssertNil(sut)
     }
 
-    func testOrderPizzaViewPizzaImage() {
+    func testOrderProductViewImage() {
         do {
-            let pizzaImage = try XCTUnwrap(sut.subviews.first(where: {$0.accessibilityIdentifier == "OrderProductView.productImageView"}) as? UIImageView)
-            XCTAssertNotNil(pizzaImage)
+            let productImage = try XCTUnwrap(sut.subviews.first(where: {$0.accessibilityIdentifier == "OrderProductView.productImageView"}) as? UIImageView)
+            XCTAssertNotNil(productImage)
         } catch {
             XCTFail(error.localizedDescription)
         }
     }
 
-    func testOrderPizzaViewNamePizzaLabel() {
+    func testOrderProductViewNameLabel() {
         do {
-            let namePizzaLabel = try XCTUnwrap(sut.subviews.first(where: {$0.accessibilityIdentifier == "OrderProductView.nameProdcutLabel"}) as? UILabel)
-            XCTAssertEqual(namePizzaLabel.text, "Margherita")
+            let nameProductLabel = try XCTUnwrap(sut.subviews.first(where: {$0.accessibilityIdentifier == "OrderProductView.nameProductLabel"}) as? UILabel)
+            XCTAssertEqual(nameProductLabel.text, "Margherita")
         } catch {
             XCTFail(error.localizedDescription)
         }
     }
 
-    func testOrdePizzaViewTitleSelectSizePizzaLabel() {
+    func testOrdeProductViewTitleSelectSizeLabel() {
         do {
-            let titleSizePizzaLabel = try XCTUnwrap(sut.subviews.first(where: {$0.accessibilityIdentifier == "OrderProductView.titleSelectSizeProductLabel"}) as? UILabel)
-            XCTAssertEqual(titleSizePizzaLabel.text, "Selecione um tamanho")
+            let titleSizeProductLabel = try XCTUnwrap(sut.subviews.first(where: {$0.accessibilityIdentifier == "OrderProductView.titleSelectSizeProductLabel"}) as? UILabel)
+            XCTAssertEqual(titleSizeProductLabel.text, "Selecione um tamanho")
         } catch {
             XCTFail(error.localizedDescription)
         }

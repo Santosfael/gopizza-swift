@@ -1,5 +1,5 @@
 //
-//  OrderPizzaCoordinator.swift
+//  OrderProductCoordinator.swift
 //  GoPizza
 //
 //  Created by Rafael Rocha on 13/02/23.
@@ -8,11 +8,11 @@
 import Foundation
 import UIKit
 
-protocol OrderPizzaCoordinatorProtocol: AnyObject {
+protocol OrderProductCoordinatorProtocol: AnyObject {
     var parentCoordinator: HomeCoordinator { get set }
 }
 
-final class OrderPizzaCoordinator: CoordinatorProtocol, OrderPizzaCoordinatorProtocol {
+final class OrderProductCoordinator: CoordinatorProtocol, OrderProductCoordinatorProtocol {
     private(set) var childCoordinators: [CoordinatorProtocol] = []
     internal var navigationController: UINavigationController
 
@@ -25,7 +25,7 @@ final class OrderPizzaCoordinator: CoordinatorProtocol, OrderPizzaCoordinatorPro
     }
     
     func start() {
-        let orderPizzaViewController = OrderProductViewController()
-        navigationController.pushViewController(orderPizzaViewController, animated: true)
+        let orderProductViewController = OrderProductViewController()
+        navigationController.pushViewController(orderProductViewController, animated: true)
     }
 }
