@@ -8,7 +8,9 @@
 import Foundation
 
 final class HomeViewModel: HomeViewModelProtocol {
+
     internal var productService: ProductServiceProtocol
+    let productRepository = ProductReposity.shared
 
     init(productService: ProductServiceProtocol) {
         self.productService = productService
@@ -16,5 +18,9 @@ final class HomeViewModel: HomeViewModelProtocol {
     
     func listAllProducts(productName: String? = nil, completion: @escaping (Result<[Product], ResponseError>) -> Void) {
         productService.getAllProduct(completion: completion)
+    }
+
+    func setProduct(product: Product) {
+        productRepository.setProduct(product: product)
     }
 }

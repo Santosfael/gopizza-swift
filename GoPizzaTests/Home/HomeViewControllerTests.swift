@@ -37,7 +37,9 @@ final class HomeViewControllerTests: XCTestCase {
     }
 
     func testDidTapSelectedPizza() {
-        sut.didTapSelectedProduct()
+        let price = Price(small: 0.00, medium: 0.00, big: 0.00)
+        let product = Product(id: "", photo_url: "", name: "", description: "", price: price)
+        sut.didTapSelectedProduct(product: product)
         XCTAssertTrue(coordinatorStub.presentNextStepCalled)
     }
 
