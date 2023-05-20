@@ -65,6 +65,7 @@
 		857604822A00937F00595149 /* ProductServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857604812A00937F00595149 /* ProductServiceMock.swift */; };
 		857604852A00977200595149 /* ProductServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857604842A00977200595149 /* ProductServiceTests.swift */; };
 		85EB46EC29F0BB430021C861 /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EB46EB29F0BB430021C861 /* ResponseError.swift */; };
+		853288B529D6603500E744AF /* String+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853288B429D6603500E744AF /* String+extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +147,7 @@
 		857604812A00937F00595149 /* ProductServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductServiceMock.swift; sourceTree = "<group>"; };
 		857604842A00977200595149 /* ProductServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductServiceTests.swift; sourceTree = "<group>"; };
 		85EB46EB29F0BB430021C861 /* ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseError.swift; sourceTree = "<group>"; };
+		853288B429D6603500E744AF /* String+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				4ECA9968296CF1950071DA15 /* ViewMakers+Extensions.swift */,
+				853288B429D6603500E744AF /* String+extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -721,6 +724,7 @@
 				4E84806C29835485007F9B3C /* OrderProductViewController.swift in Sources */,
 				4E86811029AE8AEE00EB87A1 /* LoginService.swift in Sources */,
 				4EC447262994357A00A1669A /* OrdersProductViewController.swift in Sources */,
+				853288B529D6603500E744AF /* String+extensions.swift in Sources */,
 				4E9E1EC3299B2119007C9704 /* OrderPizzaCoordinator.swift in Sources */,
 				4E37FDD72968A66C00FA6D8D /* LoginView.swift in Sources */,
 				4ED9C1A6297F5ECC00E4FCC4 /* HomeView.swift in Sources */,

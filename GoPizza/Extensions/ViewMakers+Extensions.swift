@@ -14,8 +14,8 @@ extension UILabel {
                       textColor: UIColor? = UIColor.white,
                       numberOflines: Int = 1,
                       textAlignment: NSTextAlignment = .left,
-                      lineBreakMode: NSLineBreakMode = .byTruncatingTail,
                       isHidden: Bool = false,
+                      lineBreakMode: NSLineBreakMode = .byTruncatingTail,
                       accessibilityIdentifier: String? = nil) -> UILabel {
         let label = UILabel()
         label.text = text
@@ -23,6 +23,7 @@ extension UILabel {
         label.textColor = textColor
         label.numberOfLines = numberOflines
         label.textAlignment = textAlignment
+        label.isHidden = isHidden
         label.lineBreakMode = lineBreakMode
         label.translatesAutoresizingMaskIntoConstraints = false
         label.isHidden = isHidden
@@ -40,6 +41,8 @@ extension UIButton {
                        cornerRadius: CGFloat? = 12,
                        borderWidth: CGFloat = 0,
                        borderColor: CGColor? = nil,
+                       isEnabled: Bool = true,
+                       alpha: CGFloat = 1,
                        accessibilityIdentifier: String? = nil,
                        image: UIImage? = nil,
                        imageColor: UIColor? = nil) -> UIButton {
@@ -51,6 +54,8 @@ extension UIButton {
         button.backgroundColor = backgroundColor
         button.accessibilityIdentifier = accessibilityIdentifier
         button.setImage(image, for: .normal)
+        button.isEnabled = isEnabled
+        button.alpha = alpha
         if let imageColor = imageColor {
             button.setImageTintColorButton(imageColor)
         }

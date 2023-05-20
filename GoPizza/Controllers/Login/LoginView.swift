@@ -24,11 +24,23 @@ final class LoginView: UIView {
                                                          autocorrectionType: .no,
                                                          accessibilityIdentifier: "LoginView.emailTextField")
 
+    private var errorEmailLabel: UILabel = .label(text: "Digite um e-mail válido",
+                                                  font: UIFont.systemFont(ofSize: 12, weight: .regular),
+                                                  textColor: UIColor(named: "Background"),
+                                                  isHidden: true,
+                                                  accessibilityIdentifier: "LoginView.errorEmailLabel")
+
     private var passwordTextField: UITextField = .textField(keybordType: .default,
                                                             textPlaceHolder: "Senha",
                                                             borderColor: UIColor(named: "BorderColor")?.cgColor,
                                                             secureTextField: true,
                                                             accessibilityIdentifier: "LoginView.passwordTextField")
+
+    private var errorPasswordLabel: UILabel = .label(text: "Campo senha em branco",
+                                                    font: UIFont.systemFont(ofSize: 12, weight: .regular),
+                                                    textColor: UIColor(named: "Background"),
+                                                    isHidden: true,
+                                                    accessibilityIdentifier: "LoginView.errorPasswordLabel")
 
     private var forgotButton: UIButton = .button( title: "Esqueci a minha senha",
                                                   titleColor: .white,
@@ -38,6 +50,8 @@ final class LoginView: UIView {
     private var loginButton: UIButton = .button(title: "Entrar",
                                                 backgroundColor: .init(named: "Red"),
                                                 titleColor: .white,
+                                                isEnabled: false,
+                                                alpha: 0.5,
                                                 accessibilityIdentifier: "LoginView.loginButton")
 
     private var activityIndicator: UIActivityIndicatorView = .activityIndicator(style: .medium,
@@ -57,6 +71,8 @@ final class LoginView: UIView {
         passwordTextField.text = ""
         configBackgroundLinear()
         configShowKeyboard()
+        delegates()
+        errorLabels()
         setupView()
     }
 
@@ -68,6 +84,11 @@ final class LoginView: UIView {
         configureSubViews()
         aditionalSetupButton()
         constraints()
+    }
+
+    private func delegates() {
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
     }
 
     private func configShowKeyboard() {
@@ -90,15 +111,45 @@ final class LoginView: UIView {
         }
     }
 
+    private func errorLabels() {
+        emailTextField.addTarget(self, action: #selector(handleEmailTextChange), for: .editingDidEnd)
+        passwordTextField.addTarget(self, action: #selector(handlePasswordTextChange), for: .editingChanged)
+    }
+
+    @objc private func handleEmailTextChange() {
+        guard let text = emailTextField.text else { return }
+        if text.isValid(.email) {
+            emailTextField.backgroundColor = .clear
+            errorEmailLabel.isHidden = true
+        } else {
+            emailTextField.backgroundColor = UIColor(red: 0.72, green: 0, blue: 0, alpha: 0.2)
+            errorEmailLabel.isHidden = false
+        }
+    }
+
+    @objc private func handlePasswordTextChange() {
+        guard let text = passwordTextField.text else { return }
+        if !text.isEmpty {
+            passwordTextField.backgroundColor = .clear
+            errorPasswordLabel.isHidden = true
+        } else {
+            passwordTextField.backgroundColor = UIColor(red: 0.72, green: 0, blue: 0, alpha: 0.2)
+            errorPasswordLabel.isHidden = false
+        }
+    }
+
     private func configureSubViews() {
-        addSubview(image)
-        addSubview(titleLabel)
-        addSubview(stackView)
-        addSubview(forgotButton)
-        addSubview(loginButton)
-        addSubview(activityIndicator)
+        addSubviews(image,
+                    titleLabel,
+                    stackView,
+                    forgotButton,
+                    loginButton,
+                    activityIndicator)
+
         stackView.addArrangedSubview(emailTextField)
+        stackView.addArrangedSubview(errorEmailLabel)
         stackView.addArrangedSubview(passwordTextField)
+        stackView.addArrangedSubview(errorPasswordLabel)
     }
 
     private func constraints() {
@@ -181,5 +232,20 @@ extension LoginView: UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         image.isHidden = false
         self.endEditing(true)
+    }
+
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        guard let emailText = emailTextField.text,
+              let passwordText = passwordTextField.text
+        else {
+            return
+        }
+        if emailText.isValid(.email) && !passwordText.isEmpty {
+            loginButton.isEnabled = true
+            loginButton.alpha = 1
+        } else {
+            loginButton.isEnabled = false
+            loginButton.alpha = 0.5
+        }
     }
 }
