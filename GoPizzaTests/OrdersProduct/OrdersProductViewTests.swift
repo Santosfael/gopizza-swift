@@ -9,19 +9,19 @@ import XCTest
 @testable import GoPizza
 
 final class OrdersProductViewTests: XCTestCase {
-    private var sut: OrdersProductView!
+    private var sut: OrdersPizzaView!
 
     override func setUpWithError() throws {
-        sut = OrdersProductView()
+        sut = OrdersPizzaView()
     }
 
     override func tearDownWithError() throws {
        sut = nil
     }
 
-    func testOrdersProductViewTitleLabelText() {
+    func testOrdersPizzaViewTitleLabelText() {
         do {
-            let titleLabel = try XCTUnwrap(sut.subviews.first(where: {$0.accessibilityIdentifier == "OrdersProductView.titleLabel"}) as? UILabel)
+            let titleLabel = try XCTUnwrap(sut.subviews.first(where: {$0.accessibilityIdentifier == "OrdersPizzaView.titleLabel"}) as? UILabel)
             XCTAssertEqual(titleLabel.text, "Pedidos Feitos")
         } catch {
             XCTFail(error.localizedDescription)

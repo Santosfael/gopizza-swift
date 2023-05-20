@@ -19,33 +19,28 @@ final class OrderProducViewTests: XCTestCase {
         sut = nil
     }
 
-    func testInitCoder() {
-        sut = .init(coder: NSCoder())
-        XCTAssertNil(sut)
-    }
-
-    func testOrderProductViewImage() {
+    func testOrderPizzaViewPizzaImage() {
         do {
-            let productImage = try XCTUnwrap(sut.subviews.first(where: {$0.accessibilityIdentifier == "OrderProductView.productImageView"}) as? UIImageView)
-            XCTAssertNotNil(productImage)
+            let pizzaImage = try XCTUnwrap(sut.subviews.first(where: {$0.accessibilityIdentifier == "OrderProductView.productImageView"}) as? UIImageView)
+            XCTAssertNotNil(pizzaImage)
         } catch {
             XCTFail(error.localizedDescription)
         }
     }
 
-    func testOrderProductViewNameLabel() {
+    func testOrderPizzaViewNamePizzaLabel() {
         do {
-            let nameProductLabel = try XCTUnwrap(sut.subviews.first(where: {$0.accessibilityIdentifier == "OrderProductView.nameProductLabel"}) as? UILabel)
-            XCTAssertEqual(nameProductLabel.text, "Margherita")
+            let namePizzaLabel = try XCTUnwrap(sut.subviews.first(where: {$0.accessibilityIdentifier == "OrderProductView.nameProdcutLabel"}) as? UILabel)
+            XCTAssertEqual(namePizzaLabel.text, "Margherita")
         } catch {
             XCTFail(error.localizedDescription)
         }
     }
 
-    func testOrdeProductViewTitleSelectSizeLabel() {
+    func testOrdePizzaViewTitleSelectSizePizzaLabel() {
         do {
-            let titleSizeProductLabel = try XCTUnwrap(sut.subviews.first(where: {$0.accessibilityIdentifier == "OrderProductView.titleSelectSizeProductLabel"}) as? UILabel)
-            XCTAssertEqual(titleSizeProductLabel.text, "Selecione um tamanho")
+            let titleSizePizzaLabel = try XCTUnwrap(sut.subviews.first(where: {$0.accessibilityIdentifier == "OrderProductView.titleSelectSizeProductLabel"}) as? UILabel)
+            XCTAssertEqual(titleSizePizzaLabel.text, "Selecione um tamanho")
         } catch {
             XCTFail(error.localizedDescription)
         }

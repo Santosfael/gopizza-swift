@@ -10,20 +10,20 @@ import XCTest
 
 final class OrdersProductViewControllerTests: XCTestCase {
     private var sut: OrdersProductViewController!
-    private var ordersProductViewCollaboration: OrdersProductView!
+    private var ordersPizzaViewCollaboration: OrdersPizzaView!
 
     override func setUpWithError() throws {
-        ordersProductViewCollaboration = OrdersProductView()
-        sut = .init(container: ordersProductViewCollaboration)
+        ordersPizzaViewCollaboration = OrdersPizzaView()
+        sut = .init(container: ordersPizzaViewCollaboration)
     }
 
     override func tearDownWithError() throws {
         sut = nil
-        ordersProductViewCollaboration = nil
+        ordersPizzaViewCollaboration = nil
     }
 
     func testLoadingView() {
-        XCTAssertTrue(sut.view is OrdersProductView)
+        XCTAssertTrue(sut.view is OrdersPizzaView)
     }
 
     func testInitCoder() {

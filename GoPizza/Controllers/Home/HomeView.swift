@@ -209,7 +209,7 @@ extension HomeView: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.didTapSelectedProduct(product: products[indexPath.row])
+        delegate?.didTapSelectedPizza()
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
