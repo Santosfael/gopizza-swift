@@ -10,19 +10,15 @@ import UIKit
 class OrderProductViewController: UIViewController {
     
     private var content: OrderProductView
-    private var viewModel: OrderProductViewModelProtocol
 
-    init(content: OrderProductView = OrderProductView(),
-         viewModel: OrderProductViewModelProtocol = OrderProductViewModel()) {
+    init(content: OrderProductView = OrderProductView()) {
         self.content = content
-        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
 
     override func loadView() {
         super.loadView()
         view = content
-        content.getProduct(product: viewModel.getProduct())
     }
     
     required init?(coder: NSCoder) {
@@ -33,6 +29,7 @@ class OrderProductViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "Background")
         configNavigationBar()
+        // Do any additional setup after loading the view.
     }
 
     private func configNavigationBar() {

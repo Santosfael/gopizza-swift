@@ -29,9 +29,9 @@ final class HomeCoordinator: CoordinatorProtocol, HomeCoordinatorProtocol {
     }
 
     func presentNextStep() {
-        let ordersProductCoordinator = OrderProductCoordinator(navigationController, parentCoordinator: self)
-        childCoordinators.append(ordersProductCoordinator)
-        ordersProductCoordinator.start()
+        let ordersPizzaCoordinator = OrderPizzaCoordinator(navigationController, parentCoordinator: self)
+        childCoordinators.append(ordersPizzaCoordinator)
+        ordersPizzaCoordinator.start()
     }
 
     func presentPreviousStep() {

@@ -10,5 +10,4 @@ import Foundation
 protocol HomeViewModelProtocol: AnyObject {
     var productService: ProductServiceProtocol { get set }
     func listAllProducts(productName: String?, completion:@escaping (Result<[Product], ResponseError>) -> Void)
-    func setProduct(product: Product)
 }

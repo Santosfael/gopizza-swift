@@ -56,8 +56,4 @@ final class LoginViewControllerTests: XCTestCase {
             XCTAssertTrue(self.mockLoginViewModel.didCallLogin)
         }
     }
-
-    func testDidTapForgot() {
-        sut.didTapForgot()
-    }
 }

@@ -8,7 +8,7 @@
 import UIKit
 
 final class OrderProductCollectionViewCell: UICollectionViewCell {
-    static let identifier = "OrderProductCollectionViewCell"
+    static let identifier = "OrderPizzaCollectionViewCell"
 
     private var productImage: UIImageView = .imageView(image: .init(named: "pizza"),
                                                        contentMode: .scaleToFill,
@@ -18,7 +18,7 @@ final class OrderProductCollectionViewCell: UICollectionViewCell {
                                                    font: .systemFont(ofSize: 20, weight: .medium),
                                                    textColor: .init(named: "TitleColor"),
                                                    textAlignment: .center,
-                                                   accessibilityIdentifier: "OrderProductCollectionViewCell.nameProductLabel")
+                                                   accessibilityIdentifier: "OrderProductCollectionViewCell.nameProdcutLabel")
 
     private var tableNumberAndQtdProductLabel: UILabel = .label(text: "Mesa 01 * Qnt: 1",
                                                                 font: .systemFont(ofSize: 14, weight: .regular),
