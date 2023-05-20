@@ -154,8 +154,8 @@ final class LoginView: UIView {
     }
 
     func refreshInputTexts() {
-        emailTextField.text = ""
-        passwordTextField.text = ""
+        emailTextField.text = "user@email.com"
+        passwordTextField.text = "password"
     }
 
     private func aditionalSetupButton() {
