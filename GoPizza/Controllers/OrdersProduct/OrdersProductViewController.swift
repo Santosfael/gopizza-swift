@@ -9,9 +9,9 @@ import UIKit
 
 final class OrdersProductViewController: UIViewController {
 
-    private var container = OrdersPizzaView()
+    private var container = OrdersProductView()
 
-    init(container: OrdersPizzaView = OrdersPizzaView()) {
+    init(container: OrdersProductView = OrdersProductView()) {
         self.container = container
         super.init(nibName: nil, bundle: nil)
     }

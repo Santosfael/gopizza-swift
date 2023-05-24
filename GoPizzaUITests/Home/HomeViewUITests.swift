@@ -21,17 +21,17 @@ final class HomeViewUITests: XCTestCase {
 
     func testVariablesExists() {
         let titleMenuLabel = app.staticTexts["HomeView.titleMenuLabel"]
-        let amoutPizzaLabel = app.staticTexts["HomeView.amountProductLabel"]
-        let pizzasTableView = app.tables["HomeView.pizzasTableView"]
-        let pizzaImage = app.images["PizzaTableViewCell.productImage"]
-        let pizzaNameLabel = app.staticTexts["PizzaTableViewCell.productNameLabel"]
-        let pizzaDescriptionLabel = app.staticTexts["PizzasTableViewCell.productDescriptionLabel"]
+        let amoutProductLabel = app.staticTexts["HomeView.amountProductLabel"]
+        let productsTableView = app.tables["HomeView.productsTableView"]
+        let productImage = app.images["ProductTableViewCell.productImage"]
+        let productNameLabel = app.staticTexts["ProductTableViewCell.productNameLabel"]
+        let productDescriptionLabel = app.staticTexts["ProductTableViewCell.productDescriptionLabel"]
         XCTAssertTrue(titleMenuLabel.exists)
-        XCTAssertTrue(amoutPizzaLabel.exists)
-        XCTAssertTrue(pizzasTableView.exists)
-        XCTAssertTrue(pizzaImage.exists)
-        XCTAssertTrue(pizzaNameLabel.exists)
-        XCTAssertTrue(pizzaDescriptionLabel.exists)
+        XCTAssertTrue(amoutProductLabel.exists)
+        XCTAssertTrue(productsTableView.exists)
+        XCTAssertTrue(productImage.exists)
+        XCTAssertTrue(productNameLabel.exists)
+        XCTAssertTrue(productDescriptionLabel.exists)
     }
 
     func testHomeViewTitleLabelText() {
@@ -40,7 +40,7 @@ final class HomeViewUITests: XCTestCase {
     }
 
     func testHomeViewTableCellImage() {
-        let pizzaImage = app.images["PizzaTableViewCell.productImage"]
-        XCTAssertNotNil(pizzaImage)
+        let productImage = app.images["ProductTableViewCell.productImage"]
+        XCTAssertNotNil(productImage)
     }
 }

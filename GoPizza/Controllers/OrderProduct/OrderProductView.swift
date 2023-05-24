@@ -26,7 +26,7 @@ final class OrderProductView: UIView {
                                                    font: .systemFont(ofSize: 32, weight: .regular),
                                                    textColor: .init(named: "TitleColor"),
                                                    textAlignment: .center,
-                                                   accessibilityIdentifier: "OrderProductView.nameProdcutLabel")
+                                                   accessibilityIdentifier: "OrderProductView.nameProductLabel")
 
     private var titleSelectSizeProductLabel: UILabel = .label(text: "Selecione um tamanho",
                                                               font: .systemFont(ofSize: 14, weight: .regular),
@@ -96,7 +96,7 @@ final class OrderProductView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configView()
-        createArrayButtonForSizePizza()
+        createArrayButtonForSizeProduct()
         configBackgroundLinear()
         callTargetQtdProductTextField()
     }
@@ -131,19 +131,19 @@ final class OrderProductView: UIView {
         constraints()
     }
 
-    private func createArrayButtonForSizePizza() {
-        let myArraySizePizza: [String] = ["Pequena", "Média", "Grande"]
-        for (index, element) in myArraySizePizza.enumerated() {
-            let sizePizzaButton = createPropertiesButtonsSizePizza(title: element, index: index)
-            sizePizzaButton.heightAnchor.constraint(equalToConstant: 82).isActive = true
-            sizeProductButtons.append(sizePizzaButton)
-            buttonsSizeProductStack.addArrangedSubview(sizePizzaButton)
+    private func createArrayButtonForSizeProduct() {
+        let myArraySizeProduct: [String] = ["Pequena", "Média", "Grande"]
+        for (index, element) in myArraySizeProduct.enumerated() {
+            let sizeProductButton = createPropertiesButtonsSizeProduct(title: element, index: index)
+            sizeProductButton.heightAnchor.constraint(equalToConstant: 82).isActive = true
+            sizeProductButtons.append(sizeProductButton)
+            buttonsSizeProductStack.addArrangedSubview(sizeProductButton)
         }
     }
 
-    private func createPropertiesButtonsSizePizza(title: String, index: Int) -> UIButton {
+    private func createPropertiesButtonsSizeProduct(title: String, index: Int) -> UIButton {
         guard let tintImage = UIColor(named: "TitleColor") else { return UIButton() }
-        let sizePizzaButton: UIButton = .button(type: .system,
+        let sizeProductButton: UIButton = .button(type: .system,
                                                 title: title,
                                                 backgroundColor: .white,
                                                 titleColor: .init(named: "TitleColor"),
@@ -151,18 +151,18 @@ final class OrderProductView: UIView {
                                                 cornerRadius: 8,
                                                 borderWidth: 1,
                                                 borderColor: UIColor(named: "Background2")?.cgColor,
-                                                accessibilityIdentifier: "OrderProductView.sizePizzaButton\(title)")
-        sizePizzaButton.addTarget(self, action: #selector(selectedSizePizza), for: .touchDown)
-        sizePizzaButton.setImage(UIImage(systemName: "circle"), for: .normal)
-        sizePizzaButton.imageView?.contentMode = .scaleToFill
-        sizePizzaButton.contentHorizontalAlignment = .left
-        sizePizzaButton.setImageTintColorButton(tintImage)
-        sizePizzaButton.alignItensVertical()
-        sizePizzaButton.tag = index
-        return sizePizzaButton
+                                                accessibilityIdentifier: "OrderProductView.sizeProductButton\(title)")
+        sizeProductButton.addTarget(self, action: #selector(selectedSizeProduct), for: .touchDown)
+        sizeProductButton.setImage(UIImage(systemName: "circle"), for: .normal)
+        sizeProductButton.imageView?.contentMode = .scaleToFill
+        sizeProductButton.contentHorizontalAlignment = .left
+        sizeProductButton.setImageTintColorButton(tintImage)
+        sizeProductButton.alignItensVertical()
+        sizeProductButton.tag = index
+        return sizeProductButton
     }
 
-    @objc func selectedSizePizza(sender: UIButton) {
+    @objc func selectedSizeProduct(sender: UIButton) {
         guard let tintImage = UIColor(named: "TitleColor"),
               let primaryColorButton = UIColor(named: "PrimaryColorButton")
         else { return }
@@ -190,7 +190,6 @@ final class OrderProductView: UIView {
 
     @objc private func updateTotalOrder() {
         if let product = product, let qtdProduct = quantityProductTextField.text {
-            print((qtdProduct as NSString).doubleValue)
             if ((qtdProduct as NSString).doubleValue > 0) {
                 switch quantityProductText {
                 case "Pequena":
