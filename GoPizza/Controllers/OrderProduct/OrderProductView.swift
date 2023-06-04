@@ -10,6 +10,7 @@ import UIKit
 final class OrderProductView: UIView {
 
     private let headerViewHeight: CGFloat = 172
+    private var quantityProductText: String = ""
 
     private var headerView: UIView = {
         let view = UIView()
@@ -25,7 +26,7 @@ final class OrderProductView: UIView {
                                                    font: .systemFont(ofSize: 32, weight: .regular),
                                                    textColor: .init(named: "TitleColor"),
                                                    textAlignment: .center,
-                                                   accessibilityIdentifier: "OrderProductView.nameProdcutLabel")
+                                                   accessibilityIdentifier: "OrderProductView.nameProductLabel")
 
     private var titleSelectSizeProductLabel: UILabel = .label(text: "Selecione um tamanho",
                                                               font: .systemFont(ofSize: 14, weight: .regular),
@@ -75,11 +76,11 @@ final class OrderProductView: UIView {
                                                                         alignment: .center,
                                                                         contentMode: .scaleToFill)
 
-    private var totalPriceOrderLabel: UILabel = .label(text: "Total: R$ 10,00",
-                                                       font: .systemFont(ofSize: 14, weight: .regular),
-                                                       textColor: .init(named: "TitleColor"),
-                                                       textAlignment: .right,
-                                                       accessibilityIdentifier: "OrderProductView.totalPriceOrderLabel")
+    private lazy var totalPriceOrderLabel: UILabel = .label(text: "Total: R$ 0.00",
+                                                            font: .systemFont(ofSize: 14, weight: .regular),
+                                                            textColor: .init(named: "TitleColor"),
+                                                            textAlignment: .right,
+                                                            accessibilityIdentifier: "OrderProductView.totalPriceOrderLabel")
 
     private var confirmOrderButton: UIButton = .button(type: .system,
                                                        title: "Confirmar pedido",
@@ -87,19 +88,43 @@ final class OrderProductView: UIView {
                                                        titleColor: .white,
                                                        titleFont: .systemFont(ofSize: 14, weight: .medium),
                                                        cornerRadius: 12,
-                                                       borderWidth: 1, borderColor: UIColor.clear.cgColor,
+                                                       borderWidth: 1,
+                                                       borderColor: UIColor.clear.cgColor,
+                                                       isEnabled: false,
+                                                       alpha: 0.5,
                                                        accessibilityIdentifier: "OrderProductView.confirmOrderButton")
 
     private var sizeProductButtons = [UIButton]()
+    private var product: Product?
+    weak var delegate: OrderProductViewDelegate?
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         configView()
-        createArrayButtonForSizePizza()
+        createArrayButtonForSizeProduct()
         configBackgroundLinear()
+        callTargetQtdProductTextField()
+        configShowKeyboard()
+        delegates()
+        additionalConfigButtons()
     }
     
     required init?(coder: NSCoder) {
         nil
+    }
+
+    private func delegates() {
+        tableNumberTextField.delegate = self
+        quantityProductTextField.delegate = self
+    }
+
+    func getProduct(product: Product?) {
+        if let product = product {
+            let imageUrl = URL(string: product.photo_url)
+            productImageView.kf.setImage(with: imageUrl)
+            nameProductLabel.text = product.name
+            self.product = product
+        }
     }
     
     private func configView() {
@@ -119,19 +144,19 @@ final class OrderProductView: UIView {
         constraints()
     }
 
-    private func createArrayButtonForSizePizza() {
-        let myArraySizePizza: [String] = ["Pequena", "Média", "Grande"]
-        for (index, element) in myArraySizePizza.enumerated() {
-            let sizePizzaButton = createPropertiesButtonsSizePizza(title: element, index: index)
-            sizePizzaButton.heightAnchor.constraint(equalToConstant: 82).isActive = true
-            sizeProductButtons.append(sizePizzaButton)
-            buttonsSizeProductStack.addArrangedSubview(sizePizzaButton)
+    private func createArrayButtonForSizeProduct() {
+        let myArraySizeProduct: [String] = ["Pequena", "Média", "Grande"]
+        for (index, element) in myArraySizeProduct.enumerated() {
+            let sizeProductButton = createPropertiesButtonsSizeProduct(title: element, index: index)
+            sizeProductButton.heightAnchor.constraint(equalToConstant: 82).isActive = true
+            sizeProductButtons.append(sizeProductButton)
+            buttonsSizeProductStack.addArrangedSubview(sizeProductButton)
         }
     }
 
-    private func createPropertiesButtonsSizePizza(title: String, index: Int) -> UIButton {
+    private func createPropertiesButtonsSizeProduct(title: String, index: Int) -> UIButton {
         guard let tintImage = UIColor(named: "TitleColor") else { return UIButton() }
-        let sizePizzaButton: UIButton = .button(type: .system,
+        let sizeProductButton: UIButton = .button(type: .system,
                                                 title: title,
                                                 backgroundColor: .white,
                                                 titleColor: .init(named: "TitleColor"),
@@ -139,18 +164,18 @@ final class OrderProductView: UIView {
                                                 cornerRadius: 8,
                                                 borderWidth: 1,
                                                 borderColor: UIColor(named: "Background2")?.cgColor,
-                                                accessibilityIdentifier: "OrderProductView.sizePizzaButton\(title)")
-        sizePizzaButton.addTarget(self, action: #selector(selectedSizePizza), for: .touchDown)
-        sizePizzaButton.setImage(UIImage(systemName: "circle"), for: .normal)
-        sizePizzaButton.imageView?.contentMode = .scaleToFill
-        sizePizzaButton.contentHorizontalAlignment = .left
-        sizePizzaButton.setImageTintColorButton(tintImage)
-        sizePizzaButton.alignItensVertical()
-        sizePizzaButton.tag = index
-        return sizePizzaButton
+                                                accessibilityIdentifier: "OrderProductView.sizeProductButton\(title)")
+        sizeProductButton.addTarget(self, action: #selector(selectedSizeProduct), for: .touchDown)
+        sizeProductButton.setImage(UIImage(systemName: "circle"), for: .normal)
+        sizeProductButton.imageView?.contentMode = .scaleToFill
+        sizeProductButton.contentHorizontalAlignment = .left
+        sizeProductButton.setImageTintColorButton(tintImage)
+        sizeProductButton.alignItensVertical()
+        sizeProductButton.tag = index
+        return sizeProductButton
     }
 
-    @objc func selectedSizePizza(sender: UIButton) {
+    @objc func selectedSizeProduct(sender: UIButton) {
         guard let tintImage = UIColor(named: "TitleColor"),
               let primaryColorButton = UIColor(named: "PrimaryColorButton")
         else { return }
@@ -163,6 +188,7 @@ final class OrderProductView: UIView {
                 button.backgroundColor = UIColor(named: "SecondaryColorButton")
                 button.contentHorizontalAlignment = .left
                 button.alignItensVertical()
+                quantityProductText = button.currentTitle ?? ""
             } else {
                 button.setImage(UIImage(systemName: "circle"), for: .normal)
                 button.imageView?.contentMode = .scaleToFill
@@ -173,6 +199,62 @@ final class OrderProductView: UIView {
                 button.alignItensVertical()
             }
         }
+    }
+
+    @objc private func updateTotalOrder() {
+        if let product = product, let qtdProduct = quantityProductTextField.text {
+            if ((qtdProduct as NSString).doubleValue > 0) {
+                switch quantityProductText {
+                case "Pequena":
+                    totalPriceOrderLabel.text = "R$ \(product.price.small * ((qtdProduct as NSString).doubleValue))"
+                case "Média":
+                    totalPriceOrderLabel.text = "R$ \(product.price.medium * ((qtdProduct as NSString).doubleValue))"
+                case "Grande":
+                    totalPriceOrderLabel.text = "R$ \(product.price.big * ((qtdProduct as NSString).doubleValue))"
+                default:
+                    totalPriceOrderLabel.text = "R$ 0.00"
+                }
+            }
+        }
+    }
+
+    private func configShowKeyboard() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+
+    @objc private func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.frame.origin.y == 0 {
+                self.productImageView.isHidden = true
+                self.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+
+    @objc private func keyboardWillHide(notification: NSNotification) {
+        if self.frame.origin.y != 0 {
+            self.frame.origin.y = 0
+        }
+    }
+
+    private func additionalConfigButtons() {
+        confirmOrderButton.addTarget(self, action: #selector(checkout), for: .touchDown)
+    }
+
+    @objc private func checkout() {
+        guard let qtdText = quantityProductTextField.text,
+              let tableNumberText = tableNumberTextField.text,
+              let totalPriceLabel = totalPriceOrderLabel.text
+        else {
+            return
+        }
+        print("Mesa: \(tableNumberText), Quantidade produto: \(qtdText) e valor do pedido R$ \(totalPriceLabel)");
+        delegate?.didCheckout()
+    }
+
+    private func callTargetQtdProductTextField() {
+        quantityProductTextField.addTarget(self, action: #selector(updateTotalOrder), for: .editingChanged)
     }
 
     private func constraints() {
@@ -245,5 +327,27 @@ final class OrderProductView: UIView {
         headerView.layer.addSublayer(CAGradientLayer.linearGradient(topColor: UIColor(named: "Red"),
                                                                     bottomColor: UIColor(named: "DarkRed"),
                                                                     bounds: boundsStack))
+    }
+}
+
+extension OrderProductView: UITextFieldDelegate {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        productImageView.isHidden = false
+        self.endEditing(true)
+    }
+
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        guard let qtdText = quantityProductTextField.text,
+              let tableNumberText = tableNumberTextField.text
+        else {
+            return
+        }
+        if !qtdText.isEmpty && !tableNumberText.isEmpty {
+            confirmOrderButton.isEnabled = true
+            confirmOrderButton.alpha = 1
+        } else {
+            confirmOrderButton.isEnabled = false
+            confirmOrderButton.alpha = 0.5
+        }
     }
 }

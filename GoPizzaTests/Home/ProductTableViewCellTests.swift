@@ -1,5 +1,5 @@
 //
-//  PizzasTableViewCellTests.swift
+//  ProductTableViewCellTests.swift
 //  GoPizzaTests
 //
 //  Created by Rafael Rocha on 25/01/23.
@@ -19,19 +19,19 @@ final class ProductTableViewCellTests: XCTestCase {
         sut = nil
     }
 
-    func testPizzaImageNotNil() {
+    func testProductImageNotNil() {
         do {
-            let pizzaImage = try XCTUnwrap(sut.subviews.first(where: {$0.accessibilityIdentifier == "ProductTableViewCell.productImage"}) as? UIImageView)
-            XCTAssertNotNil(pizzaImage)
+            let productImage = try XCTUnwrap(sut.subviews.first(where: {$0.accessibilityIdentifier == "ProductTableViewCell.productImage"}) as? UIImageView)
+            XCTAssertNotNil(productImage)
         } catch {
             XCTFail(error.localizedDescription)
         }
     }
 
-    func testNamePizzaNotNil() {
+    func testNameProductNotNil() {
         do {
-            let namePizza = try XCTUnwrap(sut.subviews.first(where: {$0.accessibilityIdentifier == "ProductTableViewCell.productNameLabel"}) as? UILabel)
-            XCTAssertNotNil(namePizza)
+            let nameProduct = try XCTUnwrap(sut.subviews.first(where: {$0.accessibilityIdentifier == "ProductTableViewCell.productNameLabel"}) as? UILabel)
+            XCTAssertNotNil(nameProduct)
         } catch {
             XCTFail(error.localizedDescription)
         }

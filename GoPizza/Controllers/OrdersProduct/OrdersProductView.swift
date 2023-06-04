@@ -1,5 +1,5 @@
 //
-//  OrdersPizzaView.swift
+//  OrdersProductView.swift
 //  GoPizza
 //
 //  Created by Rafael Rocha on 08/02/23.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class OrdersPizzaView: UIView {
+final class OrdersProductView: UIView {
     private let headerViewHeight: CGFloat = 100
 
     private var headerView: UIView = {
@@ -20,7 +20,7 @@ final class OrdersPizzaView: UIView {
                                              font: .systemFont(ofSize: 24, weight: .medium),
                                              textColor: .white,
                                              textAlignment: .center,
-                                             accessibilityIdentifier: "OrdersPizzaView.titleLabel")
+                                             accessibilityIdentifier: "OrdersProductView.titleLabel")
 
     private lazy var ordersProductCollectionView: UICollectionView = {
         let layout = layoutCollection()
@@ -94,7 +94,7 @@ final class OrdersPizzaView: UIView {
     }
 }
 
-extension OrdersPizzaView: UICollectionViewDelegate, UICollectionViewDataSource {
+extension OrdersProductView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 6
     }

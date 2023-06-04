@@ -67,7 +67,8 @@ extension HomeViewController: HomeViewDelegate {
         viewModel.listAllProducts(productName: nil, completion: completion)
     }
 
-    func didTapSelectedPizza() {
+    func didTapSelectedProduct(product: Product) {
+        viewModel.setProduct(product: product)
         coordinator.presentNextStep()
     }
 }

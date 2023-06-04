@@ -1,5 +1,5 @@
 //
-//  OrderPizzaCollectionViewCellTests.swift
+//  OrderProductCollectionViewCellTests.swift
 //  GoPizzaTests
 //
 //  Created by Rafael Rocha on 10/02/23.
@@ -19,19 +19,19 @@ final class OrderProductCollectionViewCellTests: XCTestCase {
         sut = nil
     }
 
-    func testPizzaImageNotNil() {
+    func testProducImageNotNil() {
         do {
-            let pizzaImage = try XCTUnwrap(sut.subviews.first(where: {$0.accessibilityIdentifier == "OrderProductCollectionViewCell.productImage"}) as? UIImageView)
-            XCTAssertNotNil(pizzaImage)
+            let productImage = try XCTUnwrap(sut.subviews.first(where: {$0.accessibilityIdentifier == "OrderProductCollectionViewCell.productImage"}) as? UIImageView)
+            XCTAssertNotNil(productImage)
         } catch {
             XCTFail(error.localizedDescription)
         }
     }
 
-    func testNamePizzaNotNil() {
+    func testNameProductNotNil() {
         do {
-            let namePizza = try XCTUnwrap(sut.subviews.first(where: {$0.accessibilityIdentifier == "OrderProductCollectionViewCell.nameProdcutLabel"}) as? UILabel)
-            XCTAssertNotNil(namePizza)
+            let nameProduct = try XCTUnwrap(sut.subviews.first(where: {$0.accessibilityIdentifier == "OrderProductCollectionViewCell.nameProductLabel"}) as? UILabel)
+            XCTAssertNotNil(nameProduct)
         } catch {
             XCTFail(error.localizedDescription)
         }
