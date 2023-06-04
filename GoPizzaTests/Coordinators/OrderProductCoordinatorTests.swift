@@ -35,4 +35,11 @@ class OrderProductCoordinatorTests: XCTestCase {
         XCTAssertEqual(navigationController.viewControllers.count, 1)
         XCTAssertTrue(navigationController.topViewController is OrderProductViewController)
     }
+
+    func testPresentPreviousStep() {
+        sut.presentPreviousStep()
+        XCTAssertEqual(sut.childCoordinators.count, 0)
+        XCTAssertEqual(navigationController.viewControllers.count, 0)
+        XCTAssertNil(navigationController.topViewController)
+    }
 }

@@ -10,7 +10,7 @@ import UIKit
 final class OrderProductView: UIView {
 
     private let headerViewHeight: CGFloat = 172
-    private var quantityProductText: String = "";
+    private var quantityProductText: String = ""
 
     private var headerView: UIView = {
         let view = UIView()
@@ -77,10 +77,10 @@ final class OrderProductView: UIView {
                                                                         contentMode: .scaleToFill)
 
     private lazy var totalPriceOrderLabel: UILabel = .label(text: "Total: R$ 0.00",
-                                                       font: .systemFont(ofSize: 14, weight: .regular),
-                                                       textColor: .init(named: "TitleColor"),
-                                                       textAlignment: .right,
-                                                       accessibilityIdentifier: "OrderProductView.totalPriceOrderLabel")
+                                                            font: .systemFont(ofSize: 14, weight: .regular),
+                                                            textColor: .init(named: "TitleColor"),
+                                                            textAlignment: .right,
+                                                            accessibilityIdentifier: "OrderProductView.totalPriceOrderLabel")
 
     private var confirmOrderButton: UIButton = .button(type: .system,
                                                        title: "Confirmar pedido",
@@ -88,21 +88,34 @@ final class OrderProductView: UIView {
                                                        titleColor: .white,
                                                        titleFont: .systemFont(ofSize: 14, weight: .medium),
                                                        cornerRadius: 12,
-                                                       borderWidth: 1, borderColor: UIColor.clear.cgColor,
+                                                       borderWidth: 1,
+                                                       borderColor: UIColor.clear.cgColor,
+                                                       isEnabled: false,
+                                                       alpha: 0.5,
                                                        accessibilityIdentifier: "OrderProductView.confirmOrderButton")
 
     private var sizeProductButtons = [UIButton]()
     private var product: Product?
+    weak var delegate: OrderProductViewDelegate?
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         configView()
         createArrayButtonForSizeProduct()
         configBackgroundLinear()
         callTargetQtdProductTextField()
+        configShowKeyboard()
+        delegates()
+        additionalConfigButtons()
     }
     
     required init?(coder: NSCoder) {
         nil
+    }
+
+    private func delegates() {
+        tableNumberTextField.delegate = self
+        quantityProductTextField.delegate = self
     }
 
     func getProduct(product: Product?) {
@@ -205,6 +218,41 @@ final class OrderProductView: UIView {
         }
     }
 
+    private func configShowKeyboard() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+
+    @objc private func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.frame.origin.y == 0 {
+                self.productImageView.isHidden = true
+                self.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+
+    @objc private func keyboardWillHide(notification: NSNotification) {
+        if self.frame.origin.y != 0 {
+            self.frame.origin.y = 0
+        }
+    }
+
+    private func additionalConfigButtons() {
+        confirmOrderButton.addTarget(self, action: #selector(checkout), for: .touchDown)
+    }
+
+    @objc private func checkout() {
+        guard let qtdText = quantityProductTextField.text,
+              let tableNumberText = tableNumberTextField.text,
+              let totalPriceLabel = totalPriceOrderLabel.text
+        else {
+            return
+        }
+        print("Mesa: \(tableNumberText), Quantidade produto: \(qtdText) e valor do pedido R$ \(totalPriceLabel)");
+        delegate?.didCheckout()
+    }
+
     private func callTargetQtdProductTextField() {
         quantityProductTextField.addTarget(self, action: #selector(updateTotalOrder), for: .editingChanged)
     }
@@ -284,6 +332,22 @@ final class OrderProductView: UIView {
 
 extension OrderProductView: UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        productImageView.isHidden = false
         self.endEditing(true)
+    }
+
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        guard let qtdText = quantityProductTextField.text,
+              let tableNumberText = tableNumberTextField.text
+        else {
+            return
+        }
+        if !qtdText.isEmpty && !tableNumberText.isEmpty {
+            confirmOrderButton.isEnabled = true
+            confirmOrderButton.alpha = 1
+        } else {
+            confirmOrderButton.isEnabled = false
+            confirmOrderButton.alpha = 0.5
+        }
     }
 }

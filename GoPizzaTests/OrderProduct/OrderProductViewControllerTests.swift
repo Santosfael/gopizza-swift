@@ -11,14 +11,20 @@ import XCTest
 final class OrderProductViewControllerTests: XCTestCase {
     private var sut: OrderProductViewController!
     private var orderProductViewCollaboration: OrderProductView!
+    private var coodinatorStub: CoordinatorProtocolStub!
+    private var navigationController: UINavigationController!
 
     override func setUpWithError() throws {
-        sut = .init()
+        navigationController = UINavigationController()
+        coodinatorStub = .init(navigationController)
+        sut = .init(coordinator: coodinatorStub)
         sut.view = orderProductViewCollaboration
     }
 
     override func tearDownWithError() throws {
         sut = nil
+        coodinatorStub = nil
+        navigationController = nil
     }
 
     func testLoadingView() {
@@ -28,5 +34,10 @@ final class OrderProductViewControllerTests: XCTestCase {
     func testInitCoder() {
         sut = .init(coder: NSCoder())
         XCTAssertNil(sut)
+    }
+
+    func testDidTapCheckout() {
+        sut.didCheckout()
+        XCTAssertTrue(coodinatorStub.presentPreviousStepCalled)
     }
 }

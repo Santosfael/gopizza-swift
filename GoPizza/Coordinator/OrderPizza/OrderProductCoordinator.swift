@@ -25,7 +25,11 @@ final class OrderProductCoordinator: CoordinatorProtocol, OrderProductCoordinato
     }
     
     func start() {
-        let orderProductViewController = OrderProductViewController()
+        let orderProductViewController = OrderProductViewController(coordinator: self)
         navigationController.pushViewController(orderProductViewController, animated: true)
+    }
+
+    func presentPreviousStep() {
+        navigationController.popViewController(animated: true)
     }
 }
