@@ -53,4 +53,9 @@ final class HomeViewControllerTests: XCTestCase {
         UIApplication.shared.sendAction((logoutButton.action)!, to: logoutButton.target, from: nil, for: nil)
         XCTAssertTrue(coordinatorStub.presentPreviousStepCalled)
     }
+
+    func testDidRedirectOrdersProduct() {
+        sut.didTapRedirectToOrders()
+        XCTAssertTrue(coordinatorStub.presentOtherStepCalled)
+    }
 }

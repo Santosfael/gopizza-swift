@@ -63,6 +63,9 @@
 		8537351729EE1F72009CA8A1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8537351629EE1F72009CA8A1 /* HomeViewModel.swift */; };
 		8537351A29EE208D009CA8A1 /* ProductServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8537351929EE208D009CA8A1 /* ProductServiceProtocol.swift */; };
 		8537351C29EE20F4009CA8A1 /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8537351B29EE20F4009CA8A1 /* ProductService.swift */; };
+		8557B54B2A2EBA000086AD0E /* OrdersProductCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8557B54A2A2EBA000086AD0E /* OrdersProductCoordinator.swift */; };
+		8557B54E2A2EBC410086AD0E /* OrdersProductViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8557B54D2A2EBC410086AD0E /* OrdersProductViewDelegate.swift */; };
+		8557B5502A2EBD370086AD0E /* OrdersProductCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8557B54F2A2EBD370086AD0E /* OrdersProductCoordinatorTests.swift */; };
 		8576047F2A00906100595149 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8576047E2A00906100595149 /* HomeViewModelTests.swift */; };
 		857604822A00937F00595149 /* ProductServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857604812A00937F00595149 /* ProductServiceMock.swift */; };
 		857604852A00977200595149 /* ProductServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857604842A00977200595149 /* ProductServiceTests.swift */; };
@@ -149,6 +152,9 @@
 		8537351629EE1F72009CA8A1 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		8537351929EE208D009CA8A1 /* ProductServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductServiceProtocol.swift; sourceTree = "<group>"; };
 		8537351B29EE20F4009CA8A1 /* ProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductService.swift; sourceTree = "<group>"; };
+		8557B54A2A2EBA000086AD0E /* OrdersProductCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersProductCoordinator.swift; sourceTree = "<group>"; };
+		8557B54D2A2EBC410086AD0E /* OrdersProductViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersProductViewDelegate.swift; sourceTree = "<group>"; };
+		8557B54F2A2EBD370086AD0E /* OrdersProductCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersProductCoordinatorTests.swift; sourceTree = "<group>"; };
 		8576047E2A00906100595149 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
 		857604812A00937F00595149 /* ProductServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductServiceMock.swift; sourceTree = "<group>"; };
 		857604842A00977200595149 /* ProductServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductServiceTests.swift; sourceTree = "<group>"; };
@@ -325,6 +331,7 @@
 		4E49A6622996C5FD007DB695 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				8557B5492A2EB9E30086AD0E /* OrdersProduct */,
 				4E9E1EC1299B2100007C9704 /* OrderPizza */,
 				4E49A66C2996CF0F007DB695 /* Home */,
 				4E49A6682996C813007DB695 /* Login */,
@@ -475,6 +482,7 @@
 				4E8E118D299C79F800595D2D /* LoginCoordinatorTests.swift */,
 				4E8E118F299C7A8C00595D2D /* HomeCoordinatorTests.swift */,
 				4E8E1191299C7BE200595D2D /* OrderProductCoordinatorTests.swift */,
+				8557B54F2A2EBD370086AD0E /* OrdersProductCoordinatorTests.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -507,6 +515,7 @@
 		4EC447242994353F00A1669A /* OrdersProduct */ = {
 			isa = PBXGroup;
 			children = (
+				8557B54C2A2EBC240086AD0E /* Protocols */,
 				4EC447252994357A00A1669A /* OrdersProductViewController.swift */,
 				4EC44727299435CF00A1669A /* OrdersProductView.swift */,
 				4E21985929952EE00027811C /* OrderProductCollectionViewCell.swift */,
@@ -565,6 +574,22 @@
 				8537351B29EE20F4009CA8A1 /* ProductService.swift */,
 			);
 			path = ProductService;
+			sourceTree = "<group>";
+		};
+		8557B5492A2EB9E30086AD0E /* OrdersProduct */ = {
+			isa = PBXGroup;
+			children = (
+				8557B54A2A2EBA000086AD0E /* OrdersProductCoordinator.swift */,
+			);
+			path = OrdersProduct;
+			sourceTree = "<group>";
+		};
+		8557B54C2A2EBC240086AD0E /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				8557B54D2A2EBC410086AD0E /* OrdersProductViewDelegate.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		857604802A00936900595149 /* Services */ = {
@@ -758,11 +783,13 @@
 				4E86810D29AE8A0A00EB87A1 /* User.swift in Sources */,
 				4E49A6642996C614007DB695 /* Coordinator.swift in Sources */,
 				4E84806C29835485007F9B3C /* OrderProductViewController.swift in Sources */,
+				8557B54B2A2EBA000086AD0E /* OrdersProductCoordinator.swift in Sources */,
 				4E86811029AE8AEE00EB87A1 /* LoginService.swift in Sources */,
 				4EC447262994357A00A1669A /* OrdersProductViewController.swift in Sources */,
 				853288B529D6603500E744AF /* String+extensions.swift in Sources */,
 				4E9E1EC3299B2119007C9704 /* OrderProductCoordinator.swift in Sources */,
 				4E37FDD72968A66C00FA6D8D /* LoginView.swift in Sources */,
+				8557B54E2A2EBC410086AD0E /* OrdersProductViewDelegate.swift in Sources */,
 				4ED9C1A6297F5ECC00E4FCC4 /* HomeView.swift in Sources */,
 				8537351429EE1ED9009CA8A1 /* HomeViewModelProtocol.swift in Sources */,
 				4E65F25E2978CF7F009AD37B /* HomeViewController.swift in Sources */,
@@ -795,6 +822,7 @@
 				4EB4D07B298B022B00799CC7 /* OrderProductViewControllerTests.swift in Sources */,
 				857604822A00937F00595149 /* ProductServiceMock.swift in Sources */,
 				4E18AFBE299C639C0027AB5A /* CoordinatorProtocolStub.swift in Sources */,
+				8557B5502A2EBD370086AD0E /* OrdersProductCoordinatorTests.swift in Sources */,
 				4E2D1E5A2976366400A5821A /* AppDelegateTests.swift in Sources */,
 				4EE460132982034F00A4D94E /* HomeViewTests.swift in Sources */,
 				4E8E1192299C7BE200595D2D /* OrderProductCoordinatorTests.swift in Sources */,

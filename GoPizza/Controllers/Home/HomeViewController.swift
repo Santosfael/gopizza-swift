@@ -63,6 +63,7 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: HomeViewDelegate {
+
     func listTableProducts(completion: @escaping (Result<[Product], ResponseError>) -> Void) {
         viewModel.listAllProducts(productName: nil, completion: completion)
     }
@@ -70,5 +71,9 @@ extension HomeViewController: HomeViewDelegate {
     func didTapSelectedProduct(product: Product) {
         viewModel.setProduct(product: product)
         coordinator.presentNextStep()
+    }
+
+    func didTapRedirectToOrders() {
+        coordinator.presentOtherStep()
     }
 }

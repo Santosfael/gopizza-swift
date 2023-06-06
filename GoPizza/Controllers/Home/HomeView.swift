@@ -78,6 +78,13 @@ final class HomeView: UIView {
                                                                                 clipsToBounds: true,
                                                                                 color: .init(named: "DarkRed"),
                                                                                 accessibilityIdentifier: "HomeView.activityIndicator")
+
+    private var redirectOrdersButton: UIButton = .button(type: .system,
+                                                         cornerRadius: 23,
+                                                         borderWidth: 2,
+                                                         borderColor: .init(red: 0, green: 0, blue: 0, alpha: 1),
+                                                         image: .init(systemName: "cart"),
+                                                         imageColor: .black)
     private lazy var products = [Product]() {
         didSet {
             DispatchQueue.main.async {
@@ -91,11 +98,21 @@ final class HomeView: UIView {
         configView()
         configTableViewCell()
         configBackgroundLinear()
+        additionalConfigButtons()
         activityIndicator.startAnimating()
     }
 
     required init?(coder: NSCoder) {
         nil
+    }
+
+    private func additionalConfigButtons() {
+        redirectOrdersButton.backgroundColor = .white
+        redirectOrdersButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor
+        redirectOrdersButton.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        redirectOrdersButton.layer.shadowOpacity = 1
+        redirectOrdersButton.layer.shadowRadius = 0
+        redirectOrdersButton.addTarget(self, action: #selector(handleRedirectOrdes), for: .touchDown)
     }
 
     private func isVisibilityComponents() {
@@ -107,6 +124,10 @@ final class HomeView: UIView {
         productTableView.delegate = self
         productTableView.dataSource = self
         productTableView.register(ProductTableViewCell.self, forCellReuseIdentifier: ProductTableViewCell.identifier)
+    }
+
+    @objc private func handleRedirectOrdes() {
+        delegate?.didTapRedirectToOrders()
     }
 
     func getProducts() {
@@ -138,7 +159,9 @@ final class HomeView: UIView {
                     searchBarAndSearchButtonStackView,
                     menuAndAmountProducStackView,
                     productTableView,
-                    activityIndicator)
+                    activityIndicator,
+                    redirectOrdersButton)
+
         constraints()
     }
 
@@ -182,6 +205,13 @@ final class HomeView: UIView {
         NSLayoutConstraint.activate([
             activityIndicator.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
             activityIndicator.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor, constant: 40)
+        ])
+
+        NSLayoutConstraint.activate([
+            redirectOrdersButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            redirectOrdersButton.widthAnchor.constraint(equalToConstant: 46),
+            redirectOrdersButton.heightAnchor.constraint(equalToConstant: 46),
+            redirectOrdersButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20),
         ])
     }
 

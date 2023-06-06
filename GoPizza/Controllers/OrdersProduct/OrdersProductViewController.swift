@@ -9,10 +9,13 @@ import UIKit
 
 final class OrdersProductViewController: UIViewController {
 
-    private var container = OrdersProductView()
+    private var container: OrdersProductView
+    private var coordinator: CoordinatorProtocol
 
-    init(container: OrdersProductView = OrdersProductView()) {
+    init(container: OrdersProductView = OrdersProductView(),
+         coordinator: CoordinatorProtocol) {
         self.container = container
+        self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -31,6 +34,8 @@ final class OrdersProductViewController: UIViewController {
     }
 
     private func configNavigationBar() {
-        navigationController?.isNavigationBarHidden = true
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.navigationBar.topItem?.backButtonTitle = ""
+        navigationController?.navigationBar.tintColor = .white
     }
 }

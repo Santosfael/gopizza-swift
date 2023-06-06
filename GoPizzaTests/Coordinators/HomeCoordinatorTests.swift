@@ -49,4 +49,13 @@ final class HomeCoordinatorTests: XCTestCase {
         XCTAssertEqual(navigationController.viewControllers.count, 0)
         XCTAssertNil(navigationController.topViewController)
     }
+
+    func testPresentOtherStep() {
+        sut.presentOtherStep()
+        coordinatorStub.presentOtherStep()
+        XCTAssertEqual(navigationController.viewControllers.count,1)
+        XCTAssertTrue(navigationController.topViewController is OrdersProductViewController)
+        XCTAssertEqual(sut.childCoordinators.count, 1)
+        XCTAssertTrue(coordinatorStub.presentOtherStepCalled)
+    }
 }
