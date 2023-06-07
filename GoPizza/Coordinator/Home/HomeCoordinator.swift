@@ -29,12 +29,18 @@ final class HomeCoordinator: CoordinatorProtocol, HomeCoordinatorProtocol {
     }
 
     func presentNextStep() {
-        let ordersProductCoordinator = OrderProductCoordinator(navigationController, parentCoordinator: self)
-        childCoordinators.append(ordersProductCoordinator)
-        ordersProductCoordinator.start()
+        let orderProductCoordinator = OrderProductCoordinator(navigationController, parentCoordinator: self)
+        childCoordinators.append(orderProductCoordinator)
+        orderProductCoordinator.start()
     }
 
     func presentPreviousStep() {
         navigationController.popViewController(animated: true)
+    }
+
+    func presentOtherStep() {
+        let ordersProductCoordinator = OrdersProductCoordinator(navigationController, parentCoordinator: self)
+        childCoordinators.append(ordersProductCoordinator)
+        ordersProductCoordinator.start()
     }
 }
