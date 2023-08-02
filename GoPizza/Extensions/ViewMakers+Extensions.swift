@@ -213,6 +213,7 @@ extension UISearchBar {
                           cornerRadius: CGFloat,
                           clipsToBounds: Bool,
                           borderWidth: CGFloat? = nil,
+                          delegate: UISearchBarDelegate? = nil,
                           accessibilityIdentifier: String) -> UISearchBar {
         let searchBar = UISearchBar()
         searchBar.translatesAutoresizingMaskIntoConstraints = false
@@ -221,6 +222,7 @@ extension UISearchBar {
         searchBar.searchTextField.backgroundColor = searchTextFieldBackgroundColor
         searchBar.layer.borderColor = borderColor?.cgColor
         searchBar.layer.cornerRadius = cornerRadius
+        searchBar.delegate = delegate
         if let borderWidth = borderWidth {
             searchBar.layer.borderWidth = borderWidth
         }
