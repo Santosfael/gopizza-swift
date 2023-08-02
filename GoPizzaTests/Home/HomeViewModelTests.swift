@@ -48,4 +48,37 @@ final class HomeViewModelTests: XCTestCase {
 
         productServiceCollaboration.getAppProductCompletion?(.failure(expectedError))
     }
+
+    func testListProductByNameWhenMatchingProductNameShouldReturnFilteredProducts() {
+        let products = createTestProducts()
+        let productName = "Portuguesa"
+        let filteredProducts = sut.listProductByName(productName, products)
+
+        XCTAssertEqual(filteredProducts.count, 1)
+        XCTAssertEqual(filteredProducts.first?.name, productName)
+    }
+
+    func testListProductByNameWhenNoMatchingProductNameShouldReturnAllProducts() {
+        let products = createTestProducts()
+        let productName = "Frango"
+        let filteredProducts = sut.listProductByName(productName, products)
+
+        XCTAssertEqual(filteredProducts.count, 3)
+    }
+
+    func testListProductByNameWhenEmptyProductNameShouldReturnAllProducts() {
+        let products = createTestProducts()
+        let productName = ""
+        let filteredProducts = sut.listProductByName(productName, products)
+
+        XCTAssertEqual(filteredProducts.count, 3)
+    }
+
+    func createTestProducts() -> [Product] {
+        let price = Price(small: 30, medium: 45, big: 60);
+        let product1 = Product(id: "", photo_url: "", name: "Portuguesa", description: "Calabresa, ovo e pimentão cobertos com mussarela.", price: price)
+        let product2 = Product(id: "", photo_url: "", name: "Margherita", description: "Mussarela, manjericão fresco, parmesão e tomate.", price: price)
+        let product3 = Product(id: "", photo_url: "", name: "4 Queijos", description: "Mussarela, provolone, parmesão e gorgonzola.", price: price)
+            return [product1, product2, product3]
+        }
 }

@@ -19,6 +19,7 @@ class HomeViewController: UIViewController {
         self.container = container
         self.coordinator = coordinator
         self.viewModel = viewModel
+        self.container.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     

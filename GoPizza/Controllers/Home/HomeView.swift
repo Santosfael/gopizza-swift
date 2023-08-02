@@ -11,6 +11,7 @@ final class HomeView: UIView {
     private let headerViewHeight: CGFloat = 149
 
     weak var delegate: HomeViewDelegate?
+    weak var viewModel: HomeViewModelProtocol?
 
     private var headerView: UIView = {
         let view = UIView()
@@ -23,13 +24,14 @@ final class HomeView: UIView {
                                                     textColor: .white,
                                                     accessibilityIdentifier: "HomeView.titleWelcomeLabel")
 
-    private var searchBar: UISearchBar = .searchBar(placeholder: "Pesquisar pizza",
+    lazy private var searchBar: UISearchBar = .searchBar(placeholder: "Pesquisar pizza",
                                                     autocapitalizationType: .none,
                                                     searchTextFieldBackgroundColor: .white,
                                                     borderColor: UIColor(named: "TernaryBackground"),
                                                     cornerRadius: 16,
                                                     clipsToBounds: true,
                                                     borderWidth: 1,
+                                                    delegate: self,
                                                     accessibilityIdentifier: "HomeView.searchBar")
 
     private var searchButton: UIButton = .button(type: .system,
@@ -93,6 +95,14 @@ final class HomeView: UIView {
         }
     }
 
+    private lazy var tempProducts = [Product]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.productTableView.reloadData()
+            }
+        }
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         configView()
@@ -113,6 +123,7 @@ final class HomeView: UIView {
         redirectOrdersButton.layer.shadowOpacity = 1
         redirectOrdersButton.layer.shadowRadius = 0
         redirectOrdersButton.addTarget(self, action: #selector(handleRedirectOrdes), for: .touchDown)
+        searchButton.addTarget(self, action: #selector(handleSearchProduct), for: .touchDown)
     }
 
     private func isVisibilityComponents() {
@@ -130,12 +141,20 @@ final class HomeView: UIView {
         delegate?.didTapRedirectToOrders()
     }
 
+    @objc private func handleSearchProduct() {
+        guard let productName = searchBar.text else { return }
+        if let products = viewModel?.listProductByName(productName, products) {
+            self.products = products
+        }
+    }
+
     func getProducts() {
         delegate?.listTableProducts(completion: { result in
             switch result {
             case .success(let products):
                 DispatchQueue.main.async {
                     self.products = products
+                    self.tempProducts = products
                 }
             case .failure(let failure):
                 print(failure.localizedDescription)
@@ -224,6 +243,7 @@ final class HomeView: UIView {
     }
 }
 
+/*Extensions*/
 extension HomeView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         amountProductLabel.text = "\(products.count) Pizza(s)"
@@ -244,5 +264,13 @@ extension HomeView: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 128
+    }
+}
+
+extension HomeView: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            products = tempProducts
+        }
     }
 }

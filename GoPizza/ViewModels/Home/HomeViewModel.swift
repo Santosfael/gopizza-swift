@@ -23,4 +23,16 @@ final class HomeViewModel: HomeViewModelProtocol {
     func setProduct(product: Product) {
         productRepository.setProduct(product: product)
     }
+
+    func listProductByName(_ productName: String, _ products: [Product]) -> [Product] {
+        let productsFilter = products.filter { product in
+            product.name.range(of: productName, options: .caseInsensitive) != nil
+        }
+
+        if productsFilter.count == 0 {
+            return products
+        }
+
+        return productsFilter
+    }
 }
