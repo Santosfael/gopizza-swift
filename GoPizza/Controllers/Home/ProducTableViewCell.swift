@@ -19,6 +19,7 @@ final class ProductTableViewCell: UITableViewCell {
     private lazy var productNameLabel: UILabel = .label(text: "Margherita",
                                                         font: UIFont.systemFont(ofSize: 20, weight: .regular),
                                                         textColor: UIColor(named: "TitleColor"),
+                                                        numberOflines: 2,
                                                         textAlignment: .left,
                                                         accessibilityIdentifier: "ProductTableViewCell.productNameLabel")
 
@@ -61,8 +62,9 @@ final class ProductTableViewCell: UITableViewCell {
         ])
 
         NSLayoutConstraint.activate([
-            productNameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 38),
-            productNameLabel.leadingAnchor.constraint(equalTo: productImage.trailingAnchor, constant: 20)
+            productNameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
+            productNameLabel.leadingAnchor.constraint(equalTo: productImage.trailingAnchor, constant: 20),
+            productNameLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -24)
         ])
 
         NSLayoutConstraint.activate([
