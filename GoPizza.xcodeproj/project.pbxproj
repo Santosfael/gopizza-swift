@@ -56,6 +56,8 @@
 		4EF61B3C29777472001CB20A /* LoginViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF61B3B29777472001CB20A /* LoginViewTests.swift */; };
 		4EF61B3F29777789001CB20A /* LoginViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF61B3E29777789001CB20A /* LoginViewUITests.swift */; };
 		850D0DCD2A1EE829006F47A4 /* OrderProductViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850D0DCC2A1EE829006F47A4 /* OrderProductViewDelegate.swift */; };
+		85111A5B2A7C747B00E5542C /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 85111A5A2A7C747B00E5542C /* FirebaseAuth */; };
+		85111A5D2A7C747B00E5542C /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 85111A5C2A7C747B00E5542C /* FirebaseFirestore */; };
 		852BCA322A101E8E0011EF86 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 852BCA312A101E8E0011EF86 /* Kingfisher */; };
 		853288B529D6603500E744AF /* String+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853288B429D6603500E744AF /* String+extensions.swift */; };
 		8537351129EE1D5D009CA8A1 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8537351029EE1D5D009CA8A1 /* Product.swift */; };
@@ -170,6 +172,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				852BCA322A101E8E0011EF86 /* Kingfisher in Frameworks */,
+				85111A5B2A7C747B00E5542C /* FirebaseAuth in Frameworks */,
+				85111A5D2A7C747B00E5542C /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -651,6 +655,8 @@
 			name = GoPizza;
 			packageProductDependencies = (
 				852BCA312A101E8E0011EF86 /* Kingfisher */,
+				85111A5A2A7C747B00E5542C /* FirebaseAuth */,
+				85111A5C2A7C747B00E5542C /* FirebaseFirestore */,
 			);
 			productName = GoPizza;
 			productReference = 4E37FD992968960F00FA6D8D /* GoPizza.app */;
@@ -726,6 +732,7 @@
 			mainGroup = 4E37FD902968960F00FA6D8D;
 			packageReferences = (
 				852BCA302A101E8E0011EF86 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				85111A592A7C747B00E5542C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 4E37FD9A2968960F00FA6D8D /* Products */;
 			projectDirPath = "";
@@ -1166,6 +1173,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		85111A592A7C747B00E5542C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
 		852BCA302A101E8E0011EF86 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -1177,6 +1192,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		85111A5A2A7C747B00E5542C /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 85111A592A7C747B00E5542C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		85111A5C2A7C747B00E5542C /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 85111A592A7C747B00E5542C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
 		852BCA312A101E8E0011EF86 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 852BCA302A101E8E0011EF86 /* XCRemoteSwiftPackageReference "Kingfisher" */;
