@@ -56,6 +56,8 @@
 		4EF61B3C29777472001CB20A /* LoginViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF61B3B29777472001CB20A /* LoginViewTests.swift */; };
 		4EF61B3F29777789001CB20A /* LoginViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF61B3E29777789001CB20A /* LoginViewUITests.swift */; };
 		850D0DCD2A1EE829006F47A4 /* OrderProductViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850D0DCC2A1EE829006F47A4 /* OrderProductViewDelegate.swift */; };
+		850E0CA72A79EC300009FE96 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850E0CA62A79EC300009FE96 /* RequestError.swift */; };
+		85111A582A7C723400E5542C /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85111A572A7C723400E5542C /* HTTPMethod.swift */; };
 		85111A5B2A7C747B00E5542C /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 85111A5A2A7C747B00E5542C /* FirebaseAuth */; };
 		85111A5D2A7C747B00E5542C /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 85111A5C2A7C747B00E5542C /* FirebaseFirestore */; };
 		852BCA322A101E8E0011EF86 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 852BCA312A101E8E0011EF86 /* Kingfisher */; };
@@ -148,6 +150,8 @@
 		4EF61B3B29777472001CB20A /* LoginViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewTests.swift; sourceTree = "<group>"; };
 		4EF61B3E29777789001CB20A /* LoginViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewUITests.swift; sourceTree = "<group>"; };
 		850D0DCC2A1EE829006F47A4 /* OrderProductViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderProductViewDelegate.swift; sourceTree = "<group>"; };
+		850E0CA62A79EC300009FE96 /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
+		85111A572A7C723400E5542C /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		853288B429D6603500E744AF /* String+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extensions.swift"; sourceTree = "<group>"; };
 		8537351029EE1D5D009CA8A1 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		8537351329EE1ED9009CA8A1 /* HomeViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelProtocol.swift; sourceTree = "<group>"; };
@@ -446,6 +450,7 @@
 		4E86810629AE88F000EB87A1 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				850E0CA52A79EC1D0009FE96 /* Enuns */,
 				8537351829EE2066009CA8A1 /* ProductService */,
 				4E86810729AE88FA00EB87A1 /* LoginService */,
 				85EB46EB29F0BB430021C861 /* ResponseError.swift */,
@@ -560,6 +565,15 @@
 				850D0DCC2A1EE829006F47A4 /* OrderProductViewDelegate.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		850E0CA52A79EC1D0009FE96 /* Enuns */ = {
+			isa = PBXGroup;
+			children = (
+				85111A572A7C723400E5542C /* HTTPMethod.swift */,
+				850E0CA62A79EC300009FE96 /* RequestError.swift */,
+			);
+			path = Enuns;
 			sourceTree = "<group>";
 		};
 		8537351229EE1EC2009CA8A1 /* Home */ = {
@@ -804,6 +818,7 @@
 				4E86811329AE8D2D00EB87A1 /* LoginViewModel.swift in Sources */,
 				850D0DCD2A1EE829006F47A4 /* OrderProductViewDelegate.swift in Sources */,
 				4E49A6672996C6D9007DB695 /* AppCoordinator.swift in Sources */,
+				85111A582A7C723400E5542C /* HTTPMethod.swift in Sources */,
 				4ECA9969296CF1950071DA15 /* ViewMakers+Extensions.swift in Sources */,
 				857DD6D12A119221001FB8AA /* OrderProductViewModelProtocol.swift in Sources */,
 				8537351729EE1F72009CA8A1 /* HomeViewModel.swift in Sources */,
@@ -811,6 +826,7 @@
 				4E49A66A2996C824007DB695 /* LoginCoordinator.swift in Sources */,
 				4E86811529AE8D5300EB87A1 /* LoginViewModelProtocol.swift in Sources */,
 				4E84806E298354B1007F9B3C /* OrderProductView.swift in Sources */,
+				850E0CA72A79EC300009FE96 /* RequestError.swift in Sources */,
 				8537351129EE1D5D009CA8A1 /* Product.swift in Sources */,
 				8537351C29EE20F4009CA8A1 /* ProductService.swift in Sources */,
 				857DD6CF2A1191FF001FB8AA /* OrderProductViewModel.swift in Sources */,
