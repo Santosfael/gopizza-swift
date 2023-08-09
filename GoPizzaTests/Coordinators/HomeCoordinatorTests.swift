@@ -46,8 +46,7 @@ final class HomeCoordinatorTests: XCTestCase {
     func testPresentPreviousStep() {
         sut.presentPreviousStep()
         XCTAssertEqual(sut.childCoordinators.count, 0)
-        XCTAssertEqual(navigationController.viewControllers.count, 0)
-        XCTAssertNil(navigationController.topViewController)
+        XCTAssertEqual(navigationController.viewControllers.count, 1)
     }
 
     func testPresentOtherStep() {

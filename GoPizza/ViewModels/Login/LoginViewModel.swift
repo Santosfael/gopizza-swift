@@ -14,7 +14,7 @@ final class LoginViewModel: LoginViewModelProtocol {
         self.loginService = loginService
     }
     
-    func login(user: User, completion: @escaping (Result<Bool, Error>) -> Void) {
+    func login(user: User, completion: @escaping (Result<User, RequestError>) -> Void) {
         loginService.login(user: user, completion: completion)
     }
 }

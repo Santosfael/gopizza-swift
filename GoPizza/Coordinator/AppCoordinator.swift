@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
 
 final class AppCoordinator: CoordinatorProtocol {
     private(set) var childCoordinators: [CoordinatorProtocol] = []
@@ -20,8 +21,14 @@ final class AppCoordinator: CoordinatorProtocol {
     }
     func start() {
         let loginCoordinator = LoginCoordinator(navigationController)
-        childCoordinators.append(loginCoordinator)
-        loginCoordinator.start()
+        let homeCoordinator = HomeCoordinator(navigationController, parentCoordinator: loginCoordinator)
+        if FirebaseAuth.Auth.auth().currentUser != nil {
+            childCoordinators.append(homeCoordinator)
+            homeCoordinator.start()
+        } else {
+            childCoordinators.append(loginCoordinator)
+            loginCoordinator.start()
+        }
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
     }

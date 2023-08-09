@@ -9,5 +9,5 @@ import Foundation
 
 protocol LoginViewModelProtocol: AnyObject {
     var loginService: LoginServiceProtocol { get set }
-    func login(user: User, completion: @escaping (Result<Bool, Error>) -> Void)
+    func login(user: User, completion: @escaping (Result<User, RequestError>) -> Void)
 }
