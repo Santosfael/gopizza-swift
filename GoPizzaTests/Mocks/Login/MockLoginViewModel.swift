@@ -16,10 +16,10 @@ class MockLoginViewModel: LoginViewModelProtocol {
         self.loginService = loginService
     }
     
-    func login(user: User, completion: @escaping (Result<Bool, Error>) -> Void) {
+    func login(user: User, completion: @escaping (Result<GoPizza.User, GoPizza.RequestError>) -> Void) {
         didCallLogin = true
-        let error = NSError(domain: "MockLoginViewModel", code: 404, userInfo: [NSLocalizedDescriptionKey: "E-mail ou senha invalido"])
-        completion(.success(true))
+        let error = RequestError.error("E-mail ou senha inválido")
+        completion(.success(user))
         completion(.failure(error))
     }
 }

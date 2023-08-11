@@ -7,6 +7,9 @@
 
 import Foundation
 
+typealias completion = (Result<User, RequestError>) -> Void
+
 protocol LoginServiceProtocol: AnyObject {
-    func login(user: User, completion: @escaping (Result<Bool, Error>) -> Void)
+    func login(user: User, completion: @escaping completion)
+    func logout()
 }

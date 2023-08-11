@@ -6,17 +6,25 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 final class LoginService: LoginServiceProtocol {
-    func login(user: User, completion: @escaping (Result<Bool, Error>) -> Void) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            let isSuccess = user.email == "user@email.com" && user.password == "password"
-            if isSuccess {
-                completion(.success(true))
+    func login(user: User, completion: @escaping completion) {
+        Auth.auth().signIn(withEmail: user.email, password: user.password) { result, error in
+            if let error = error, let _ = AuthErrorCode.Code(rawValue: error._code) {
+                completion(.failure(RequestError.error("Erro ao fazer login, e-mail ou senha incorreto")))
             } else {
-                let error = NSError(domain: "LoginService", code: 404, userInfo: [NSLocalizedDescriptionKey: "E-mail ou senha invalido"])
-                completion(.failure(error))
+                completion(.success(User(email: user.email, password: "")))
             }
+        }
+    }
+
+    func logout() {
+        do {
+            try Auth.auth().signOut()
+        } catch let signOutError as NSError {
+            //completion(.failure(.error("Erro ao deslogar")))
+            print(signOutError)
         }
     }
 }
